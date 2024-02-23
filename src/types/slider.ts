@@ -1,0 +1,1 @@
+export type SliderHoverNav = "prev" | "next" | "none";

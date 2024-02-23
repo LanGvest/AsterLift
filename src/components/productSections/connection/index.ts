@@ -1,0 +1,1 @@
+export {ProductConnectionSection as default} from "./productConnection.section";

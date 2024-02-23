@@ -1,0 +1,1 @@
+export {ProductFeaturesSection as default} from "./productFeatures.section";

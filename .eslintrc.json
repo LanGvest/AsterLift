@@ -1,0 +1,253 @@
+{
+	"extends": "next/core-web-vitals",
+	"root": true,
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"ignorePatterns": [
+		".eslintrc.js",
+		"next-env.d.ts"
+	],
+	"rules": {
+		"no-console": "warn",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"ignoredNodes": [
+					"FunctionExpression > .params[decorators.length > 0]",
+					"FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
+					"ClassBody.body > PropertyDefinition[decorators.length > 0] > .key"
+				]
+			}
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"quote-props": [
+			"error",
+			"consistent"
+		],
+		"semi": [
+			"error",
+			"always",
+			{
+				"omitLastInOneLineBlock": true
+			}
+		],
+		"no-extra-semi": "error",
+		"semi-spacing": [
+			"error",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"semi-style": [
+			"error",
+			"last"
+		],
+		"arrow-spacing": "error",
+		"arrow-body-style": [
+			"warn",
+			"as-needed"
+		],
+		"generator-star-spacing": [
+			"error",
+			{
+				"before": true,
+				"after": false
+			}
+		],
+		"no-unexpected-multiline": "error",
+		"no-empty": [
+			"warn",
+			{
+				"allowEmptyCatch": true
+			}
+		],
+		"no-constant-condition": "warn",
+		"no-loss-of-precision": "warn",
+		"no-regex-spaces": "warn",
+		"no-template-curly-in-string": "warn",
+		"array-bracket-newline": [
+			"error",
+			"consistent"
+		],
+		"array-bracket-spacing": [
+			"error",
+			"never"
+		],
+		"array-element-newline": [
+			"error",
+			"consistent"
+		],
+		"block-spacing": [
+			"error",
+			"never"
+		],
+		"brace-style": "error",
+		"camelcase": "error",
+		"comma-dangle": [
+			"error",
+			"never"
+		],
+		"comma-spacing": [
+			"error",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"comma-style": [
+			"error",
+			"last"
+		],
+		"computed-property-spacing": [
+			"error",
+			"never"
+		],
+		"eol-last": [
+			"error",
+			"never"
+		],
+		"func-call-spacing": [
+			"error",
+			"never"
+		],
+		"func-names": [
+			"warn",
+			"never"
+		],
+		"function-call-argument-newline": [
+			"error",
+			"consistent"
+		],
+		"function-paren-newline": [
+			"error",
+			"multiline-arguments"
+		],
+		"implicit-arrow-linebreak": [
+			"error",
+			"beside"
+		],
+		"jsx-quotes": [
+			"error",
+			"prefer-double"
+		],
+		"key-spacing": "error",
+		"keyword-spacing": [
+			"error",
+			{
+				"overrides": {
+					"if": {
+						"after": false
+					},
+					"for": {
+						"after": false
+					},
+					"while": {
+						"after": false
+					},
+					"switch": {
+						"after": false
+					},
+					"catch": {
+						"after": false
+					}
+				}
+			}
+		],
+		"lines-between-class-members": [
+			"error",
+			"always",
+			{
+				"exceptAfterSingleLine": true
+			}
+		],
+		"max-depth": [
+			"warn",
+			8
+		],
+		"max-nested-callbacks": [
+			"warn",
+			8
+		],
+		"max-params": [
+			"warn",
+			20
+		],
+		"no-array-constructor": "error",
+		"no-bitwise": [
+			"error",
+			{
+				"allow": [
+					"~"
+				]
+			}
+		],
+		"no-lonely-if": "error",
+		"no-mixed-spaces-and-tabs": "error",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1,
+				"maxEOF": 0
+			}
+		],
+		"no-new-object": "warn",
+		"no-unneeded-ternary": "warn",
+		"no-whitespace-before-property": "error",
+		"nonblock-statement-body-position": [
+			"error",
+			"beside"
+		],
+		"object-curly-newline": [
+			"error",
+			{
+				"consistent": true
+			}
+		],
+		"object-curly-spacing": [
+			"error",
+			"never"
+		],
+		"operator-assignment": [
+			"warn",
+			"always"
+		],
+		"operator-linebreak": [
+			"error",
+			"before"
+		],
+		"padded-blocks": [
+			"error",
+			"never"
+		],
+		"prefer-exponentiation-operator": "warn",
+		"prefer-object-spread": "warn",
+		"space-before-blocks": "error",
+		"space-in-parens": [
+			"error",
+			"never"
+		],
+		"space-unary-ops": [
+			"error",
+			{
+				"words": true,
+				"nonwords": false
+			}
+		],
+		"switch-colon-spacing": [
+			"error",
+			{
+				"after": true,
+				"before": false
+			}
+		],
+		"template-tag-spacing": "error"
+	}
+}

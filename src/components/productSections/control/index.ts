@@ -1,0 +1,1 @@
+export {ProductControlSection as default} from "./productControl.section";

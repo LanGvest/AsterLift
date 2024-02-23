@@ -1,0 +1,1 @@
+export {ProductAlternativesSection as default} from "./productAlternatives.section";

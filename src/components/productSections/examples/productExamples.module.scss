@@ -1,0 +1,22 @@
+.container {
+	height: 340px;
+
+	:global(.swiper) {
+		height: 100%;
+		border-radius: var(--border-radius);
+
+		:global(.swiper-slide) {
+			width: auto;
+			border-radius: var(--border-radius);
+			cursor: pointer;
+
+			img {
+				pointer-events: none;
+				user-select: none;
+				height: 100%;
+				width: auto;
+				border-radius: var(--border-radius);
+			}
+		}
+	}
+}

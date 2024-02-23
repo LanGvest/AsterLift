@@ -1,0 +1,164 @@
+.footer {
+	box-shadow: 0 0 0 var(--border-width) var(--border-color);
+	background-color: white;
+}
+
+.container {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--indent-container);
+}
+
+.info {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: var(--indent-container);
+}
+
+.infoItem {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	.name {
+		font-weight: 600;
+	}
+	a, p {
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.label {
+		margin-bottom: 5px;
+		font-size: var(--font-size-hint);
+		color: var(--color-text-hint);
+	}
+}
+
+.copyrightContainer {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	gap: 4px;
+}
+
+.logo {
+	padding: 4px;
+	user-select: none;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	width: fit-content;
+	svg {
+		fill: var(--color-primary);
+		aspect-ratio: 1 / 1;
+		height: 28px;
+	}
+	p {
+		color: var(--color-primary);
+		white-space: nowrap;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.copyright {
+	color: var(--color-text-hint);
+	font-size: var(--font-size-hint);
+}
+
+.social {
+	margin-top: 3px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+//.review {
+//	margin-top: 12px;
+//	border: none;
+//}
+
+.socialLink {
+	aspect-ratio: 1 / 1;
+	height: 40px;
+	border-radius: calc(var(--border-radius) * 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 120ms;
+	margin-bottom: 0 !important;
+
+	svg {
+		height: 100%;
+		width: 100%;
+		overflow: visible;
+		fill: white;
+		stroke: white;
+	}
+
+	&:hover, &:active {
+		opacity: 0.8;
+	}
+
+	&.telegram {
+		background-color: #22a0dc;
+		//background-color: #d4f0fd;
+		padding: 9.5px 10px 8px 8.5px;
+
+		svg {
+			stroke: none;
+			//fill: #22a0dc;
+		}
+	}
+
+	&.viber {
+		background-color: #7360f2;
+		//background-color: #e5e2ff;
+		padding: 8.5px 8.7px 8.5px 8.3px;
+
+		svg {
+			//fill: #7360f2;
+			//stroke: #7360f2;
+			stroke-width: 0.2px;
+		}
+	}
+
+	&.whatsapp {
+		background-color: #27d26b;
+		//background-color: #d3fde4;
+		padding: 8.2px 8.2px 8.8px 8.8px;
+
+		svg {
+			//fill: #27d26b;
+			//stroke: #27d26b;
+			stroke-width: 0.2px;
+		}
+	}
+}
+
+@media (width < 900px) {
+	.container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		align-items: center;
+	}
+	.info {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
+	}
+	.copyrightContainer {
+		margin-top: 12px;
+		align-items: center;
+	}
+	.copyright {
+		text-align: center;
+	}
+}

@@ -1,0 +1,14 @@
+.content {
+	& > h3 {
+		margin-top: 20px;
+	}
+
+	& > p {
+		margin-top: 10px;
+		line-height: var(--line-height-paragraph);
+	}
+
+	& > div {
+		margin-top: 15px;
+	}
+}

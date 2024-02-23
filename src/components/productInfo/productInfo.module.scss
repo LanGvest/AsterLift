@@ -1,0 +1,48 @@
+.container {
+	flex: 7;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+}
+
+.name {
+	font-size: 40px;
+}
+
+.tags span {
+	font-size: 43%;
+	padding: 5px 10px;
+}
+
+.shortDescription {
+	color: var(--color-text-hint);
+	line-height: var(--line-height-paragraph);
+}
+
+.minPrice {
+	font-size: 18px;
+	color: #0bb02c;
+	font-weight: 700;
+
+	span {
+		font-size: 28px;
+		font-weight: 600;
+		color: inherit;
+	}
+}
+
+@media (width < 900px) {
+	.container {
+		flex: 0;
+	}
+
+	.name {
+		font-size: 30px;
+	}
+
+	.tags span {
+		//font-size: 0.52em;
+		//padding: 4px 8px;
+	}
+}

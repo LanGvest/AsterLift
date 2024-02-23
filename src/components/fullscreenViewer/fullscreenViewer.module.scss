@@ -1,0 +1,133 @@
+.container {
+	background: #1a1a1c;
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	min-width: 0;
+	padding: 25px;
+
+	.slider {
+		--slider-active-thumb-color-secondary: #1a1a1c;
+		--slider-active-thumb-width-primary: 3.2px;
+		--slider-active-thumb-width-secondary: 6.8px;
+
+		flex: 1;
+		gap: 16px;
+
+		:global(.swiper) {
+			border-radius: var(--border-radius);
+
+			--slider-indent-overlay: 16px;
+			--slider-font-size-overlay: 15px;
+			--slider-translate-prev: 8px;
+			--slider-translate-next: -8px;
+			--slider-nav-button-width: 28px;
+			--slider-nav-button-padding: 6px;
+			--slider-nav-button-background-color: #4a4a4f;
+			--slider-nav-button-icon-stroke-width: 2.2px;
+			--slider-location-icon-width: 14px;
+		}
+
+		:global(.swiper[data-type=main]) :global(.swiper-slide) img {
+			background-color: transparent !important;
+		}
+
+		:global(.swiper[data-type=thumbs]) {
+			height: 14.5%;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	.title {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+
+		* {
+			color: white;
+		}
+
+		p {
+			font-size: 22px;
+			font-weight: 600;
+		}
+
+		span {
+			font-size: 15px;
+		}
+
+		::selection {
+			background-color: white;
+			color: var(--color-text);
+		}
+	}
+
+	.buttons {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+	}
+
+	.icon {
+		flex-shrink: 0;
+		cursor: pointer;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 38px;
+		aspect-ratio: 1 / 1;
+		transition: background-color 120ms;
+
+		svg {
+			stroke: white;
+			fill: white;
+			overflow: visible;
+		}
+
+		&.cansel svg {
+			padding: 5.4px;
+			stroke-width: 0.65px;
+		}
+
+		&.fullscreen svg {
+			padding: 9px;
+			stroke-width: 1.8px;
+		}
+
+		&:hover {
+			background-color: rgba(176, 177, 185, 0.1);
+		}
+
+		&:active {
+			background-color: rgba(176, 177, 185, 0.18);
+		}
+	}
+}
+
+@media (width < 900px) {
+	.header {
+		.title {
+			p {
+				font-size: 17px;
+			}
+		}
+	}
+
+	.container {
+		.slider {
+			:global(.swiper[data-type=thumbs]) {
+				min-height: 65px;
+				max-height: 75px;
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+export {FullscreenViewer as default} from "./fullscreenViewer";

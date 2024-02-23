@@ -1,0 +1,1 @@
+export {ProductFilesSection as default} from "./productFiles.section";

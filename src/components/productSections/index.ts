@@ -1,0 +1,1 @@
+export {ProductSections as default} from "./productSections";

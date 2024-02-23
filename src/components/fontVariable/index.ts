@@ -1,0 +1,1 @@
+export {FontVariable as default} from "./fontVariable";

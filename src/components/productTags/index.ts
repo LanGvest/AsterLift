@@ -1,0 +1,1 @@
+export {ProductTags as default} from "./productTags";

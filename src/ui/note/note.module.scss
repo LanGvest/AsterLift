@@ -1,0 +1,37 @@
+.container {
+	width: 100%;
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+	border-radius: var(--border-radius);
+	padding: 18px;
+	box-shadow: 0 0 0 var(--border-width) var(--border-color);
+	background-color: var(--background-container-1);
+
+	p {
+		line-height: var(--line-height-paragraph);
+	}
+
+	& > svg {
+		margin-top: 2px;
+		aspect-ratio: 1 / 1;
+		width: 30px;
+		stroke: var(--color-text);
+		fill: var(--color-text);
+		stroke-width: 0.8px;
+		overflow: visible;
+	}
+}
+
+.phone {
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.label {
+	margin-bottom: 10px;
+	font-size: var(--font-size-hint);
+	color: var(--color-primary);
+	font-weight: 700;
+}
