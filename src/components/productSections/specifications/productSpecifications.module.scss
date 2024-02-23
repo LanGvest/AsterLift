@@ -44,6 +44,7 @@
 }
 
 .name {
+	//flex: 1;
 	//padding: 2px 0;
 	flex-shrink: 0;
 	font-size: var(--font-size-hint);
@@ -51,6 +52,7 @@
 }
 
 .value {
+	//flex: 1;
 	text-align: right;
 	font-size: var(--font-size-hint);
 	color: var(--color-text-hint);

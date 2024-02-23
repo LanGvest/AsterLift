@@ -4,10 +4,10 @@
 	top: var(--indent-page);
 	height: fit-content;
 	position: sticky;
-	//padding: 12px 0;
-	//box-shadow:
-	//	0 4px 6px rgba(0, 0, 0, 0.06),
-	//	inset 0 0 0 var(--border-width) var(--border-color);
+	padding: 12px 0;
+	box-shadow:
+		//0 4px 6px rgba(0, 0, 0, 0.06),
+		inset 0 0 0 var(--border-width) var(--border-color);
 
 	h6 {
 		margin-bottom: 5px;

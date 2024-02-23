@@ -33,11 +33,11 @@ export const PP_110_M: Product = {
 		Media.PP_110_M_IMG_3.image,
 		Media.PP_110_M_IMG_4.image,
 		Media.PP_110_M_IMG_5.image,
-		Media.PP_110_M_IMG_6.image,
-		Media.PP_110_M_IMG_7.image,
-		Media.PP_110_M_IMG_8.image,
-		Media.PP_110_M_IMG_9.image,
-		Media.PP_110_M_IMG_10.image
+		Media.PP_110_M_IMG_6.image
+		// Media.PP_110_M_IMG_7.image,
+		// Media.PP_110_M_IMG_8.image,
+		// Media.PP_110_M_IMG_9.image,
+		// Media.PP_110_M_IMG_10.image
 	],
 	control: [
 		{
@@ -109,7 +109,7 @@ export const PP_110_M: Product = {
 		},
 		{
 			id: getNextId(),
-			name: "Компенсация веса платформы",
+			name: "Демпфирование платформы (компенсация веса)",
 			value: [
 				false,
 				{

@@ -50,6 +50,7 @@ const ProductSections: Array<ProductSection> = [
 		},
 		shouldInclude(product) {
 			return product.files.length > 0;
+			// return true;
 		}
 	},
 	{
