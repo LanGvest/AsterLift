@@ -10,7 +10,8 @@ export default class Document extends NextDocument {
 					<meta name="google" content="notranslate"/>
 					<meta name="copyright" content={Config.PROJECT_NAME}/>
 					<meta name="developer" content="LanGvest"/>
-					<meta name="theme-color" content="#ffffff"/>
+					{/*<meta name="mobile-web-app-capable" content="yes"/>*/}
+					{/*<meta name="apple-mobile-web-app-capable" content="yes"/>*/}
 					<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 					<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 					<link rel="mask-icon" href="/icons/mask-icon.svg" color={Config.PROJECT_COLOR}/>

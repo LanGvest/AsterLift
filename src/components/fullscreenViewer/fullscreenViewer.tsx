@@ -1,7 +1,7 @@
 import s from "./fullscreenViewer.module.scss";
 import type {FullscreenData} from "@/store/app.slice";
 import {useAppActions} from "@/hooks/useAppActions";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import type {ReactNode} from "react";
 import {combineClasses, getDefaultSliderProgress} from "@/utils/helpers";
 import type {Nullable} from "@/utils/helpers";
@@ -13,6 +13,10 @@ import CrossIcon from "@/assets/icons/cross.icon";
 import {useAppSelector} from "@/hooks/useAppSelector";
 import SliderWithThumbs from "@/ui/slider/sliderWithThumbs";
 import Image from "next/image";
+import Head from "next/head";
+
+const IMAGE_SIZE: number = 800;
+const THUMB_IMAGE_SIZE: number = 100;
 
 interface FullscreenViewProps {
 	data: FullscreenData
@@ -39,8 +43,11 @@ function FullscreenView({data}: FullscreenViewProps) {
 	// noinspection CssUnusedSymbol
 	return (
 		<>
+			<Head>
+				<meta name="theme-color" content="#1a1a1c"/>
+			</Head>
 			<style jsx global type="text/css">{`
-			  html, body, #__next {
+                html, body, #__next {
 			    overflow: hidden !important;
                 background: #1a1a1c !important;
 			  }
@@ -117,6 +124,9 @@ function FullscreenView({data}: FullscreenViewProps) {
 					renderMainSlide={item => (
 						<Image
 							src={item.image}
+							width={IMAGE_SIZE}
+							height={IMAGE_SIZE * (12 / 10)}
+							priority
 							alt={item.image.src}
 						/>
 					)}
@@ -124,6 +134,8 @@ function FullscreenView({data}: FullscreenViewProps) {
 						<Image
 							src={item.image}
 							alt={item.image.src}
+							width={THUMB_IMAGE_SIZE}
+							height={THUMB_IMAGE_SIZE}
 							placeholder="blur"
 						/>
 					)}

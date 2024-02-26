@@ -14,7 +14,11 @@ function Component({product}: Props) {
 		<div className={s.container}>
 			<h1 className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></h1>
 			<p className={s.shortDescription}>{product.shortDescription}</p>
-			<p className={s.minPrice}>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>
+			<div className={s.minPrice}>
+				<p>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>
+				<p>Цена указана без учёта монтажных работ и доставки</p>
+			</div>
+			{/*<p className={s.minPrice}></p>*/}
 			<Note
 				icon={<PhoneIcon/>}
 				withPhone={true}

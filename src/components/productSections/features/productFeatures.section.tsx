@@ -6,6 +6,8 @@ import LogoIcon from "@/assets/icons/logo.icon";
 import type {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import type {FullscreenProduct} from "@/store/app.slice";
 
+const IMAGE_SIZE: number = 220;
+
 interface Props extends ProductSectionProps {
 	features: Array<ProductFeature>
 	openFullscreenFeatures: ActionCreatorWithPayload<FullscreenProduct>
@@ -29,6 +31,8 @@ function Section({product, features, openFullscreenFeatures}: Props) {
 							className={s.image}
 							src={feature.image}
 							alt={feature.name}
+							width={IMAGE_SIZE}
+							height={IMAGE_SIZE * (12 / 10)}
 							placeholder={"blur"}
 						/>
 					</div>

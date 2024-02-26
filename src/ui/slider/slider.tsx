@@ -187,9 +187,9 @@ function Component<T>(props: Props<T>) {
 			{showOverlay && (
 				<div className={s.overlay}>
 					<div className={s.meta}>
-						{meta?.location && <span className={s.location}><LocationIcon/> {meta.location}</span>}
+						{meta?.location && <span data-role="loc"><LocationIcon/> {meta.location}</span>}
 						{Boolean(meta?.name || meta?.description) && (
-							<div className={s.description}>
+							<div data-role="desc">
 								{meta?.name && <h6>{meta.name}</h6>}
 								{meta?.description && <p>{meta.description}</p>}
 							</div>
@@ -217,8 +217,8 @@ function Component<T>(props: Props<T>) {
 						{showSliderOverlay && (
 							<div className={s.overlay}>
 								<div className={s.meta}>
-									{slideMeta?.location && <span className={s.location}><LocationIcon/> {slideMeta.location}</span>}
-									{slideMeta?.description && <span className={s.description}>{slideMeta.description}</span>}
+									{slideMeta?.location && <span data-role="loc"><LocationIcon/> {slideMeta.location}</span>}
+									{slideMeta?.description && <span data-role="desc">{slideMeta.description}</span>}
 								</div>
 							</div>
 						)}

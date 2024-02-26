@@ -12,30 +12,30 @@ interface Props {
 	setActiveSectionId: SetState<Nullable<string>>
 }
 
-function Component({activeSectionId, setActiveSectionId, product, sections}: Props) {
+function Component({activeSectionId, product, sections}: Props) {
 	return (
 		<nav className={s.navigation}>
-			<h6>Содержание</h6>
-			{sections.map(section => {
+			<h6>Быстрая навигация</h6>
+			{sections.map((section, index) => {
 				const isActive: boolean = section.id === activeSectionId;
-				let key: string = section.id;
-				if(isActive) key += "-active";
+				// let key: string = section.id;
+				// if(isActive) key += "-active";
 
-				const amount: number = section.getDisplayAmount?.(product, Products) || 0;
+				// const amount: number = section.getDisplayAmount?.(product, Products) || 0;
 
 				return (
 					<div
-						key={key}
+						key={section.id}
+						// key={key}
 						className={s.anchor}
 						data-active={isActive ? "" : undefined}
 						onClick={() => {
 							const $section = document.getElementById(section.id);
 							if($section) $section.scrollIntoView();
-							setActiveSectionId(() => section.id);
 						}}
 					>
-						<p>{section.name}</p>
-						{amount > 0 && <span>{amount}</span>}
+						<p>{index + 1}. {section.name}</p>
+						{/*{amount > 0 && <span>{amount}</span>}*/}
 					</div>
 				);
 			})}

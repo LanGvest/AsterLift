@@ -20,7 +20,9 @@ export default function ProductMeta({product}: Props) {
 	// noinspection HtmlRequiredTitleElement
 	return (
 		<Head>
-			<script type="application/ld+json">{microdataToString(microdata)}</script>
+			<script type="application/ld+json" dangerouslySetInnerHTML={{
+				__html: microdataToString(microdata)
+			}}/>
 		</Head>
 	);
 }

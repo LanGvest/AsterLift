@@ -50,289 +50,289 @@ import img25c from "./images/25c.webp";
 import img26a from "./images/26a.webp";
 import img26b from "./images/26b.webp";
 
-export const PP_101_02_IMG_1: ImageMedia = {
+export const PP_101_A_IMG_1: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img1,
 	location: "Брест"
 };
 
-export const PP_101_02_IMG_2: ImageMedia = {
+export const PP_101_A_IMG_2: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img2,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_3: ImageMedia = {
+export const PP_101_A_IMG_3: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img3,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_4: ImageMedia = {
+export const PP_101_A_IMG_4: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img4,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_5: ImageMedia = {
+export const PP_101_A_IMG_5: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img5,
 	location: "Жлобин"
 };
 
-export const PP_101_02_IMG_6: ImageMedia = {
+export const PP_101_A_IMG_6: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img6,
 	location: "Минск"
 };
 
-export const PP_101_02_IMG_7: ImageMedia = {
+export const PP_101_A_IMG_7: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img7,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_8: ImageMedia = {
+export const PP_101_A_IMG_8: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img8,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_9: ImageMedia = {
+export const PP_101_A_IMG_9: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img9,
 	location: "Солигорск"
 };
 
-export const PP_101_02_IMG_10A: ImageMedia = {
+export const PP_101_A_IMG_10A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img10a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_10B: ImageMedia = {
+export const PP_101_A_IMG_10B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img10b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_11A: ImageMedia = {
+export const PP_101_A_IMG_11A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img11a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_11B: ImageMedia = {
+export const PP_101_A_IMG_11B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img11b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_12A: ImageMedia = {
+export const PP_101_A_IMG_12A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img12a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_12B: ImageMedia = {
+export const PP_101_A_IMG_12B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img12b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_12C: ImageMedia = {
+export const PP_101_A_IMG_12C: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img12c,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_13A: ImageMedia = {
+export const PP_101_A_IMG_13A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img13a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_13B: ImageMedia = {
+export const PP_101_A_IMG_13B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img13b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_14A: ImageMedia = {
+export const PP_101_A_IMG_14A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img14a,
 	location: "Минск"
 };
 
-export const PP_101_02_IMG_14B: ImageMedia = {
+export const PP_101_A_IMG_14B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img14b,
 	location: "Минск"
 };
 
-export const PP_101_02_IMG_15A: ImageMedia = {
+export const PP_101_A_IMG_15A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img15a,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_15B: ImageMedia = {
+export const PP_101_A_IMG_15B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img15b,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_16A: ImageMedia = {
+export const PP_101_A_IMG_16A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img16a,
 	location: "Бобруйск"
 };
 
-export const PP_101_02_IMG_16B: ImageMedia = {
+export const PP_101_A_IMG_16B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img16b,
 	location: "Бобруйск"
 };
 
-export const PP_101_02_IMG_17A: ImageMedia = {
+export const PP_101_A_IMG_17A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img17a,
 	location: "Пинск"
 };
 
-export const PP_101_02_IMG_17B: ImageMedia = {
+export const PP_101_A_IMG_17B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img17b,
 	location: "Пинск"
 };
 
-export const PP_101_02_IMG_18A: ImageMedia = {
+export const PP_101_A_IMG_18A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img18a,
 	location: "Жлобин"
 };
 
-export const PP_101_02_IMG_18B: ImageMedia = {
+export const PP_101_A_IMG_18B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img18b,
 	location: "Жлобин"
 };
 
-export const PP_101_02_IMG_18C: ImageMedia = {
+export const PP_101_A_IMG_18C: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img18c,
 	location: "Жлобин"
 };
 
-export const PP_101_02_IMG_19A: ImageMedia = {
+export const PP_101_A_IMG_19A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img19a,
 	location: "Пинск"
 };
 
-export const PP_101_02_IMG_19B: ImageMedia = {
+export const PP_101_A_IMG_19B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img19b,
 	location: "Пинск"
 };
 
-export const PP_101_02_IMG_20A: ImageMedia = {
+export const PP_101_A_IMG_20A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img20a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_20B: ImageMedia = {
+export const PP_101_A_IMG_20B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img20b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_20C: ImageMedia = {
+export const PP_101_A_IMG_20C: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img20c,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_21A: ImageMedia = {
+export const PP_101_A_IMG_21A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img21a,
 	location: "Полоцк"
 };
 
-export const PP_101_02_IMG_21B: ImageMedia = {
+export const PP_101_A_IMG_21B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img21b,
 	location: "Полоцк"
 };
 
-export const PP_101_02_IMG_22A: ImageMedia = {
+export const PP_101_A_IMG_22A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img22a,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_22B: ImageMedia = {
+export const PP_101_A_IMG_22B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img22b,
 	location: "Гомель"
 };
 
-export const PP_101_02_IMG_23A: ImageMedia = {
+export const PP_101_A_IMG_23A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img23a,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_23B: ImageMedia = {
+export const PP_101_A_IMG_23B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img23b,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_24A: ImageMedia = {
+export const PP_101_A_IMG_24A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img24a,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_24B: ImageMedia = {
+export const PP_101_A_IMG_24B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img24b,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_24C: ImageMedia = {
+export const PP_101_A_IMG_24C: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img24c,
 	location: "Борисов"
 };
 
-export const PP_101_02_IMG_25A: ImageMedia = {
+export const PP_101_A_IMG_25A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img25a,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_25B: ImageMedia = {
+export const PP_101_A_IMG_25B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img25b,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_25C: ImageMedia = {
+export const PP_101_A_IMG_25C: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img25c,
 	location: "Слуцк"
 };
 
-export const PP_101_02_IMG_26A: ImageMedia = {
+export const PP_101_A_IMG_26A: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img26a,
 	location: "Брест"
 };
 
-export const PP_101_02_IMG_26B: ImageMedia = {
+export const PP_101_A_IMG_26B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img26b,
 	location: "Брест"

@@ -18,6 +18,7 @@ import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
 import React from "react";
+import TargetResolver from "@/components/targetResolver";
 
 const inter = Inter({
 	weight: ["400", "600", "700"],
@@ -34,12 +35,15 @@ export default function App({Component, pageProps}: AppProps) {
 			<Head>
 				<title>{Config.PROJECT_NAME}</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
-				<meta name="description" content={Config.PROJECT_NAME + " – производитель подъёмного оборудования в Беларуси."}/>
+				<meta name="description" content={Config.PROJECT_DESCRIPTION}/>
+				<meta name="theme-color" content="#1a1a1c"/>
+				<meta name="color-scheme" content="light only"/>
 			</Head>
 			<RobotsMeta/>
 			<YandexWebmasterMeta/>
 			<OrganizationMeta/>
 			<FontVariable name="inter" font={inter}/>
+			<TargetResolver/>
 			<FullscreenViewer/>
 			<PageHeader/>
 			<div>

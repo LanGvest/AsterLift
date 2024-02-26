@@ -5,67 +5,67 @@ import {TOP_SALES} from "@/assets/data/productTags";
 import About from "./about";
 import * as Media from "./media";
 
-export const PP_101_02: Product = {
-	id: "pp-101-02",
-	model: "ПП-101.02",
+export const PP_101_A: Product = {
+	id: "pp-101-a",
+	model: "ПП-101.А",
 	group: "ПП-101",
 	category: ProductCategory.DISABLED_PEOPLE,
 	type: "Вертикальный подъёмник для инвалидов",
-	catalogName: "Вертикальный ПП-101.02",
+	catalogName: "Вертикальный ПП-101.А",
 	description: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
 	shortDescription: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
-	minPrice: 10800,
+	minPrice: 3900,
 	tags: [
 		TOP_SALES
 	],
 	overview: [
-		Media.PP_101_02_IMG_1,
-		Media.PP_101_02_IMG_2,
-		Media.PP_101_02_IMG_3,
-		Media.PP_101_02_IMG_4,
-		Media.PP_101_02_IMG_5,
-		Media.PP_101_02_IMG_6,
-		Media.PP_101_02_IMG_7,
-		Media.PP_101_02_IMG_8,
-		Media.PP_101_02_IMG_9
+		Media.PP_101_A_IMG_1,
+		Media.PP_101_A_IMG_2,
+		Media.PP_101_A_IMG_3,
+		Media.PP_101_A_IMG_4,
+		Media.PP_101_A_IMG_5,
+		Media.PP_101_A_IMG_6,
+		Media.PP_101_A_IMG_7,
+		Media.PP_101_A_IMG_8,
+		Media.PP_101_A_IMG_9
 	],
 	preview: [
-		Media.PP_101_02_IMG_1.image,
-		Media.PP_101_02_IMG_2.image,
-		Media.PP_101_02_IMG_3.image,
-		Media.PP_101_02_IMG_4.image,
-		// Media.PP_101_02_IMG_5.image,
-		// Media.PP_101_02_IMG_6.image,
-		Media.PP_101_02_IMG_7.image,
-		// Media.PP_101_02_IMG_8.image,
-		Media.PP_101_02_IMG_9.image
+		Media.PP_101_A_IMG_1.image,
+		Media.PP_101_A_IMG_2.image,
+		Media.PP_101_A_IMG_3.image,
+		Media.PP_101_A_IMG_4.image,
+		// Media.PP_101_A_IMG_5.image,
+		// Media.PP_101_A_IMG_6.image,
+		Media.PP_101_A_IMG_7.image,
+		// Media.PP_101_A_IMG_8.image,
+		Media.PP_101_A_IMG_9.image
 	],
 	control: [
 		{
 			id: getNextId(),
-			image: Media.PP_101_02_IMG_8.image,
-			name: "Стационарный пульт управления",
-			description: "Стандартный вид подъёмника, подключённого к кабелю питания, проложенному в стяжке крыльца. Имеет стационарный пульт управления на правой стойке."
+			image: Media.PP_101_A_IMG_8.image,
+			name: "Кнопочный пост",
+			description: "Стандартный вид подъёмника, подключённого к кабелю питания, проложенному в стяжке крыльца. Имеет стационарный кнопочный пост управления на правой стойке."
 		},
 		{
 			id: getNextId(),
-			image: Media.PP_101_02_IMG_25C.image,
-			name: "Проводной пульт управления",
+			image: Media.PP_101_A_IMG_25C.image,
+			name: "Проводной пульт",
 			description: "Для удобства управления подъёмником человек в инвалидной коляске самостоятельно может воспользоваться подключаемым проводным пультом."
 		}
 	],
 	connection: [
 		{
 			id: getNextId(),
-			image: Media.PP_101_02_IMG_18C.image,
-			name: "Подключение через удлинитель",
+			image: Media.PP_101_A_IMG_18C.image,
+			name: "Через удлинитель",
 			description: "При отсутствии питающего кабеля в конструкции крыльца может быть использован вариант подключения подъёмника к питающей сети 220 В через удлинитель."
 		},
 		{
 			id: getNextId(),
-			image: Media.PP_101_02_IMG_24C.image,
-			name: "Комбинированное подключение",
-			description: "Возможен вариант совместного использования проводного пульта управления и подключения подъёмника к питающей сети 220 В через удлинитель."
+			image: Media.PP_101_A_IMG_24C.image,
+			name: "Комбинированное",
+			description: "Возможен вариант совместного использования проводного пульта управления с подключением подъёмника к питающей сети 220 В через удлинитель."
 		}
 	],
 	specifications: [
@@ -103,9 +103,9 @@ export const PP_101_02: Product = {
 			id: getNextId(),
 			name: "Управление",
 			value: [
-				"Стационарный пульт управления",
+				"Кнопочный пост",
 				{
-					text: "Проводной пульт управления",
+					text: "Проводной пульт",
 					another: true
 				}
 			]
@@ -168,45 +168,45 @@ export const PP_101_02: Product = {
 		}
 	],
 	examples: [
-		Media.PP_101_02_IMG_10A,
-		Media.PP_101_02_IMG_10B,
-		Media.PP_101_02_IMG_11A,
-		Media.PP_101_02_IMG_11B,
-		Media.PP_101_02_IMG_12A,
-		Media.PP_101_02_IMG_12B,
-		Media.PP_101_02_IMG_12C,
-		Media.PP_101_02_IMG_13A,
-		Media.PP_101_02_IMG_13B,
-		Media.PP_101_02_IMG_14A,
-		Media.PP_101_02_IMG_14B,
-		Media.PP_101_02_IMG_15A,
-		Media.PP_101_02_IMG_15B,
-		Media.PP_101_02_IMG_16A,
-		Media.PP_101_02_IMG_16B,
-		Media.PP_101_02_IMG_17A,
-		Media.PP_101_02_IMG_17B,
-		Media.PP_101_02_IMG_18A,
-		Media.PP_101_02_IMG_18B,
-		Media.PP_101_02_IMG_18C,
-		Media.PP_101_02_IMG_19A,
-		Media.PP_101_02_IMG_19B,
-		Media.PP_101_02_IMG_20A,
-		Media.PP_101_02_IMG_20B,
-		Media.PP_101_02_IMG_20C,
-		Media.PP_101_02_IMG_21A,
-		Media.PP_101_02_IMG_21B,
-		Media.PP_101_02_IMG_22A,
-		Media.PP_101_02_IMG_22B,
-		Media.PP_101_02_IMG_23A,
-		Media.PP_101_02_IMG_23B,
-		Media.PP_101_02_IMG_24A,
-		Media.PP_101_02_IMG_24B,
-		Media.PP_101_02_IMG_24C,
-		Media.PP_101_02_IMG_25A,
-		Media.PP_101_02_IMG_25B,
-		Media.PP_101_02_IMG_25C,
-		Media.PP_101_02_IMG_26A,
-		Media.PP_101_02_IMG_26B
+		Media.PP_101_A_IMG_10A,
+		Media.PP_101_A_IMG_10B,
+		Media.PP_101_A_IMG_11A,
+		Media.PP_101_A_IMG_11B,
+		Media.PP_101_A_IMG_12A,
+		Media.PP_101_A_IMG_12B,
+		Media.PP_101_A_IMG_12C,
+		Media.PP_101_A_IMG_13A,
+		Media.PP_101_A_IMG_13B,
+		Media.PP_101_A_IMG_14A,
+		Media.PP_101_A_IMG_14B,
+		Media.PP_101_A_IMG_15A,
+		Media.PP_101_A_IMG_15B,
+		Media.PP_101_A_IMG_16A,
+		Media.PP_101_A_IMG_16B,
+		Media.PP_101_A_IMG_17A,
+		Media.PP_101_A_IMG_17B,
+		Media.PP_101_A_IMG_18A,
+		Media.PP_101_A_IMG_18B,
+		Media.PP_101_A_IMG_18C,
+		Media.PP_101_A_IMG_19A,
+		Media.PP_101_A_IMG_19B,
+		Media.PP_101_A_IMG_20A,
+		Media.PP_101_A_IMG_20B,
+		Media.PP_101_A_IMG_20C,
+		Media.PP_101_A_IMG_21A,
+		Media.PP_101_A_IMG_21B,
+		Media.PP_101_A_IMG_22A,
+		Media.PP_101_A_IMG_22B,
+		Media.PP_101_A_IMG_23A,
+		Media.PP_101_A_IMG_23B,
+		Media.PP_101_A_IMG_24A,
+		Media.PP_101_A_IMG_24B,
+		Media.PP_101_A_IMG_24C,
+		Media.PP_101_A_IMG_25A,
+		Media.PP_101_A_IMG_25B,
+		Media.PP_101_A_IMG_25C,
+		Media.PP_101_A_IMG_26A,
+		Media.PP_101_A_IMG_26B
 	],
 	files: [
 		// {

@@ -4,68 +4,65 @@ import {getDefaultProductName, getDefaultProductPageTitle, getNextId} from "@/ut
 import About from "./about";
 import * as Media from "./media";
 import {
-	PP_101_02_IMG_18C,
-	PP_101_02_IMG_24C,
-	PP_101_02_IMG_25C
-} from "@/assets/data/products/pp-101-02/media";
+	PP_101_A_IMG_18C,
+	PP_101_A_IMG_24C,
+	PP_101_A_IMG_25C
+} from "@/assets/data/products/pp-101-a/media";
 
-export const PP_101_03: Product = {
-	id: "pp-101-03",
-	model: "ПП-101.03",
+export const PP_101_B: Product = {
+	id: "pp-101-b",
+	model: "ПП-101.Б",
 	group: "ПП-101",
 	category: ProductCategory.DISABLED_PEOPLE,
 	type: "Вертикальный подъёмник для инвалидов",
-	catalogName: "Вертикальный ПП-101.03",
+	catalogName: "Вертикальный ПП-101.Б",
 	description: "Полное описание. Бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла.",
 	shortDescription: "Электрический, со стационарной платформой и боковыми ограждениями, подъём до 2 м.",
-	minPrice: 8300,
+	minPrice: 5900,
 	tags: [],
 	overview: [
-		Media.PP_101_03_IMG_1,
-		Media.PP_101_03_IMG_2,
-		Media.PP_101_03_IMG_3,
-		Media.PP_101_03_IMG_4,
-		Media.PP_101_03_IMG_5,
-		Media.PP_101_03_IMG_6,
-		Media.PP_101_03_IMG_7,
-		Media.PP_101_03_IMG_8
+		Media.PP_101_B_IMG_1,
+		Media.PP_101_B_IMG_2,
+		Media.PP_101_B_IMG_3,
+		Media.PP_101_B_IMG_4,
+		Media.PP_101_B_IMG_5,
+		Media.PP_101_B_IMG_6,
+		Media.PP_101_B_IMG_7,
+		Media.PP_101_B_IMG_8
 	],
 	preview: [
-		Media.PP_101_03_IMG_1.image,
-		Media.PP_101_03_IMG_2.image,
-		// Media.PP_101_03_IMG_3.image,
-		// Media.PP_101_03_IMG_4.image,
-		Media.PP_101_03_IMG_5.image,
-		Media.PP_101_03_IMG_6.image,
-		Media.PP_101_03_IMG_7.image
-		// Media.PP_101_03_IMG_8.image
+		Media.PP_101_B_IMG_1.image,
+		Media.PP_101_B_IMG_2.image,
+		Media.PP_101_B_IMG_5.image,
+		Media.PP_101_B_IMG_6.image,
+		Media.PP_101_B_IMG_7.image
 	],
 	control: [
 		{
 			id: getNextId(),
-			image: Media.PP_101_03_IMG_5.image,
-			name: "Стационарный пульт управления",
-			description: "Стандартный вид подъёмника, подключённого к кабелю питания, проложенному в стяжке крыльца. Имеет стационарный пульт управления на правой стойке."
+			image: Media.PP_101_B_IMG_5.image,
+			name: "Кнопочный пост",
+			description: "Стандартный вид подъёмника, подключённого к кабелю питания, проложенному в стяжке крыльца. Имеет стационарный кнопочный пост управления на правой стойке."
 		},
 		{
 			id: getNextId(),
-			image: PP_101_02_IMG_25C.image,
-			name: "Проводной пульт управления",
+			image: PP_101_A_IMG_25C.image,
+			name: "Проводной пульт",
 			description: "Для удобства управления подъёмником человек в инвалидной коляске самостоятельно может воспользоваться подключаемым проводным пультом."
 		}
 	],
 	connection: [
 		{
 			id: getNextId(),
-			image: PP_101_02_IMG_18C.image,
-			name: "Подключение через удлинитель",
+			image: PP_101_A_IMG_18C.image,
+			name: "Через удлинитель",
 			description: "При отсутствии питающего кабеля в конструкции крыльца может быть использован вариант подключения подъёмника к питающей сети 220 В через удлинитель."
 		},
 		{
 			id: getNextId(),
-			image: PP_101_02_IMG_24C.image,
-			name: "Комбинированное подключение",
-			description: "Возможен вариант совместного использования проводного пульта управления и подключения подъёмника к питающей сети 220 В через удлинитель."
+			image: PP_101_A_IMG_24C.image,
+			name: "Комбинированное",
+			description: "Возможен вариант совместного использования проводного пульта управления с подключением подъёмника к питающей сети 220 В через удлинитель."
 		}
 	],
 	specifications: [
@@ -103,9 +100,9 @@ export const PP_101_03: Product = {
 			id: getNextId(),
 			name: "Управление",
 			value: [
-				"Стационарный пульт управления",
+				"Кнопочный пост",
 				{
-					text: "Проводной пульт управления",
+					text: "Проводной пульт",
 					another: true
 				}
 			]
@@ -178,11 +175,11 @@ export const PP_101_03: Product = {
 		}
 	],
 	examples: [
-		Media.PP_101_03_IMG_1,
-		Media.PP_101_03_IMG_5,
-		Media.PP_101_03_IMG_6,
-		Media.PP_101_03_IMG_7,
-		Media.PP_101_03_IMG_8
+		Media.PP_101_B_IMG_1,
+		Media.PP_101_B_IMG_5,
+		Media.PP_101_B_IMG_6,
+		Media.PP_101_B_IMG_7,
+		Media.PP_101_B_IMG_8
 	],
 	files: [],
 	getPageTitle: getDefaultProductPageTitle,

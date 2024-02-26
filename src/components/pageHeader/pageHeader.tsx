@@ -180,7 +180,13 @@ function PageHeader() {
 								>{item.name}</Link>
 							))}
 						</nav>
-						<p>ntktajy</p>
+						<div className={s.mobileContactsWrapper}>
+							<hr/>
+							<div className={s.mobileContacts}>
+								<p>{Config.CONTACTS.PHONE_NUMBER}</p>
+								<span>{Config.CONTACTS.EMAIL}</span>
+							</div>
+						</div>
 					</div>
 				</ContentBlock>
 			</header>

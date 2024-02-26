@@ -6,6 +6,8 @@ import type {ProductSectionProps} from "@/types/product";
 import Slider from "../../../ui/slider";
 import {FreeMode} from "swiper/modules";
 
+const IMAGE_SIZE: number = 280;
+
 function Section({product}: ProductSectionProps) {
 	const {openFullscreenProductExamples} = useAppActions();
 
@@ -31,6 +33,8 @@ function Section({product}: ProductSectionProps) {
 				renderSlide={example => (
 					<Image
 						src={example.image}
+						width={IMAGE_SIZE}
+						height={IMAGE_SIZE * (12 / 10)}
 						placeholder="blur"
 						alt={product.model}
 					/>

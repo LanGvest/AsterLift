@@ -11,6 +11,9 @@ interface Props {
 	product: Product
 }
 
+const IMAGE_SIZE: number = 500;
+const THUMB_IMAGE_SIZE: number = 100;
+
 export function ProductOverview({product}: Props) {
 	const {openFullscreenProductOverview} = useAppActions();
 
@@ -36,12 +39,15 @@ export function ProductOverview({product}: Props) {
 					initialSlide: index
 				});
 			}}
-			renderMainSlide={item => (
+			renderMainSlide={(item, index) => (
 				<Image
 					style={{
 						backgroundImage: `url(${item.image.blurDataURL})`
 					}}
 					src={item.image}
+					width={IMAGE_SIZE}
+					height={IMAGE_SIZE * (12 / 10)}
+					priority={index == 0}
 					placeholder="blur"
 					alt={`${product.type} ${product.model}`}
 				/>
@@ -49,6 +55,8 @@ export function ProductOverview({product}: Props) {
 			renderThumbSlide={item => (
 				<Image
 					src={item.image}
+					width={THUMB_IMAGE_SIZE}
+					height={THUMB_IMAGE_SIZE}
 					placeholder="blur"
 					alt={`${product.type} ${product.model}`}
 				/>

@@ -15,6 +15,8 @@ interface Props {
 	product: Product
 }
 
+const IMAGE_SIZE: number = 260;
+
 export function ProductCard({product}: Props) {
 	const [swiper, setSwiper] = useState<Nullable<SwiperClass>>(null);
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -39,13 +41,16 @@ export function ProductCard({product}: Props) {
 		swiper.slideTo(0, 0);
 	}, [swiper, product]);
 
-	const renderSlide = useCallback((image: StaticImageData) => (
+	const renderSlide = useCallback((image: StaticImageData, index: number) => (
 		<Image
 			src={image}
 			alt={product.getName()}
 			style={{
 				backgroundImage: `url(${image.blurDataURL})`
 			}}
+			width={IMAGE_SIZE}
+			height={IMAGE_SIZE * (12 / 10)}
+			// priority={index == 0}
 			placeholder="blur"
 		/>
 	), [product]);

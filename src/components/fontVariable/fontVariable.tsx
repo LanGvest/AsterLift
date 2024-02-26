@@ -5,7 +5,7 @@ interface Props {
 	font: NextFont
 }
 
-export function FontVariable({name, font}: Props): JSX.Element {
+export function FontVariable({name, font}: Props) {
 	return (
 		<style global jsx>{`
 			:root {
