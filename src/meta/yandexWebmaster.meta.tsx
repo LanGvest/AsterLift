@@ -4,7 +4,7 @@ export default function YandexWebmasterMeta() {
 	// noinspection HtmlRequiredTitleElement
 	return (
 		<Head>
-			<meta name="yandex-verification" content="c1f6763f2dfb68b3"/>
+			<meta name="yandex-verification" content="33874b2fbf6077bd"/>
 		</Head>
 	);
 }

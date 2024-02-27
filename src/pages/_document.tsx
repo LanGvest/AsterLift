@@ -15,7 +15,6 @@ export default class Document extends NextDocument {
 					<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 					<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 					<link rel="mask-icon" href="/icons/mask-icon.svg" color={Config.PROJECT_COLOR}/>
-					<meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
 				</Head>
 				<body>
 					<Main/>
