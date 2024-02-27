@@ -36,7 +36,8 @@ function Section({product}: ProductSectionProps) {
 						width={IMAGE_SIZE}
 						height={IMAGE_SIZE * (12 / 10)}
 						placeholder="blur"
-						alt={product.model}
+						alt={product.getName()}
+						title={product.getPageTitle()}
 					/>
 				)}
 			/>

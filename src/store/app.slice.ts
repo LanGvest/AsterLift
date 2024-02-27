@@ -1,19 +1,14 @@
 import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import {MediaType} from "@/enums/mediaType";
-import type {Nullable} from "@/utils/helpers";
-import type {StaticImageData} from "next/image";
+import {Nullable, withoutDot} from "@/utils/helpers";
 import type {Product} from "@/types/product";
 import type SwiperClass from "swiper";
-import type {Media} from "@/types/media";
+import type {ImageMedia} from "@/types/media";
 
 export interface FullscreenProduct {
 	product: Product
 	controller?: FullscreenController
 	initialSlide?: number
-}
-
-export interface FullscreenImage extends Media {
-	image: StaticImageData
 }
 
 export interface FullscreenController {
@@ -24,9 +19,11 @@ export interface FullscreenController {
 export interface FullscreenData {
 	title: string
 	subTitle?: string
-	media: Array<FullscreenImage>
+	media: Array<ImageMedia>
 	controller?: FullscreenController
 	initialSlide?: number
+	getImageAlt(image: ImageMedia, index: number): string
+	getImageTitle(image: ImageMedia, index: number): string
 }
 
 interface InitialState {
@@ -49,11 +46,17 @@ const appSlice = createSlice({
 			} = action.payload;
 
 			state.fullscreen = {
-				title: `${product.type} ${product.model}`,
+				title: product.getName(),
 				subTitle: "Обзор",
 				media: product.overview,
 				controller: controller as any,
-				initialSlide
+				initialSlide,
+				getImageAlt(): string {
+					return product.getName();
+				},
+				getImageTitle(): string {
+					return product.getPageTitle();
+				}
 			};
 		},
 		openFullscreenProductExamples(state, action: PayloadAction<FullscreenProduct>) {
@@ -64,11 +67,17 @@ const appSlice = createSlice({
 			} = action.payload;
 
 			state.fullscreen = {
-				title: `${product.type} ${product.model}`,
+				title: product.getName(),
 				subTitle: "Примеры работ",
 				media: product.examples,
 				controller: controller as any,
-				initialSlide
+				initialSlide,
+				getImageAlt(): string {
+					return product.getName();
+				},
+				getImageTitle(): string {
+					return product.getPageTitle();
+				}
 			};
 		},
 		openFullscreenProductControl(state, action: PayloadAction<FullscreenProduct>) {
@@ -78,15 +87,21 @@ const appSlice = createSlice({
 			} = action.payload;
 
 			state.fullscreen = {
-				title: `${product.type} ${product.model}`,
+				title: product.getName(),
 				subTitle: "Управление",
 				media: product.control.map(feature => ({
 					type: MediaType.IMAGE,
 					image: feature.image,
 					name: feature.name,
-					description: validateFeatureDescription(feature.description)
+					description: withoutDot(feature.description)
 				})),
-				initialSlide
+				initialSlide,
+				getImageAlt(image): string {
+					return image.name || image.image.src;
+				},
+				getImageTitle(image): string {
+					return image.name || image.image.src;
+				}
 			};
 		},
 		openFullscreenProductConnection(state, action: PayloadAction<FullscreenProduct>) {
@@ -96,15 +111,21 @@ const appSlice = createSlice({
 			} = action.payload;
 
 			state.fullscreen = {
-				title: `${product.type} ${product.model}`,
+				title: product.getName(),
 				subTitle: "Подключение",
 				media: product.connection.map(feature => ({
 					type: MediaType.IMAGE,
 					image: feature.image,
 					name: feature.name,
-					description: validateFeatureDescription(feature.description)
+					description: withoutDot(feature.description)
 				})),
-				initialSlide
+				initialSlide,
+				getImageAlt(image): string {
+					return image.name || image.image.src;
+				},
+				getImageTitle(image): string {
+					return image.name || image.image.src;
+				}
 			};
 		},
 		closeFullscreen(state) {
@@ -112,12 +133,6 @@ const appSlice = createSlice({
 		}
 	}
 });
-
-function validateFeatureDescription(text: string): string {
-	text = text.trim();
-	if(text.endsWith(".")) text = text.substring(0, text.length-1);
-	return text;
-}
 
 export const AppSliceActions = appSlice.actions;
 export const AppSliceReducer = appSlice.reducer;

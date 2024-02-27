@@ -45,6 +45,7 @@ export function ProductCard({product}: Props) {
 		<Image
 			src={image}
 			alt={product.getName()}
+			title={product.getPageTitle()}
 			style={{
 				backgroundImage: `url(${image.blurDataURL})`
 			}}

@@ -1,6 +1,6 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
-import {getDefaultProductName, getDefaultProductPageTitle, getNextId} from "@/utils/helpers";
+import {getDefaultProductMinPrice, getDefaultProductName, getDefaultProductPageTitle, getNextId} from "@/utils/helpers";
 import About from "./about";
 import * as Media from "./media";
 
@@ -169,5 +169,6 @@ export const PP_110_M: Product = {
 	files: [],
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
+	getMinPrice: getDefaultProductMinPrice,
 	About
 };

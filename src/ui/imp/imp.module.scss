@@ -1,10 +1,9 @@
 .content {
 	display: inline;
-	background-color: #d7e7f5;
-	//box-shadow: inset 0 0 0 var(--border-width) #bddaf3;
+	background-color: #dbeaf6;
 	border-radius: 6px;
 	padding: 1.5px 0;
-	line-height: 1.6;
+	line-height: var(--line-height-important);
 	font-weight: inherit;
 	font-style: inherit;
 	font-size: inherit;

@@ -1,12 +1,10 @@
 .learnMore {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	//padding-top: var(--indent-block);
-	//padding-bottom: var(--indent-block);
 	gap: 40px;
-	//background-color: #0bb02c;
 	height: calc(100svh - var(--height-header) - var(--indent-page) - 55px);
 	min-height: 350px;
 	max-height: 900px;
@@ -22,7 +20,29 @@
 		max-width: 520px;
 		margin: 0 20px;
 		font-size: 24px;
+		line-height: var(--line-height-paragraph);
 	}
+}
+
+.belarus {
+	position: absolute;
+	//inset: 0;
+
+	//fill: rgba(0, 0, 0, 0.02);
+	fill: none;
+	z-index: -1;
+	stroke-width: 16px;
+	stroke: rgba(10, 47, 105, 0.09);
+	width: 80%;
+	height: 80%;
+
+	//&:first-child {
+	//
+	//}
+	//&:last-child {
+	//	display: none;
+	//
+	//}
 }
 
 .productCards {

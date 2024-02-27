@@ -31,12 +31,13 @@ function Section({product, features, openFullscreenFeatures}: Props) {
 							className={s.image}
 							src={feature.image}
 							alt={feature.name}
+							title={feature.name}
 							width={IMAGE_SIZE}
 							height={IMAGE_SIZE * (12 / 10)}
 							placeholder={"blur"}
 						/>
 					</div>
-					<div className={s.info}>
+					<div>
 						<p className={s.name}>{feature.name}</p>
 						<p className={s.description}>{feature.description}</p>
 					</div>

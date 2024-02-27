@@ -54,6 +54,7 @@ export interface Product {
 	About?: FunctionComponent
 	getPageTitle(): string
 	getName(): string
+	getMinPrice(): string
 }
 
 export interface ProductSection {

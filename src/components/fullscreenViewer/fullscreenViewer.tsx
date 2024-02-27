@@ -121,19 +121,21 @@ function FullscreenView({data}: FullscreenViewProps) {
 					})}
 					getProgress={getDefaultSliderProgress}
 					controller={data.controller}
-					renderMainSlide={item => (
+					renderMainSlide={(item, index) => (
 						<Image
 							src={item.image}
+							alt={data.getImageAlt(item, index)}
+							title={data.getImageTitle(item, index)}
 							width={IMAGE_SIZE}
 							height={IMAGE_SIZE * (12 / 10)}
 							priority
-							alt={item.image.src}
 						/>
 					)}
-					renderThumbSlide={item => (
+					renderThumbSlide={(item, index) => (
 						<Image
 							src={item.image}
-							alt={item.image.src}
+							alt={data.getImageAlt(item, index)}
+							title={data.getImageTitle(item, index)}
 							width={THUMB_IMAGE_SIZE}
 							height={THUMB_IMAGE_SIZE}
 							placeholder="blur"

@@ -49,7 +49,8 @@ export function ProductOverview({product}: Props) {
 					height={IMAGE_SIZE * (12 / 10)}
 					priority={index == 0}
 					placeholder="blur"
-					alt={`${product.type} ${product.model}`}
+					alt={product.getName()}
+					title={product.getPageTitle()}
 				/>
 			)}
 			renderThumbSlide={item => (
@@ -58,7 +59,8 @@ export function ProductOverview({product}: Props) {
 					width={THUMB_IMAGE_SIZE}
 					height={THUMB_IMAGE_SIZE}
 					placeholder="blur"
-					alt={`${product.type} ${product.model}`}
+					alt={product.getName()}
+					title={product.getPageTitle()}
 				/>
 			)}
 		/>

@@ -46,8 +46,8 @@ export default function OrganizationMeta() {
 			"addressCountry": "Беларусь",
 			"addressRegion": "Гомельская область",
 			"addressLocality": "Гомель",
-			"postalCode": "246035",
-			"streetAddress": "ул. Маневича, д. 18, кв. 62"
+			"postalCode": "246018",
+			"streetAddress": "ул. Интендантская, д. 1М"
 		},
 		"areaServed": "Беларусь",
 		"foundingDate": "2014-12-11"
