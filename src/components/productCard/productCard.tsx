@@ -41,7 +41,7 @@ export function ProductCard({product}: Props) {
 		swiper.slideTo(0, 0);
 	}, [swiper, product]);
 
-	const renderSlide = useCallback((image: StaticImageData, index: number) => (
+	const renderSlide = useCallback((image: StaticImageData) => (
 		<Image
 			src={image}
 			alt={product.getName()}
@@ -51,7 +51,7 @@ export function ProductCard({product}: Props) {
 			}}
 			width={IMAGE_SIZE}
 			height={IMAGE_SIZE * (12 / 10)}
-			// priority={index == 0}
+			priority
 			placeholder="blur"
 		/>
 	), [product]);
