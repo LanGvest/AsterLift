@@ -111,7 +111,7 @@
 			"never"
 		],
 		"eol-last": [
-			"error",
+			"warn",
 			"never"
 		],
 		"func-call-spacing": [
