@@ -5,8 +5,8 @@
 	align-items: center;
 	justify-content: center;
 	gap: 40px;
-	height: calc(100svh - var(--height-header) - var(--indent-page) - 55px);
-	min-height: 350px;
+	height: calc(100svh - var(--height-header) - var(--indent-page) - 50px);
+	min-height: 400px;
 	max-height: 900px;
 
 	h1 {
@@ -24,32 +24,59 @@
 	}
 }
 
-.belarus {
-	position: absolute;
-	//inset: 0;
+.buttons {
+	display: flex;
+	gap: 25px;
 
-	//fill: rgba(0, 0, 0, 0.02);
-	fill: none;
-	z-index: -1;
-	stroke-width: 16px;
-	stroke: rgba(10, 47, 105, 0.09);
-	width: 80%;
-	height: 80%;
+	a {
+		min-width: 190px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
 
-	//&:first-child {
-	//
-	//}
-	//&:last-child {
-	//	display: none;
-	//
-	//}
+		p {
+			margin: 0;
+			font-weight: inherit;
+			font-size: inherit;
+			font-style: inherit;
+			color: inherit;
+		}
+
+		svg {
+			margin-bottom: 0.5px;
+			overflow: visible;
+			stroke-width: 18px;
+			stroke: #efefef;
+			fill: #efefef;
+			flex-shrink: 0;
+			height: 14.5px;
+			width: 14.5px;
+		}
+	}
+
+	.secondary {
+		transition: background-color 120ms;
+		background-color: rgba(58, 61, 91, 0.08);
+		color: var(--color-text-hint);
+		font-weight: 700;
+
+		svg {
+			stroke: #a3a5b0;
+			fill: #a3a5b0;
+		}
+
+		&:hover, &:active {
+			opacity: 1;
+			background-color: rgba(41, 43, 63, 0.115);
+		}
+	}
 }
 
 .productCards {
 	padding-top: var(--indent-page);
 	display: grid;
 	gap: var(--indent-container);
-	//gap: 40px;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	font-size: 16px;
 	padding-bottom: var(--indent-block);

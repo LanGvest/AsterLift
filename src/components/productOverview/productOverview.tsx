@@ -11,7 +11,7 @@ interface Props {
 	product: Product
 }
 
-const IMAGE_SIZE: number = 500;
+const IMAGE_SIZE: number = 800;
 const THUMB_IMAGE_SIZE: number = 100;
 
 export function ProductOverview({product}: Props) {
@@ -39,7 +39,7 @@ export function ProductOverview({product}: Props) {
 					initialSlide: index
 				});
 			}}
-			renderMainSlide={(item, index) => (
+			renderMainSlide={item => (
 				<Image
 					style={{
 						backgroundImage: `url(${item.image.blurDataURL})`
@@ -47,7 +47,7 @@ export function ProductOverview({product}: Props) {
 					src={item.image}
 					width={IMAGE_SIZE}
 					height={IMAGE_SIZE * (12 / 10)}
-					priority={index == 0}
+					priority
 					placeholder="blur"
 					alt={product.getName()}
 					title={product.getPageTitle()}

@@ -19,9 +19,10 @@ import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
 import React from "react";
 import TargetResolver from "@/components/targetResolver";
+import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
 
 const inter = Inter({
-	weight: ["400", "600", "700"],
+	weight: ["400", "600", "700", "800"],
 	style: "normal",
 	subsets: ["latin", "cyrillic"],
 	display: "swap",
@@ -32,6 +33,7 @@ const inter = Inter({
 export default function App({Component, pageProps}: AppProps) {
 	return (
 		<Provider store={Store}>
+			<YandexMetrikaMeta/>
 			<Head>
 				<title>{Config.PROJECT_NAME}</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>

@@ -147,15 +147,15 @@ function PageHeader() {
 						</Link>
 					</div>
 					<nav className={s.nav}>
-						{/*{AppNavigation.map(item => (*/}
-						{/*	<Link*/}
-						{/*		key={item.path}*/}
-						{/*		href={item.path}*/}
-						{/*		data-active={router.pathname === item.path ? "" : undefined}*/}
-						{/*		className={s.navItem}*/}
-						{/*		onClick={event => changeRoute(event, item.path)}*/}
-						{/*	>{item.name}</Link>*/}
-						{/*))}*/}
+						{AppNavigation.map(item => (
+							<Link
+								key={item.path}
+								href={item.path}
+								data-active={router.pathname === item.path ? "" : undefined}
+								className={s.navItem}
+								onClick={event => changeRoute(event, item.path)}
+							>{item.name}</Link>
+						))}
 					</nav>
 					<div className={s.contactsContainer}>
 						<div className={s.contacts}>
