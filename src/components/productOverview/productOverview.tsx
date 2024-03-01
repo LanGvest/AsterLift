@@ -1,11 +1,14 @@
 import s from "./productOverview.module.scss";
 import Image from "next/image";
 import "swiper/css/free-mode";
-import {getDefaultSliderProgress} from "@/utils/helpers";
+import {getDefaultSliderProgress, getPriorityIndexes, isPriority} from "@/utils/helpers";
 import type {Product} from "@/types/product";
 import SliderWithThumbs from "@/ui/slider/sliderWithThumbs";
 import {Autoplay} from "swiper/modules";
 import {useAppActions} from "@/hooks/useAppActions";
+import {useEffect, useState} from "react";
+import {useIsInitialUpdate} from "@/hooks/useIsInitialUpdate";
+import {useForceUpdate} from "@/hooks/useForceUpdate";
 
 interface Props {
 	product: Product
@@ -15,7 +18,16 @@ const IMAGE_SIZE: number = 800;
 const THUMB_IMAGE_SIZE: number = 100;
 
 export function ProductOverview({product}: Props) {
+	const isInitialUpdate = useIsInitialUpdate();
+	const forceUpdate = useForceUpdate();
+	const [activeIndex, setActiveIndex] = useState(0);
 	const {openFullscreenProductOverview} = useAppActions();
+
+	const priorityIndexes = isInitialUpdate ? [0] : getPriorityIndexes(activeIndex, product.overview.length, 2);
+
+	useEffect(() => {
+		forceUpdate();
+	}, [forceUpdate]);
 
 	return (
 		<SliderWithThumbs
@@ -27,6 +39,7 @@ export function ProductOverview({product}: Props) {
 			getMeta={activeItem => ({
 				location: activeItem.location
 			})}
+			onActiveIndexChange={index => setActiveIndex(index)}
 			getProgress={getDefaultSliderProgress}
 			autoplayModule={Autoplay}
 			onClickMainSlide={(swiper, _item, index) => {
@@ -39,7 +52,7 @@ export function ProductOverview({product}: Props) {
 					initialSlide: index
 				});
 			}}
-			renderMainSlide={item => (
+			renderMainSlide={(item, index) => (
 				<Image
 					style={{
 						backgroundImage: `url(${item.image.blurDataURL})`
@@ -47,10 +60,9 @@ export function ProductOverview({product}: Props) {
 					src={item.image}
 					width={IMAGE_SIZE}
 					height={IMAGE_SIZE * (12 / 10)}
-					priority
-					placeholder="blur"
+					priority={isPriority(index, priorityIndexes)}
 					alt={product.getName()}
-					title={product.getPageTitle()}
+					title={product.getTitle()}
 				/>
 			)}
 			renderThumbSlide={item => (
@@ -58,9 +70,11 @@ export function ProductOverview({product}: Props) {
 					src={item.image}
 					width={THUMB_IMAGE_SIZE}
 					height={THUMB_IMAGE_SIZE}
+					loading="lazy"
 					placeholder="blur"
+					fetchPriority="high"
 					alt={product.getName()}
-					title={product.getPageTitle()}
+					title={product.getTitle()}
 				/>
 			)}
 		/>

@@ -21,6 +21,7 @@ interface Props<T> extends Stylized {
 	initialSlideIndex?: number
 	controller?: FullscreenController
 	hideControlsWhenSingleItem?: boolean
+	onActiveIndexChange?(newActiveIndex: number): void
 	onClickMainSlide?(swiper: SwiperClass, item: T, index: number): void
 	onClickThumbSlide?(swiper: SwiperClass, item: T, index: number): void
 	renderMainSlide(item: T, index: number): ReactNode
@@ -48,7 +49,8 @@ function SliderWithThumbs<T>(props: Props<T>) {
 		onClickMainSlide,
 		onClickThumbSlide,
 		getMeta,
-		getProgress
+		getProgress,
+		onActiveIndexChange
 	} = props;
 
 	const isAutoplay: boolean = Boolean(autoplayModule);
@@ -174,6 +176,7 @@ function SliderWithThumbs<T>(props: Props<T>) {
 						else controller.swiper.slideTo(newActiveIndex, 0, false);
 					}
 					setActiveIndex(() => newActiveIndex);
+					onActiveIndexChange?.(newActiveIndex);
 				}}
 			/>
 			<Slider

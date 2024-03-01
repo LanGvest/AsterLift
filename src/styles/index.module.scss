@@ -35,40 +35,9 @@
 		justify-content: center;
 		gap: 12px;
 
-		p {
-			margin: 0;
-			font-weight: inherit;
-			font-size: inherit;
-			font-style: inherit;
-			color: inherit;
-		}
-
 		svg {
 			margin-bottom: 0.5px;
-			overflow: visible;
 			stroke-width: 18px;
-			stroke: #efefef;
-			fill: #efefef;
-			flex-shrink: 0;
-			height: 14.5px;
-			width: 14.5px;
-		}
-	}
-
-	.secondary {
-		transition: background-color 120ms;
-		background-color: rgba(58, 61, 91, 0.08);
-		color: var(--color-text-hint);
-		font-weight: 700;
-
-		svg {
-			stroke: #a3a5b0;
-			fill: #a3a5b0;
-		}
-
-		&:hover, &:active {
-			opacity: 1;
-			background-color: rgba(41, 43, 63, 0.115);
 		}
 	}
 }
@@ -104,17 +73,36 @@
 			font-size: 20px;
 		}
 	}
+	.buttons {
+		a {
+			min-width: 175px;
+		}
+	}
+
 }
 
 @media (width < 600px) {
 	.productCards {
 		grid-template-columns: 1fr;
 	}
+
+	.buttons {
+		flex-direction: column;
+		width: 100%;
+		padding: 0 var(--indent-page);
+		gap: 12px;
+		align-items: center;
+
+		a {
+			min-width: 0;
+			width: 100%;
+			max-width: 250px;
+		}
+	}
 }
 
 @media (width < 520px) {
 	.learnMore {
-		gap: 22px;
 		h1 {
 			font-size: 43px;
 		}

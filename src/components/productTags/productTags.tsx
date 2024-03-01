@@ -18,13 +18,13 @@ export function ProductTags({product, style, className}: Props) {
 	];
 
 	return (
-		<div
+		<span
 			style={style}
 			className={combineClasses(s.container, className)}
 		>
 			{tags.map(tag => (
 				<React.Fragment key={tag.id}><span style={tag.style}>{tag.name}</span> </React.Fragment>
 			))}
-		</div>
+		</span>
 	);
 }

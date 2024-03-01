@@ -12,11 +12,11 @@ const AppNavigation: Array<AppNavigationItem> = [
 			{
 				path: "/about#certs",
 				name: "Сертификаты и свидетельства"
+			},
+			{
+				path: "/about#contacts",
+				name: "Контактная информация"
 			}
-			// {
-			// 	path: "/about#reviews",
-			// 	name: "Отзывы"
-			// }
 		]
 	}
 	// {

@@ -1,5 +1,6 @@
 import "@/styles/root.scss";
 import "@/styles/global.scss";
+import "@/utils/global";
 import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/virtual";
@@ -17,12 +18,11 @@ import FontVariable from "@/components/fontVariable";
 import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
-import React from "react";
 import TargetResolver from "@/components/targetResolver";
-import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
+import bg from "@/assets/images/bg.webp";
 
 const inter = Inter({
-	weight: ["400", "600", "700", "800"],
+	weight: ["400", "600", "700", "800"], // 800 можно будет убрать
 	style: "normal",
 	subsets: ["latin", "cyrillic"],
 	display: "swap",
@@ -33,13 +33,13 @@ const inter = Inter({
 export default function App({Component, pageProps}: AppProps) {
 	return (
 		<Provider store={Store}>
-			<YandexMetrikaMeta/>
 			<Head>
 				<title>{Config.PROJECT_NAME}</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 				<meta name="description" content={Config.PROJECT_DESCRIPTION}/>
 				<meta name="theme-color" content="#1a1a1c"/>
 				<meta name="color-scheme" content="light only"/>
+				<link rel="preload" as="image" href={bg.src} fetchPriority="high"/>
 			</Head>
 			<RobotsMeta/>
 			<YandexWebmasterMeta/>
@@ -48,9 +48,7 @@ export default function App({Component, pageProps}: AppProps) {
 			<TargetResolver/>
 			<FullscreenViewer/>
 			<PageHeader/>
-			<div>
-				<Component {...pageProps}/>
-			</div>
+			<Component {...pageProps}/>
 			<PageFooter/>
 		</Provider>
 	);

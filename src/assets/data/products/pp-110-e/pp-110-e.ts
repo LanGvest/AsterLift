@@ -1,6 +1,12 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
-import {getDefaultProductMinPrice, getDefaultProductName, getDefaultProductPageTitle, getNextId} from "@/utils/helpers";
+import {
+	getDefaultProductMinPrice,
+	getDefaultProductName,
+	getDefaultProductPageTitle,
+	getDefaultProductTitle,
+	getNextId
+} from "@/utils/helpers";
 import About from "./about";
 import * as Media from "./media";
 
@@ -156,9 +162,12 @@ export const PP_110_02: Product = {
 		Media.PP_110_E_IMG_1,
 		Media.PP_110_E_IMG_2,
 		Media.PP_110_E_IMG_3,
-		Media.PP_110_E_IMG_4
+		Media.PP_110_E_IMG_4,
+		Media.PP_110_E_IMG_5,
+		Media.PP_110_E_IMG_6
 	],
 	files: [],
+	getTitle: getDefaultProductTitle,
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
 	getMinPrice: getDefaultProductMinPrice,

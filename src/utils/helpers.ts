@@ -35,8 +35,12 @@ export function combineClasses(...classNames: Array<Optional<string | boolean>>)
 	return classNames.filter(item => item && typeof item === "string").join(" ") || undefined;
 }
 
-export function getDefaultProductPageTitle(this: Product): string {
+export function getDefaultProductTitle(this: Product): string {
 	return `${this.getName()} от ${this.getMinPrice()} BYN`;
+}
+
+export function getDefaultProductPageTitle(this: Product): string {
+	return `${this.type} от ${this.getMinPrice()} BYN – ${this.model}`;
 }
 
 export function getDefaultProductName(this: Product): string {
@@ -100,4 +104,20 @@ export function getCorrectWord(_0: string, _1: string, _2: string, amount: numbe
 		case "4": return _2;
 		default: return _0;
 	}
+}
+
+export function getPriorityIndexes(activeIndex: number, totalAmount: number, toPreload: number): Array<number> {
+	const arr: Array<number> = [];
+
+	for(let i = toPreload * -1; i <= toPreload; i++) {
+		let index: number = (activeIndex + i) % totalAmount;
+		if(index < 0) index += totalAmount;
+		arr.push(index);
+	}
+
+	return arr;
+}
+
+export function isPriority(index: number, priorityIndexes: Array<number>): boolean {
+	return Boolean(~priorityIndexes.indexOf(index));
 }

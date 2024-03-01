@@ -52,6 +52,7 @@ export interface Product {
 	examples: Array<ImageMedia>
 	files: Array<FileMedia>
 	About?: FunctionComponent
+	getTitle(): string
 	getPageTitle(): string
 	getName(): string
 	getMinPrice(): string

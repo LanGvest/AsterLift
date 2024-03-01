@@ -1,9 +1,9 @@
-import s from "../styles/index.module.scss";
-import Products from "../assets/data/products";
+import s from "@/styles/index.module.scss";
+import Products from "@/assets/data/products";
 import React from "react";
-import PageLayout from "../layouts/page";
-import ContentBlock from "../ui/contentBlock";
-import ProductCard from "../components/productCard";
+import PageLayout from "@/layouts/page";
+import ContentBlock from "@/ui/contentBlock";
+import ProductCard from "@/components/productCard";
 import GradientBackground from "@/components/gradientBackground";
 import Config from "@config";
 import ExternalLinkIcon from "@/assets/icons/externalLink.icon";
@@ -22,7 +22,7 @@ export default function IndexPage() {
 						<p>Узнать больше</p>
 						{/*<ExternalLinkIcon/>*/}
 					</Link>
-					<Link href="/about#certs" data-role="btn" className={s.secondary}>
+					<Link href="/about#certs" data-role="btn" data-style="secondary" className={s.secondary}>
 						<p>Сертификаты</p>
 						<ExternalLinkIcon/>
 					</Link>

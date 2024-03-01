@@ -34,7 +34,9 @@ function Section({product, features, openFullscreenFeatures}: Props) {
 							title={feature.name}
 							width={IMAGE_SIZE}
 							height={IMAGE_SIZE * (12 / 10)}
-							placeholder={"blur"}
+							loading="lazy"
+							fetchPriority="low"
+							placeholder="blur"
 						/>
 					</div>
 					<div>

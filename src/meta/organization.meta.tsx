@@ -32,12 +32,12 @@ export default function OrganizationMeta() {
 				"addressRegion": "Гомельская область",
 				"addressLocality": "Гомель",
 				"postalCode": "246018",
-				"streetAddress": "ул. Интендантская, д. 1М"
+				"streetAddress": "ул. Интендантская, д. 1А"
 			},
 			"geo": {
 				"@type": "GeoCoordinates",
-				"latitude": "52.441910",
-				"longitude": "30.948480"
+				"latitude": "52.442356",
+				"longitude": "30.955855"
 			}
 		},
 		"telephone": Config.CONTACTS.PHONE_NUMBER,
@@ -47,7 +47,7 @@ export default function OrganizationMeta() {
 			"addressRegion": "Гомельская область",
 			"addressLocality": "Гомель",
 			"postalCode": "246018",
-			"streetAddress": "ул. Интендантская, д. 1М"
+			"streetAddress": "ул. Интендантская, д. 1А"
 		},
 		"areaServed": "Беларусь",
 		"foundingDate": "2014-12-11"

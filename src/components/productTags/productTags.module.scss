@@ -1,6 +1,5 @@
 .container {
 	font-size: inherit;
-	display: inline;
 	user-select: none;
 
 	span {
@@ -8,6 +7,5 @@
 		display: inline-block;
 		color: var(--color-text-hint);
 		background-color: var(--background-container-2);
-
 	}
 }

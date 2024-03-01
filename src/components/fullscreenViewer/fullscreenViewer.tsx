@@ -3,7 +3,7 @@ import type {FullscreenData} from "@/store/app.slice";
 import {useAppActions} from "@/hooks/useAppActions";
 import React, {useEffect, useState} from "react";
 import type {ReactNode} from "react";
-import {combineClasses, getDefaultSliderProgress} from "@/utils/helpers";
+import {combineClasses, getDefaultSliderProgress, getPriorityIndexes, isPriority} from "@/utils/helpers";
 import type {Nullable} from "@/utils/helpers";
 import {Keyboard} from "swiper/modules";
 import screenfull from "screenfull";
@@ -14,6 +14,8 @@ import {useAppSelector} from "@/hooks/useAppSelector";
 import SliderWithThumbs from "@/ui/slider/sliderWithThumbs";
 import Image from "next/image";
 import Head from "next/head";
+import {useIsInitialUpdate} from "@/hooks/useIsInitialUpdate";
+import {useForceUpdate} from "@/hooks/useForceUpdate";
 
 const IMAGE_SIZE: number = 800;
 const THUMB_IMAGE_SIZE: number = 100;
@@ -23,10 +25,18 @@ interface FullscreenViewProps {
 }
 
 function FullscreenView({data}: FullscreenViewProps) {
+	const isInitialUpdate = useIsInitialUpdate();
+	const forceUpdate = useForceUpdate();
+	const initialSlideIndex = data.initialSlide ?? 0;
+	const [activeIndex, setActiveIndex] = useState(initialSlideIndex);
 	const {closeFullscreen} = useAppActions();
 	const [isFullscreenWindow, setIsFullscreenWindow] = useState<boolean>(false);
 
+	const priorityIndexes = isInitialUpdate ? [initialSlideIndex] : getPriorityIndexes(activeIndex, data.media.length, 2);
+	
 	useEffect(() => {
+		forceUpdate();
+		
 		if(!screenfull.isEnabled) return;
 
 		function onChange(): void {
@@ -38,7 +48,7 @@ function FullscreenView({data}: FullscreenViewProps) {
 		return () => {
 			screenfull.off("change", onChange);
 		};
-	}, []);
+	}, [forceUpdate]);
 
 	// noinspection CssUnusedSymbol
 	return (
@@ -113,6 +123,7 @@ function FullscreenView({data}: FullscreenViewProps) {
 					hideControlsWhenSingleItem={true}
 					items={data.media}
 					keyboardModule={Keyboard}
+					onActiveIndexChange={index => setActiveIndex(index)}
 					getSlideKey={item => item.image.src}
 					getMeta={activeItem => ({
 						name: activeItem.name,
@@ -128,7 +139,7 @@ function FullscreenView({data}: FullscreenViewProps) {
 							title={data.getImageTitle(item, index)}
 							width={IMAGE_SIZE}
 							height={IMAGE_SIZE * (12 / 10)}
-							priority
+							priority={isPriority(index, priorityIndexes)}
 						/>
 					)}
 					renderThumbSlide={(item, index) => (
@@ -138,7 +149,9 @@ function FullscreenView({data}: FullscreenViewProps) {
 							title={data.getImageTitle(item, index)}
 							width={THUMB_IMAGE_SIZE}
 							height={THUMB_IMAGE_SIZE}
+							loading="lazy"
 							placeholder="blur"
+							fetchPriority="high"
 						/>
 					)}
 				/>

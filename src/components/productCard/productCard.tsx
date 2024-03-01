@@ -2,7 +2,7 @@ import s from "./productCard.module.scss";
 import type {StaticImageData} from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-import React, {useCallback, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import type {MouseEventHandler} from "react";
 import type SwiperClass from "swiper";
 import ProductTags from "@/components/productTags";
@@ -21,6 +21,7 @@ export function ProductCard({product}: Props) {
 	const [swiper, setSwiper] = useState<Nullable<SwiperClass>>(null);
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	const activeIndexRef = useRef<number>(0);
+	const [allPriority, setAllPriority] = useState(false);
 
 	const mouseMoveHandler = useCallback<MouseEventHandler<HTMLDivElement>>(event => {
 		if(!swiper || product.preview.length <= 1) return;
@@ -41,20 +42,23 @@ export function ProductCard({product}: Props) {
 		swiper.slideTo(0, 0);
 	}, [swiper, product]);
 
-	const renderSlide = useCallback((image: StaticImageData) => (
+	const renderSlide = useCallback((image: StaticImageData, index: number) => (
 		<Image
 			src={image}
 			alt={product.getName()}
-			title={product.getPageTitle()}
-			style={{
-				backgroundImage: `url(${image.blurDataURL})`
-			}}
+			title={product.getTitle()}
 			width={IMAGE_SIZE}
 			height={IMAGE_SIZE * (12 / 10)}
-			priority
+			priority={allPriority}
 			placeholder="blur"
 		/>
-	), [product]);
+	), [product, allPriority]);
+
+	useEffect(() => {
+		requestIdleCallback(() => {
+			setAllPriority(true);
+		});
+	}, []);
 
 	return (
 		<Link
@@ -93,9 +97,9 @@ export function ProductCard({product}: Props) {
 					))}
 				</div>
 			)}
-			<div className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></div>
+			<p className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></p>
 			<p className={s.shortDescription}>{product.shortDescription}</p>
-			<p className={s.minPrice}>от <b>{product.minPrice.toLocaleString("ru-RU")}</b> BYN</p>
+			<p className={s.minPrice}>от <b>{product.getMinPrice()}</b> BYN</p>
 		</Link>
 	);
 }

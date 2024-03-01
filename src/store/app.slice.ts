@@ -55,7 +55,7 @@ const appSlice = createSlice({
 					return product.getName();
 				},
 				getImageTitle(): string {
-					return product.getPageTitle();
+					return product.getTitle();
 				}
 			};
 		},
@@ -76,7 +76,7 @@ const appSlice = createSlice({
 					return product.getName();
 				},
 				getImageTitle(): string {
-					return product.getPageTitle();
+					return product.getTitle();
 				}
 			};
 		},
