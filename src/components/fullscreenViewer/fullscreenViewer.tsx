@@ -32,7 +32,7 @@ function FullscreenView({data}: FullscreenViewProps) {
 	const {closeFullscreen} = useAppActions();
 	const [isFullscreenWindow, setIsFullscreenWindow] = useState<boolean>(false);
 
-	const priorityIndexes = isInitialUpdate ? [initialSlideIndex] : getPriorityIndexes(activeIndex, data.media.length, 2);
+	const priorityIndexes = isInitialUpdate ? [initialSlideIndex] : getPriorityIndexes(activeIndex, data.media.length, 1);
 	
 	useEffect(() => {
 		forceUpdate();

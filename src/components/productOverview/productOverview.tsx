@@ -14,7 +14,7 @@ interface Props {
 	product: Product
 }
 
-const IMAGE_SIZE: number = 800;
+const IMAGE_SIZE: number = 500;
 const THUMB_IMAGE_SIZE: number = 100;
 
 export function ProductOverview({product}: Props) {
@@ -24,7 +24,7 @@ export function ProductOverview({product}: Props) {
 	// const [isVisible, setIsVisible] = useState(false);
 	const {openFullscreenProductOverview} = useAppActions();
 
-	const priorityIndexes = isInitialUpdate ? [] : getPriorityIndexes(activeIndex, product.overview.length, 2);
+	const priorityIndexes = isInitialUpdate ? [] : getPriorityIndexes(activeIndex, product.overview.length, 1);
 
 	// const style = useMemo<CSSProperties>(() => ({
 	// 	// display: isVisible ? undefined : "none"
