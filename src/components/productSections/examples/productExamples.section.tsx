@@ -1,10 +1,10 @@
 import {memo} from "react";
-import Image from "next/image";
 import s from "./productExamples.module.scss";
 import {useAppActions} from "@/hooks/useAppActions";
 import type {ProductSectionProps} from "@/types/product";
 import Slider from "../../../ui/slider";
 import {FreeMode} from "swiper/modules";
+import SmoothImage from "@/ui/smoothImage";
 
 const IMAGE_SIZE: number = 280;
 
@@ -31,7 +31,7 @@ function Section({product}: ProductSectionProps) {
 				getSlideMeta={item => item}
 				getSlideKey={example => example.image.src}
 				renderSlide={example => (
-					<Image
+					<SmoothImage
 						src={example.image}
 						width={IMAGE_SIZE}
 						height={IMAGE_SIZE * (12 / 10)}

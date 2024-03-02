@@ -32,12 +32,26 @@
 			--slider-location-icon-margin-bottom: 0.5px;
 		}
 
-		:global(.swiper[data-type=main]) :global(.swiper-slide) img {
-			background-color: transparent !important;
+		:global(.swiper[data-type=main]) {
+			:global(.swiper-slide) {
+				div[data-smooth-image] {
+					height: 100%;
+					width: 100%;
+				}
+			}
 		}
 
 		:global(.swiper[data-type=thumbs]) {
-			//height: 14.5%;
+			:global(.swiper-slide) {
+				div[data-smooth-image] {
+					height: 100%;
+					width: 100%;
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+					border-radius: inherit;
+				}
+			}
 		}
 	}
 }

@@ -14,6 +14,27 @@
 	:global(.swiper[data-type=main]) {
 		:global(.swiper-slide) {
 			cursor: pointer;
+
+			div[data-smooth-image] {
+				height: 100%;
+				width: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+		}
+	}
+
+	:global(.swiper[data-type=thumbs]) {
+		:global(.swiper-slide) {
+			div[data-smooth-image] {
+				height: 100%;
+				width: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				border-radius: inherit;
+			}
 		}
 	}
 }
@@ -49,13 +70,18 @@
 
 	width: 100%;
 	position: relative;
-	overflow-x: hidden;
+}
+
+.skeletonThumbsWrapper {
+	border-radius: inherit;
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
 }
 
 .skeletonThumbs {
-	position: absolute;
-	left: 0;
-	top: 0;
+	margin: 0 auto;
+	width: fit-content;
 	height: 100%;
 	display: flex;
 	gap: 12px;

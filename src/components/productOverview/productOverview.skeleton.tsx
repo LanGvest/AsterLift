@@ -15,17 +15,19 @@ export default function ProductOverviewSkeleton({product}: Props) {
 				className={s.skeletonMainSwiper}
 			/>
 			<div className={s.skeletonThumbsSwiper}>
-				<div className={s.skeletonThumbs}>
-					{product.overview.map((image, index) => (
-						<div
-							key={image.image.src + 1}
-							style={{
-								backgroundImage: `url(${image.image.blurDataURL})`
-							}}
-							className={s.skeletonThumb}
-							data-active={index === 0 ? "" : undefined}
-						/>
-					))}
+				<div className={s.skeletonThumbsWrapper}>
+					<div className={s.skeletonThumbs}>
+						{product.overview.map((image, index) => (
+							<div
+								key={image.image.src + 1}
+								style={{
+									backgroundImage: `url(${image.image.blurDataURL})`
+								}}
+								className={s.skeletonThumb}
+								data-active={index === 0 ? "" : undefined}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

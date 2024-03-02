@@ -9,12 +9,13 @@ import {useAppActions} from "@/hooks/useAppActions";
 import {useEffect, useState} from "react";
 import {useIsInitialUpdate} from "@/hooks/useIsInitialUpdate";
 import {useForceUpdate} from "@/hooks/useForceUpdate";
+import SmoothImage from "@/ui/smoothImage";
 
 interface Props {
 	product: Product
 }
 
-const IMAGE_SIZE: number = 500;
+const IMAGE_SIZE: number = 800;
 const THUMB_IMAGE_SIZE: number = 100;
 
 export function ProductOverview({product}: Props) {
@@ -60,10 +61,11 @@ export function ProductOverview({product}: Props) {
 				});
 			}}
 			renderMainSlide={(item, index) => (
-				<Image
+				<SmoothImage
 					style={{
 						backgroundImage: `url(${item.image.blurDataURL})`
 					}}
+					placeholder={"empty"}
 					src={item.image}
 					width={IMAGE_SIZE}
 					height={IMAGE_SIZE * (12 / 10)}
@@ -73,7 +75,7 @@ export function ProductOverview({product}: Props) {
 				/>
 			)}
 			renderThumbSlide={item => (
-				<Image
+				<SmoothImage
 					src={item.image}
 					width={THUMB_IMAGE_SIZE}
 					height={THUMB_IMAGE_SIZE}

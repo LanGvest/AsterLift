@@ -10,12 +10,9 @@
 			border-radius: var(--border-radius);
 			cursor: pointer;
 
-			img {
-				pointer-events: none;
-				user-select: none;
+			div[data-smooth-image] {
+				border-radius: inherit;
 				height: 100%;
-				width: auto;
-				border-radius: var(--border-radius);
 			}
 		}
 	}

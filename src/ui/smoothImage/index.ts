@@ -1,0 +1,1 @@
+export {SmoothImage as default} from "./smoothImage";

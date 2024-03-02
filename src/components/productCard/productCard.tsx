@@ -1,6 +1,5 @@
 import s from "./productCard.module.scss";
 import type {StaticImageData} from "next/image";
-import Image from "next/image";
 import Link from "next/link";
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import type {MouseEventHandler} from "react";
@@ -10,6 +9,7 @@ import type {Product} from "@/types/product";
 import type {Nullable} from "@/utils/helpers";
 import Slider from "@/ui/slider";
 import Config from "@config";
+import SmoothImage from "@/ui/smoothImage";
 
 interface Props {
 	product: Product
@@ -22,6 +22,7 @@ export function ProductCard({product}: Props) {
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	const activeIndexRef = useRef<number>(0);
 	const [allPriority, setAllPriority] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
 
 	const mouseMoveHandler = useCallback<MouseEventHandler<HTMLDivElement>>(event => {
 		if(!swiper || product.preview.length <= 1) return;
@@ -43,7 +44,7 @@ export function ProductCard({product}: Props) {
 	}, [swiper, product]);
 
 	const renderSlide = useCallback((image: StaticImageData, index: number) => (
-		<Image
+		<SmoothImage
 			src={image}
 			alt={product.getName()}
 			title={product.getTitle()}
@@ -70,6 +71,9 @@ export function ProductCard({product}: Props) {
 				onMouseEnter={mouseMoveHandler}
 				onMouseMove={mouseMoveHandler}
 				onMouseLeave={mouseLeaveHandler}
+				style={{
+					backgroundImage: isVisible ? undefined : `url(${product.preview[0].blurDataURL})`
+				}}
 			>
 				<Slider
 					onSwiper={setSwiper}
@@ -81,6 +85,7 @@ export function ProductCard({product}: Props) {
 					navigationButtons={false}
 					className={s.slider}
 					speed={Config.SLIDER.SPEED_FAST}
+					onVisibilityChange={newVisibility => setIsVisible(() => newVisibility === "visible")}
 					onRealIndexChange={swiper => {
 						setActiveIndex(() => swiper.realIndex);
 					}}

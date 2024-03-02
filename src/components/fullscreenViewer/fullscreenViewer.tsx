@@ -16,6 +16,7 @@ import Image from "next/image";
 import Head from "next/head";
 import {useIsInitialUpdate} from "@/hooks/useIsInitialUpdate";
 import {useForceUpdate} from "@/hooks/useForceUpdate";
+import SmoothImage from "@/ui/smoothImage";
 
 const IMAGE_SIZE: number = 800;
 const THUMB_IMAGE_SIZE: number = 100;
@@ -133,17 +134,18 @@ function FullscreenView({data}: FullscreenViewProps) {
 					getProgress={getDefaultSliderProgress}
 					controller={data.controller}
 					renderMainSlide={(item, index) => (
-						<Image
+						<SmoothImage
 							src={item.image}
 							alt={data.getImageAlt(item, index)}
 							title={data.getImageTitle(item, index)}
 							width={IMAGE_SIZE}
 							height={IMAGE_SIZE * (12 / 10)}
 							priority={isPriority(index, priorityIndexes)}
+							placeholder="empty"
 						/>
 					)}
 					renderThumbSlide={(item, index) => (
-						<Image
+						<SmoothImage
 							src={item.image}
 							alt={data.getImageAlt(item, index)}
 							title={data.getImageTitle(item, index)}

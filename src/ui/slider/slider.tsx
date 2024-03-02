@@ -37,6 +37,7 @@ interface Props<T> extends Stylized {
 	getSlideMeta?(item: T, index: number): MediaMeta
 	getSlideClassName?(item: T, index: number): string
 	onRealIndexChange?(swiper: SwiperClass): void
+	onVisibilityChange?(newVisibility: CSSProperties["visibility"]): void
 	onSwiper?(swiper: SwiperClass): void
 }
 
@@ -67,7 +68,8 @@ function Component<T>(props: Props<T>) {
 		renderSlide,
 		onRealIndexChange,
 		onSwiper,
-		getSlideClassName
+		getSlideClassName,
+		onVisibilityChange
 	} = props;
 
 	const isVirtual: boolean = Boolean(virtualModule);
@@ -127,7 +129,10 @@ function Component<T>(props: Props<T>) {
 				if(isFreeMode && getSize(swiper) && getVirtualSize(swiper)) {
 					stepRef.current = getSize(swiper) / (getVirtualSize(swiper) - getSize(swiper));
 				}
-				if(!style?.visibility) setVisibility(() => "visible");
+				if(!style?.visibility) {
+					setVisibility(() => "visible");
+					onVisibilityChange?.("visible");
+				}
 				onSwiper?.(swiper);
 			}}
 			modules={modules}

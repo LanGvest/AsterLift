@@ -36,26 +36,32 @@
 	width: 100%;
 	height: fit-content;
 	position: relative;
-	border-radius: var(--border-radius);
+	border-radius: 8px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 .slider {
-	border-radius: 8px;
+	border-radius: inherit;
 	width: 100%;
 	height: fit-content;
 
 	:global(.swiper-slide) {
-		img {
+		div[data-smooth-image] {
 			user-select: none;
 			width: 100%;
 			height: fit-content;
 			aspect-ratio: 10 / 11;
-			object-fit: cover;
-			object-position: center;
 			pointer-events: none;
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
+
+			img {
+				object-fit: cover;
+				object-position: center;
+			}
 		}
 	}
 }

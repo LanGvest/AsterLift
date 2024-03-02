@@ -41,6 +41,7 @@ export default function Product({productId}: Props) {
 			<ContentBlock className={s.summary}>
 				<LoadingProductContext.Provider value={product}>
 					<ProductInfo product={product}/>
+					{/*<LoadingProductOverviewSkeleton/>*/}
 					<ProductOverview product={product}/>
 				</LoadingProductContext.Provider>
 			</ContentBlock>
