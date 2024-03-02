@@ -1,14 +1,31 @@
 import type {GetServerSideProps, GetServerSidePropsResult} from "next";
 import type {Product} from "@/types/product";
 import type {Nullable} from "@/utils/helpers";
-import s from "../styles/product.module.scss";
-import Products from "../assets/data/products";
-import ContentBlock from "../ui/contentBlock";
-import PageLayout from "../layouts/page";
-import ProductMeta from "../meta/product.meta";
-import ProductInfo from "../components/productInfo";
-import ProductOverview from "../components/productOverview";
-import ProductSections from "../components/productSections";
+import s from "@/styles/product.module.scss";
+import Products from "@/assets/data/products";
+import ContentBlock from "@/ui/contentBlock";
+import PageLayout from "@/layouts/page";
+import ProductMeta from "@/meta/product.meta";
+import ProductInfo from "@/components/productInfo";
+import ProductSections from "@/components/productSections";
+import ProductOverviewSkeleton from "@/components/productOverview/productOverview.skeleton";
+import {createContext, useContext} from "react";
+import dynamic from "next/dynamic";
+
+const LoadingProductContext = createContext<Nullable<Product>>(null);
+
+function LoadingProductOverviewSkeleton() {
+	const product = useContext(LoadingProductContext)!;
+
+	return (
+		<ProductOverviewSkeleton product={product}/>
+	);
+}
+
+const ProductOverview = dynamic(() => import("@/components/productOverview"), {
+	loading: () => <LoadingProductOverviewSkeleton/>,
+	ssr: false
+});
 
 interface Props {
 	productId: string
@@ -22,8 +39,10 @@ export default function Product({productId}: Props) {
 		<PageLayout title={product.getPageTitle()}>
 			<ProductMeta product={product}/>
 			<ContentBlock className={s.summary}>
-				<ProductInfo product={product}/>
-				<ProductOverview product={product}/>
+				<LoadingProductContext.Provider value={product}>
+					<ProductInfo product={product}/>
+					<ProductOverview product={product}/>
+				</LoadingProductContext.Provider>
 			</ContentBlock>
 			<ContentBlock className={s.sections}>
 				<ProductSections product={product}/>

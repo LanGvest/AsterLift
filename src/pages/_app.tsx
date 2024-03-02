@@ -22,7 +22,7 @@ import TargetResolver from "@/components/targetResolver";
 import bg from "@/assets/images/bg.webp";
 
 const inter = Inter({
-	weight: ["400", "600", "700", "800"], // 800 можно будет убрать
+	weight: ["400", "600", "700"], // 800 можно будет убрать
 	style: "normal",
 	subsets: ["latin", "cyrillic"],
 	display: "swap",

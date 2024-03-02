@@ -21,9 +21,14 @@ export function ProductOverview({product}: Props) {
 	const isInitialUpdate = useIsInitialUpdate();
 	const forceUpdate = useForceUpdate();
 	const [activeIndex, setActiveIndex] = useState(0);
+	// const [isVisible, setIsVisible] = useState(false);
 	const {openFullscreenProductOverview} = useAppActions();
 
-	const priorityIndexes = isInitialUpdate ? [0] : getPriorityIndexes(activeIndex, product.overview.length, 2);
+	const priorityIndexes = isInitialUpdate ? [] : getPriorityIndexes(activeIndex, product.overview.length, 2);
+
+	// const style = useMemo<CSSProperties>(() => ({
+	// 	// display: isVisible ? undefined : "none"
+	// }), [isVisible]);
 
 	useEffect(() => {
 		forceUpdate();
@@ -31,6 +36,7 @@ export function ProductOverview({product}: Props) {
 
 	return (
 		<SliderWithThumbs
+			// style={style}
 			className={s.container}
 			mainGap={12}
 			thumbsGap={12}
@@ -42,6 +48,7 @@ export function ProductOverview({product}: Props) {
 			onActiveIndexChange={index => setActiveIndex(index)}
 			getProgress={getDefaultSliderProgress}
 			autoplayModule={Autoplay}
+			// onVisibilityChange={newVisibility => setIsVisible(() => newVisibility === "visible")}
 			onClickMainSlide={(swiper, _item, index) => {
 				openFullscreenProductOverview({
 					product,

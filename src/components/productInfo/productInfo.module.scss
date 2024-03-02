@@ -29,13 +29,13 @@
 
 .feature {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	gap: 12px;
 
 	svg {
 		overflow: visible;
-		width: 20px;
-		height: 20px;
+		width: 19.5px;
+		height: 19.5px;
 		stroke: var(--color-primary);
 		stroke-width: 6px;
 		fill: none;

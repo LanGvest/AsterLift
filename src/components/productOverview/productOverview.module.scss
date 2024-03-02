@@ -1,10 +1,12 @@
-.container {
+.container, .skeletonContainer {
 	flex: 6;
 	flex-shrink: 0;
 	height: calc(100vh - 40px - var(--height-header));
 	min-height: 420px;
 	max-height: 700px;
+}
 
+.container {
 	:global(.swiper) {
 		border-radius: var(--border-radius);
 	}
@@ -16,10 +18,80 @@
 	}
 }
 
+.skeletonContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.skeletonMainSwiper {
+	flex: 1;
+	border-radius: var(--border-radius);
+	background-color: var(--background-container-1);
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.skeletonThumbsSwiper {
+	--slider-active-thumb-color-primary: var(--color-primary);
+	--slider-active-thumb-color-secondary: white;
+
+	--slider-active-thumb-width-primary: 3.5px;
+	--slider-active-thumb-width-secondary: 6.5px;
+
+	border-radius: var(--border-radius);
+	height: 13%;
+
+	min-height: 75px;
+	max-height: 95px;
+
+	width: 100%;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.skeletonThumbs {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	display: flex;
+	gap: 12px;
+}
+
+.skeletonThumb {
+	height: 100%;
+	background-color: var(--background-container-1);
+	aspect-ratio: 1 / 1;
+	border-radius: var(--border-radius);
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	&[data-active]::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: var(--border-radius);
+		background-color: rgba(255, 255, 255, 0.25);
+		box-shadow: 0 0 0 var(--slider-active-thumb-width-primary) var(--slider-active-thumb-color-primary) inset, 0 0 0 var(--slider-active-thumb-width-secondary) var(--slider-active-thumb-color-secondary) inset;
+	}
+}
+
 @media (width < 900px) {
-	.container {
+	.container, .skeletonContainer {
 		margin-top: 30px;
 		max-height: 550px;
 		min-height: 320px;
+	}
+}
+
+@media (width < 900px) {
+	.skeletonThumbsSwiper {
+		min-height: 65px;
+		max-height: 75px;
 	}
 }
