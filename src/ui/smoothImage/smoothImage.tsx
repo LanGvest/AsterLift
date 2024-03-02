@@ -17,13 +17,13 @@ function getBackgroundImageUri(src: Props["src"], placeholder: Props["placeholde
 	return null;
 }
 
-function getSrcUrl(src: Props["src"]): string {
-	if(typeof src === "object") {
-		const image: StaticImageData = "default" in src ? src.default : src;
-		return image.src;
-	}
-	return src;
-}
+// function getSrcUrl(src: Props["src"]): string {
+// 	if(typeof src === "object") {
+// 		const image: StaticImageData = "default" in src ? src.default : src;
+// 		return image.src;
+// 	}
+// 	return src;
+// }
 
 interface Props extends ComponentProps<typeof NextImage> {}
 

@@ -10,8 +10,6 @@ import ExternalLinkIcon from "@/assets/icons/externalLink.icon";
 import Link from "next/link";
 
 export default function IndexPage() {
-	console.log("IndexPage");
-
 	// noinspection HtmlUnknownAnchorTarget
 	return (
 		<PageLayout title="Подъёмное оборудование">

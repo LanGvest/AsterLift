@@ -1,7 +1,7 @@
 import s from "./productCard.module.scss";
 import type {StaticImageData} from "next/image";
 import Link from "next/link";
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 import type {MouseEventHandler} from "react";
 import type SwiperClass from "swiper";
 import ProductTags from "@/components/productTags";
@@ -24,8 +24,6 @@ export function ProductCard({product}: Props) {
 	const [allPriority, setAllPriority] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 
-	console.log("ProductCard");
-
 	const mouseMoveHandler = useCallback<MouseEventHandler<HTMLDivElement>>(event => {
 		const swiper = swiperRef.current;
 		if(!swiper || product.preview.length <= 1) return;
@@ -47,7 +45,7 @@ export function ProductCard({product}: Props) {
 		swiper.slideTo(0, 0);
 	}, [product]);
 
-	const renderSlide = useCallback((image: StaticImageData, index: number) => (
+	const renderSlide = useCallback((image: StaticImageData) => (
 		<SmoothImage
 			src={image}
 			alt={product.getName()}

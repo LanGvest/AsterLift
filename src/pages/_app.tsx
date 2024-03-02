@@ -30,8 +30,6 @@ const inter = Inter({
 
 // noinspection JSUnusedGlobalSymbols
 export default function App({Component, pageProps}: AppProps) {
-	console.log("APP");
-
 	return (
 		<Provider store={Store}>
 			<Head>
