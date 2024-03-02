@@ -18,13 +18,16 @@ interface Props {
 const IMAGE_SIZE: number = 260;
 
 export function ProductCard({product}: Props) {
-	const [swiper, setSwiper] = useState<Nullable<SwiperClass>>(null);
+	const swiperRef = useRef<Nullable<SwiperClass>>(null);
 	const [activeIndex, setActiveIndex] = useState<number>(0);
 	const activeIndexRef = useRef<number>(0);
 	const [allPriority, setAllPriority] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 
+	console.log("ProductCard");
+
 	const mouseMoveHandler = useCallback<MouseEventHandler<HTMLDivElement>>(event => {
+		const swiper = swiperRef.current;
 		if(!swiper || product.preview.length <= 1) return;
 		const width: number = event.currentTarget.offsetWidth;
 		const x: number = event.nativeEvent.offsetX;
@@ -35,13 +38,14 @@ export function ProductCard({product}: Props) {
 		if(activeIndexRef.current === newActiveIndex) return;
 		activeIndexRef.current = newActiveIndex;
 		swiper.slideTo(newActiveIndex, 0);
-	}, [swiper, product]);
+	}, [product]);
 
 	const mouseLeaveHandler = useCallback<MouseEventHandler<HTMLDivElement>>(() => {
+		const swiper = swiperRef.current;
 		if(!swiper || product.preview.length <= 1 || activeIndexRef.current === 0) return;
 		activeIndexRef.current = 0;
 		swiper.slideTo(0, 0);
-	}, [swiper, product]);
+	}, [product]);
 
 	const renderSlide = useCallback((image: StaticImageData, index: number) => (
 		<SmoothImage
@@ -54,12 +58,6 @@ export function ProductCard({product}: Props) {
 			placeholder="blur"
 		/>
 	), [product, allPriority]);
-
-	useEffect(() => {
-		requestIdleCallback(() => {
-			setAllPriority(true);
-		});
-	}, []);
 
 	return (
 		<Link
@@ -76,7 +74,7 @@ export function ProductCard({product}: Props) {
 				}}
 			>
 				<Slider
-					onSwiper={setSwiper}
+					onSwiper={swiper => swiperRef.current = swiper}
 					items={product.preview}
 					getSlideKey={image => image.src}
 					renderSlide={renderSlide}
@@ -85,7 +83,10 @@ export function ProductCard({product}: Props) {
 					navigationButtons={false}
 					className={s.slider}
 					speed={Config.SLIDER.SPEED_FAST}
-					onVisibilityChange={newVisibility => setIsVisible(() => newVisibility === "visible")}
+					onVisibilityChange={newVisibility => {
+						setIsVisible(() => newVisibility === "visible");
+						setAllPriority(() => true);
+					}}
 					onRealIndexChange={swiper => {
 						setActiveIndex(() => swiper.realIndex);
 					}}

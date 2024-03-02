@@ -18,7 +18,6 @@ import FontVariable from "@/components/fontVariable";
 import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
-import TargetResolver from "@/components/targetResolver";
 import bg from "@/assets/images/bg.webp";
 
 const inter = Inter({
@@ -31,6 +30,8 @@ const inter = Inter({
 
 // noinspection JSUnusedGlobalSymbols
 export default function App({Component, pageProps}: AppProps) {
+	console.log("APP");
+
 	return (
 		<Provider store={Store}>
 			<Head>
@@ -45,7 +46,6 @@ export default function App({Component, pageProps}: AppProps) {
 			<YandexWebmasterMeta/>
 			<OrganizationMeta/>
 			<FontVariable name="inter" font={inter}/>
-			<TargetResolver/>
 			<FullscreenViewer/>
 			<PageHeader/>
 			<Component {...pageProps}/>

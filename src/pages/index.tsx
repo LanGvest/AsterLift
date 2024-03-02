@@ -10,13 +10,15 @@ import ExternalLinkIcon from "@/assets/icons/externalLink.icon";
 import Link from "next/link";
 
 export default function IndexPage() {
+	console.log("IndexPage");
+
 	// noinspection HtmlUnknownAnchorTarget
 	return (
 		<PageLayout title="Подъёмное оборудование">
 			<GradientBackground/>
 			<ContentBlock className={s.learnMore}>
 				<h1>{Config.PROJECT_NAME}</h1>
-				<p>Производитель подъёмного оборудования в Беларуси</p>
+				<p className={s.description}>Производитель подъёмного оборудования в Беларуси</p>
 				<div className={s.buttons}>
 					<Link href="/about" data-role="btn">
 						<p>Узнать больше</p>

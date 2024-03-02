@@ -1,5 +1,4 @@
 import s from "./productOverview.module.scss";
-import Image from "next/image";
 import "swiper/css/free-mode";
 import {getDefaultSliderProgress, getPriorityIndexes, isPriority} from "@/utils/helpers";
 import type {Product} from "@/types/product";
@@ -28,7 +27,7 @@ export function ProductOverview({product}: Props) {
 	const priorityIndexes = isInitialUpdate ? [] : getPriorityIndexes(activeIndex, product.overview.length, 1);
 
 	// const style = useMemo<CSSProperties>(() => ({
-	// 	// display: isVisible ? undefined : "none"
+	// 	display: isVisible ? undefined : "none"
 	// }), [isVisible]);
 
 	useEffect(() => {
@@ -37,7 +36,6 @@ export function ProductOverview({product}: Props) {
 
 	return (
 		<SliderWithThumbs
-			// style={style}
 			className={s.container}
 			mainGap={12}
 			thumbsGap={12}
@@ -65,7 +63,7 @@ export function ProductOverview({product}: Props) {
 					style={{
 						backgroundImage: `url(${item.image.blurDataURL})`
 					}}
-					placeholder={"empty"}
+					placeholder="empty"
 					src={item.image}
 					width={IMAGE_SIZE}
 					height={IMAGE_SIZE * (12 / 10)}

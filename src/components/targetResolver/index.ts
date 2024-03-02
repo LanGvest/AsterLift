@@ -1,1 +1,0 @@
-export {TargetResolver as default} from "./targetResolver";

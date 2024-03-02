@@ -2,10 +2,9 @@ import NextImage from "next/image";
 import type {StaticImageData} from "next/image";
 import {useCallback, useState} from "react";
 import type {ComponentProps, ReactEventHandler} from "react";
-import {combineClasses} from "@/utils/helpers";
 import type {Nullable} from "@/utils/helpers";
 
-const TRANSITION_TIME: number = 200;
+const TRANSITION_TIME: number = 280;
 const EMPTY_IMAGE_DATA: `data:image/${string}` = "data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\"/>";
 
 function getBackgroundImageUri(src: Props["src"], placeholder: Props["placeholder"]): Nullable<string> {
@@ -18,11 +17,17 @@ function getBackgroundImageUri(src: Props["src"], placeholder: Props["placeholde
 	return null;
 }
 
-interface Props extends ComponentProps<typeof NextImage> {
-	skipAnimation?: boolean
+function getSrcUrl(src: Props["src"]): string {
+	if(typeof src === "object") {
+		const image: StaticImageData = "default" in src ? src.default : src;
+		return image.src;
+	}
+	return src;
 }
 
-export function SmoothImage({src, onLoad, onError, style, className, placeholder, skipAnimation = false, ...props}: Props) {
+interface Props extends ComponentProps<typeof NextImage> {}
+
+export function SmoothImage({src, onLoad, onError, style, className, placeholder, alt, title, ...props}: Props) {
 	const [backgroundImageUri, setBackgroundImageUri] = useState<Nullable<string>>(() => getBackgroundImageUri(src, placeholder));
 	const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -32,6 +37,7 @@ export function SmoothImage({src, onLoad, onError, style, className, placeholder
 			setTimeout(() => {
 				requestIdleCallback(() => {
 					setBackgroundImageUri(() => null);
+					// increaseContentPaintCount();
 				});
 			}, TRANSITION_TIME);
 		});
@@ -47,7 +53,7 @@ export function SmoothImage({src, onLoad, onError, style, className, placeholder
 
 	return (
 		<div
-			className={combineClasses(className)}
+			className={className}
 			data-smooth-image=""
 			style={{
 				backgroundImage: backgroundImageUri ? `url(${backgroundImageUri})` : "none",
@@ -63,6 +69,8 @@ export function SmoothImage({src, onLoad, onError, style, className, placeholder
 					opacity: Number(isVisible),
 					transition: `opacity ${TRANSITION_TIME}ms ease-out`
 				}}
+				alt={alt}
+				title={title}
 				{...props}
 			/>
 		</div>

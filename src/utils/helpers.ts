@@ -31,6 +31,10 @@ export function isClient(): boolean {
 	return Boolean(globalThis.window);
 }
 
+export function isServer(): boolean {
+	return !isClient();
+}
+
 export function combineClasses(...classNames: Array<Optional<string | boolean>>): Undefinable<string> {
 	return classNames.filter(item => item && typeof item === "string").join(" ") || undefined;
 }
