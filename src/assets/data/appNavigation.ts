@@ -3,7 +3,13 @@ import type {AppNavigationItem} from "@/types/navigation";
 const AppNavigation: Array<AppNavigationItem> = [
 	{
 		path: "/",
-		name: "Главная"
+		name: "Главная",
+		anchors: [
+			{
+				path: "/#catalog",
+				name: "Каталог"
+			}
+		]
 	},
 	{
 		path: "/about",

@@ -51,9 +51,19 @@ export function getDefaultProductName(this: Product): string {
 	return `${this.type} ${this.model}`;
 }
 
+export function getDefaultProductExtendedName(this: Product): string {
+	return `${this.extendedType || this.type} ${this.model}`;
+}
+
 export function getDefaultProductMinPrice(this: Product): string {
 	return this.minPrice.toLocaleString("ru-RU");
 }
+
+export function getDefaultProductPageDescription(this: Product): string {
+	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPrice()} BYN в Беларуси. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
+}
+
+// Производство «${Config.PROJECT_NAME}».
 
 export function getDefaultSliderProgress<T>(_activeItem: T, activeIndex: number, items: Array<T>): string {
 	return `${activeIndex + 1} из ${items.length}`;
@@ -89,6 +99,10 @@ export function withoutDot(text: string): string {
 	text = text.trim();
 	if(text.endsWith(".")) text = text.substring(0, text.length - 1);
 	return text;
+}
+
+export function lowerCaseFirst(text: string): string {
+	return text[0].toLowerCase() + text.substring(1, text.length);
 }
 
 export function getCorrectWord(_0: string, _1: string, _2: string, amount: number): string {

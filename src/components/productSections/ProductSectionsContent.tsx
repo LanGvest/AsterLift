@@ -10,8 +10,6 @@ interface Props {
 }
 
 function Component({product, sections}: Props) {
-	// const [isCopied, setIsCopied] = useState(false);
-
 	return (
 		<div className={s.content}>
 			{sections.map((nav, index) => (
@@ -27,19 +25,12 @@ function Component({product, sections}: Props) {
 								href={"#" + nav.id}
 								className={s.name}
 								onClick={() => {
-									(async () => {
-										if(!navigator.clipboard || !navigator.clipboard.writeText) return;
-										const url = new URL(location.href);
-										url.hash = nav.id;
-										await navigator.clipboard.writeText(url.href);
-										// setIsCopied(true);
-									})();
+									if(!navigator.clipboard || !navigator.clipboard.writeText) return;
+									const url = new URL(location.href);
+									url.hash = nav.id;
+									navigator.clipboard.writeText(url.href).then();
 								}}
-								// onMouseLeave={() => {
-								// 	setIsCopied(false);
-								// }}
-								// title={isCopied ? "Ссылка скопирована!" : "Нажмите, чтобы скопировать ссылку"}
-								title={"Нажмите, чтобы скопировать ссылку"}
+								title="Нажмите, чтобы скопировать ссылку"
 							>
 								<h2>{nav.name}</h2>
 								<div className={s.link}>

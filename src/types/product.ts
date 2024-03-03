@@ -39,7 +39,9 @@ export interface Product {
 	group: string
 	category: ProductCategory
 	type: string
+	extendedType?: string
 	catalogName: string
+	keywords: Array<string>
 	description: string
 	shortDescription: string
 	minPrice: number
@@ -51,11 +53,17 @@ export interface Product {
 	specifications: Array<ProductSpecification>
 	examples: Array<ImageMedia>
 	files: Array<FileMedia>
+	rating: {
+		value: number
+		count: number
+	}
 	About?: FunctionComponent
 	getTitle(): string
 	getPageTitle(): string
 	getName(): string
+	getExtendedName(): string
 	getMinPrice(): string
+	getPageDescription(): string
 }
 
 export interface ProductSection {

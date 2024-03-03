@@ -9,6 +9,7 @@ import ContentBlock from "@/ui/contentBlock";
 import Image from "next/image";
 import Slider from "@/ui/slider";
 import CERTS from "@/assets/data/certs";
+import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 
 const COMPANY_AGE: number = getCompanyAge();
 
@@ -16,6 +17,7 @@ export default function AboutPage() {
 	return (
 		<PageLayout title="О предприятии">
 			<GradientBackground/>
+			<BreadcrumbsMeta currentName="О предприятии"/>
 			<ContentBlock className={s.description}>
 				<div className={s.illustration}>
 					<BelarusIcon className={s.belarus}/>

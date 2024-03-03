@@ -1,8 +1,10 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
 import {
+	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductName,
+	getDefaultProductPageDescription,
 	getDefaultProductPageTitle,
 	getDefaultProductTitle,
 	getNextId
@@ -16,6 +18,7 @@ export const PP_110_02: Product = {
 	group: "ПП-110",
 	category: ProductCategory.DISABLED_PEOPLE,
 	type: "Наклонный подъёмник для инвалидов",
+	extendedType: "Наклонный лестничный подъёмник для инвалидов",
 	catalogName: "Наклонный ПП-110.Э",
 	description: "Электрический, со складной платформой, боковыми поручнями и пандусами",
 	shortDescription: "Электрический, со складной платформой, боковыми поручнями и пандусами",
@@ -170,6 +173,18 @@ export const PP_110_02: Product = {
 	getTitle: getDefaultProductTitle,
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
+	getExtendedName: getDefaultProductExtendedName,
 	getMinPrice: getDefaultProductMinPrice,
-	About
+	About,
+	keywords: [
+		"наклонный",
+		"лестничный",
+		"электрический",
+		"складная платформа"
+	],
+	rating: {
+		value: 4.3,
+		count: 28
+	},
+	getPageDescription: getDefaultProductPageDescription
 };

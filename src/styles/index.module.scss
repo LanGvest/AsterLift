@@ -26,21 +26,40 @@
 		font-weight: 600;
 
 		opacity: 0;
-		animation: animation 420ms ease forwards;
-		animation-delay: 150ms;
-	}
+		animation: animation 480ms  forwards;
+		animation-delay: 180ms;
+		position: relative;
 
-	.description {
-		text-align: center;
-		max-width: 520px;
-		margin: 0 20px;
-		font-size: 24px;
-		line-height: var(--line-height-paragraph);
+		span {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 500px;
+			height: 300px;
+			display: inline-block;
+			background-color: #1c7bd0;
+			overflow: visible;
 
-		opacity: 0;
-		animation: animation 420ms ease forwards;
-		animation-delay: 300ms;
+			svg {
+				height: 40px;
+				flex-shrink: 0;
+				max-height: 100%;
+				overflow: hidden;
+			}
+		}
 	}
+}
+
+.description {
+	text-align: center;
+	max-width: 520px;
+	margin: 0 20px;
+	font-size: 24px;
+	line-height: var(--line-height-paragraph);
+
+	opacity: 0;
+	animation: animation 480ms  forwards;
+	animation-delay: 360ms;
 }
 
 .buttons {
@@ -48,8 +67,8 @@
 	gap: 25px;
 
 	opacity: 0;
-	animation: animation 420ms ease forwards;
-	animation-delay: 450ms;
+	animation: animation 480ms  forwards;
+	animation-delay: 540ms;
 
 	a {
 		opacity: 1;

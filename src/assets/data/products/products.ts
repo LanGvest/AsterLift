@@ -11,3 +11,9 @@ export const Products: Array<Product> = [
 	PP_110_M,
 	PP_110_E
 ];
+
+export const LOWEST_PRICE: string = getLowestPrice();
+
+function getLowestPrice(): string {
+	return Math.min(...Products.map(product => product.minPrice)).toLocaleString("ru-RU");
+}

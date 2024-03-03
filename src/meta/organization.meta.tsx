@@ -1,12 +1,12 @@
 import type {Organization as OrganizationSchema} from "schema-dts";
-import Config from "../../config";
+import Config from "@config";
 import Head from "next/head";
 import {microdataToString} from "@/utils/helpers";
 
 export default function OrganizationMeta() {
 	const microdata: OrganizationSchema = {
 		"@type": "Organization",
-		"url": "https://asterlift.by",
+		"url": Config.PROJECT_ORIGIN + "/",
 		"name": "Астер-Лифт",
 		"alternateName": [
 			"Aster-Lift",
@@ -17,18 +17,17 @@ export default function OrganizationMeta() {
 		"logo": "https://asterlift.by/images/logo.png",
 		"image": "https://asterlift.by/images/logo.png",
 		"description": "Производитель подъёмного оборудования в Беларуси.",
+		"telephone": Config.CONTACTS.PHONE_NUMBER,
 		"email": Config.CONTACTS.EMAIL,
 		"taxID": "491316077",
 		"isicV4": "2816",
-		"keywords": [
-			"подъёмное оборудование",
-			"подъёмники для инвалидов"
-		],
+		"areaServed": "Беларусь",
+		"foundingDate": "2014-12-11",
 		"location": {
 			"@type": "Place",
 			"address": {
 				"@type": "PostalAddress",
-				"addressCountry": "Беларусь",
+				"addressCountry": "BY",
 				"addressRegion": "Гомельская область",
 				"addressLocality": "Гомель",
 				"postalCode": "246018",
@@ -40,17 +39,14 @@ export default function OrganizationMeta() {
 				"longitude": "30.955855"
 			}
 		},
-		"telephone": Config.CONTACTS.PHONE_NUMBER,
 		"address": {
 			"@type": "PostalAddress",
-			"addressCountry": "Беларусь",
+			"addressCountry": "BY",
 			"addressRegion": "Гомельская область",
 			"addressLocality": "Гомель",
 			"postalCode": "246018",
 			"streetAddress": "ул. Интендантская, д. 1А"
-		},
-		"areaServed": "Беларусь",
-		"foundingDate": "2014-12-11"
+		}
 	};
 
 	// noinspection HtmlRequiredTitleElement

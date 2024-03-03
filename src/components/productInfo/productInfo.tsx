@@ -21,14 +21,14 @@ function Component({product}: Props) {
 					<OkIcon/>
 					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности ТР-ТС 010</Link></p>
 				</div>
-				{/*<div className={s.feature}>*/}
-				{/*	<OkIcon/>*/}
-				{/*	<p>Имеется ещё что-нибудь</p>*/}
-				{/*</div>*/}
-				{/*<div className={s.feature}>*/}
-				{/*	<OkIcon/>*/}
-				{/*	<p>И вообще всё круто</p>*/}
-				{/*</div>*/}
+				<div className={s.feature}>
+					<OkIcon/>
+					<p>Изготовление, доставка и монтаж за 14 дней</p>
+				</div>
+				<div className={s.feature}>
+					<OkIcon/>
+					<p>Гарантия 12 месяцев</p>
+				</div>
 			</div>
 			<div className={s.minPrice}>
 				<p>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>

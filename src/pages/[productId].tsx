@@ -11,6 +11,9 @@ import ProductSections from "@/components/productSections";
 import ProductOverviewSkeleton from "@/components/productOverview/productOverview.skeleton";
 import {createContext, useContext} from "react";
 import dynamic from "next/dynamic";
+import DescriptionMeta from "@/meta/description.meta";
+import KeywordsMeta from "@/meta/keywords.meta";
+import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 
 const LoadingProductContext = createContext<Nullable<Product>>(null);
 
@@ -38,6 +41,9 @@ export default function Product({productId}: Props) {
 	return (
 		<PageLayout title={product.getPageTitle()}>
 			<ProductMeta product={product}/>
+			<KeywordsMeta phrases={product.keywords}/>
+			<DescriptionMeta text={product.getPageDescription()}/>
+			<BreadcrumbsMeta currentName={product.model}/>
 			<ContentBlock className={s.summary}>
 				<LoadingProductContext.Provider value={product}>
 					<ProductInfo product={product}/>

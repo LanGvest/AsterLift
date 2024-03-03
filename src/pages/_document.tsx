@@ -1,16 +1,12 @@
 import NextDocument, {Html, Main, Head, NextScript} from "next/document";
 import Config from "@config";
 import React from "react";
-import Script from "next/script";
-import {getYandexMetrikaScriptCode, YandexMetrikaNoScript} from "@/meta/yandexMetrika.meta";
 
 export default class Document extends NextDocument {
 	render() {
 		return (
 			<Html lang="ru" dir="ltr">
 				<Head>
-					<Script id="yandex-metrika" strategy="beforeInteractive">{getYandexMetrikaScriptCode()}</Script>
-					<YandexMetrikaNoScript/>
 					<meta name="format-detection" content="telephone=no, email=no, address=no, date=no"/>
 					<meta name="google" content="notranslate"/>
 					<meta name="copyright" content={Config.PROJECT_NAME}/>

@@ -19,6 +19,9 @@ import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
 import bg from "@/assets/images/bg.webp";
+import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
+import React from "react";
+import CanonicalPageMeta from "@/meta/canonicalPage.meta";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -35,13 +38,14 @@ export default function App({Component, pageProps}: AppProps) {
 			<Head>
 				<title>{Config.PROJECT_NAME}</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
-				<meta name="description" content={Config.PROJECT_DESCRIPTION}/>
 				<meta name="theme-color" content="#1a1a1c"/>
 				<meta name="color-scheme" content="light only"/>
 				<link rel="preload" as="image" href={bg.src} fetchPriority="high"/>
 			</Head>
-			<RobotsMeta/>
+			{/*<RobotsMeta/>*/}
+			<YandexMetrikaMeta/>
 			<YandexWebmasterMeta/>
+			<CanonicalPageMeta/>
 			<OrganizationMeta/>
 			<FontVariable name="inter" font={inter}/>
 			<FullscreenViewer/>

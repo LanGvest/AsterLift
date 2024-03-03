@@ -1,8 +1,10 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
 import {
+	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductName,
+	getDefaultProductPageDescription,
 	getDefaultProductPageTitle,
 	getDefaultProductTitle,
 	getNextId
@@ -231,6 +233,18 @@ export const PP_101_A: Product = {
 	getTitle: getDefaultProductTitle,
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
+	getExtendedName: getDefaultProductExtendedName,
 	getMinPrice: getDefaultProductMinPrice,
-	About
+	About,
+	keywords: [
+		"вертикальный",
+		"электрический",
+		"уличный",
+		"складная платформа"
+	],
+	rating: {
+		value: 4.8,
+		count: 47
+	},
+	getPageDescription: getDefaultProductPageDescription
 };
