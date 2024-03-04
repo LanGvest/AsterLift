@@ -5,7 +5,7 @@ import React from "react";
 export default class Document extends NextDocument {
 	render() {
 		return (
-			<Html lang="ru" dir="ltr">
+			<Html lang="ru" dir="ltr" prefix="business: https://ogp.me/ns/business# product: https://ogp.me/ns/product#">
 				<Head>
 					<meta name="format-detection" content="telephone=no, email=no, address=no, date=no"/>
 					<meta name="google" content="notranslate"/>
