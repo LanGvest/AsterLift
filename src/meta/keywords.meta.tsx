@@ -2,7 +2,8 @@ import Head from "next/head";
 import {isDevelopment} from "@/utils/helpers";
 
 interface Props {
-	phrases: Array<string>
+	startPhrases?: Array<string>
+	endPhrases?: Array<string>
 }
 
 const COMMON_PHRASES: Array<string> = [
@@ -16,8 +17,8 @@ const COMMON_PHRASES: Array<string> = [
 	"в беларуси"
 ];
 
-export default function KeywordsMeta({phrases}: Props) {
-	const keywords: Array<string> = phrases.concat(COMMON_PHRASES);
+export default function KeywordsMeta({startPhrases = [], endPhrases = []}: Props) {
+	const keywords: Array<string> = [...startPhrases, ...COMMON_PHRASES, ...endPhrases];
 	// const [isHidden, setIsHidden] = useState(false);
 	//
 	// useEffect(() => {

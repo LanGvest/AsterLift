@@ -24,6 +24,15 @@ const config = {
 		scrollRestoration: true
 	},
 	webpack(config, {dev}) {
+		config.module.rules.push({
+			test: /config\.[tj]s$/,
+			loader: "string-replace-loader",
+			options: {
+				search: "%BUILT_AT%",
+				replace: new Date().toISOString()
+			}
+		});
+
 		const rules = config.module.rules
 			.find(rule => typeof rule.oneOf === "object")
 			.oneOf.filter(rule => Array.isArray(rule.use));

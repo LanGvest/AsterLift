@@ -5,8 +5,8 @@ import {
 	getDefaultProductMinPrice,
 	getDefaultProductName,
 	getDefaultProductPageDescription,
-	getDefaultProductPageTitle,
-	getDefaultProductTitle,
+	getDefaultProductPageTitle, getDefaultProductPluralName,
+	getDefaultProductTitle, getDefaultProductUrl,
 	getNextId
 } from "@/utils/helpers";
 import {TOP_SALES} from "@/assets/data/productTags";
@@ -19,6 +19,7 @@ export const PP_101_A: Product = {
 	group: "ПП-101",
 	category: ProductCategory.DISABLED_PEOPLE,
 	type: "Вертикальный подъёмник для инвалидов",
+	pluralType: "Вертикальные подъёмники для инвалидов",
 	catalogName: "Вертикальный ПП-101.А",
 	description: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
 	shortDescription: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
@@ -234,7 +235,9 @@ export const PP_101_A: Product = {
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
 	getExtendedName: getDefaultProductExtendedName,
+	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
+	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [
 		"вертикальный",

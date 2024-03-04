@@ -10,17 +10,16 @@ import Head from "next/head";
 import {Provider} from "react-redux";
 import {Store} from "@/utils/store";
 import Config from "@config";
-import RobotsMeta from "@/meta/robots.meta";
+import bg from "@/assets/images/bg.webp";
 import PageHeader from "@/components/pageHeader/pageHeader";
 import PageFooter from "@/components/pageFooter/pageFooter";
 import {Inter} from "next/font/google";
+import RobotsMeta from "@/meta/robots.meta";
 import FontVariable from "@/components/fontVariable";
 import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
-import bg from "@/assets/images/bg.webp";
 import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
-import React from "react";
 import CanonicalPageMeta from "@/meta/canonicalPage.meta";
 
 const inter = Inter({
@@ -40,9 +39,9 @@ export default function App({Component, pageProps}: AppProps) {
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 				<meta name="theme-color" content="#1a1a1c"/>
 				<meta name="color-scheme" content="light only"/>
-				<link rel="preload" as="image" href={bg.src} fetchPriority="high"/>
+				<link rel="preload" as="image" href={bg.src}/>
 			</Head>
-			{/*<RobotsMeta/>*/}
+			<RobotsMeta/>
 			<YandexMetrikaMeta/>
 			<YandexWebmasterMeta/>
 			<CanonicalPageMeta/>

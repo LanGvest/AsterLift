@@ -1,6 +1,6 @@
 import Head from "next/head";
 import {useRouter} from "next/router";
-import Config from "@config";
+import {validateUrl} from "@/utils/url";
 
 export default function CanonicalPageMeta() {
 	const router = useRouter();
@@ -9,7 +9,7 @@ export default function CanonicalPageMeta() {
 
 	return (
 		<Head>
-			<link rel="canonical" href={Config.PROJECT_ORIGIN + path}/>
+			<link rel="canonical" href={validateUrl(path)}/>
 		</Head>
 	);
 }

@@ -40,6 +40,7 @@ export interface Product {
 	category: ProductCategory
 	type: string
 	extendedType?: string
+	pluralType?: string
 	catalogName: string
 	keywords: Array<string>
 	description: string
@@ -58,10 +59,12 @@ export interface Product {
 		count: number
 	}
 	About?: FunctionComponent
+	getUrl(): string
 	getTitle(): string
 	getPageTitle(): string
 	getName(): string
 	getExtendedName(): string
+	getPluralName(): string
 	getMinPrice(): string
 	getPageDescription(): string
 }

@@ -5,10 +5,10 @@ const AppNavigation: Array<AppNavigationItem> = [
 		path: "/",
 		name: "Главная",
 		anchors: [
-			{
-				path: "/#catalog",
-				name: "Каталог"
-			}
+			// {
+			// 	path: "/#catalog",
+			// 	name: "Каталог"
+			// }
 		]
 	},
 	{

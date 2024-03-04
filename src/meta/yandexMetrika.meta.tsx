@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element,@next/next/no-script-component-in-head */
+/* eslint-disable @next/next/no-img-element */
 
 import Script from "next/script";
-import React from "react";
 
 const COUNTER_ID: number = 96598013;
 

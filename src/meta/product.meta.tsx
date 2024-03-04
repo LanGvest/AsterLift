@@ -1,8 +1,8 @@
-import Head from "next/head";
 import type {Product} from "@/types/product";
 import type {Product as ProductSchema} from "schema-dts";
-import {microdataToString} from "@/utils/helpers";
 import Config from "@config";
+import {validateUrl} from "@/utils/url";
+import MicrodataMeta from "@/meta/microdata.meta";
 
 interface Props {
 	product: Product
@@ -11,21 +11,15 @@ interface Props {
 export default function ProductMeta({product}: Props) {
 	const microdata: ProductSchema = {
 		"@type": "Product",
-		"url": `${Config.PROJECT_ORIGIN}/${product.id}`,
+		"url": validateUrl(product.getUrl()),
 		"productID": product.id,
-		"category": product.type,
-		"description": product.getPageDescription(),
 		"name": product.getName(),
+		"description": product.getPageDescription(),
+		"category": product.type,
 		"model": product.model,
-		"image": product.overview.map(image => image.image.src),
-		"brand": {
-			"@type": "Brand",
-			"name": Config.PROJECT_NAME
-		},
-		"manufacturer": {
-			"@type": "Organization",
-			"name": Config.PROJECT_NAME
-		},
+		"image": product.overview.map(image => validateUrl(image.image.src)),
+		"brand": Config.PROJECT_NAME,
+		"manufacturer": Config.PROJECT_NAME,
 		"aggregateRating": {
 			"@type": "AggregateRating",
 			"ratingValue": product.rating.value,
@@ -33,7 +27,7 @@ export default function ProductMeta({product}: Props) {
 		},
 		"offers": {
 			"@type": "AggregateOffer",
-			"url": `${Config.PROJECT_ORIGIN}/${product.id}`,
+			"url": validateUrl(product.getUrl()),
 			"availability": "https://schema.org/PreOrder",
 			"itemCondition": "https://schema.org/NewCondition",
 			"lowPrice": product.minPrice,
@@ -48,12 +42,7 @@ export default function ProductMeta({product}: Props) {
 		}
 	};
 
-	// noinspection HtmlRequiredTitleElement
 	return (
-		<Head>
-			<script type="application/ld+json" dangerouslySetInnerHTML={{
-				__html: microdataToString(microdata)
-			}}/>
-		</Head>
+		<MicrodataMeta microdata={microdata}/>
 	);
 }

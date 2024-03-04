@@ -67,8 +67,7 @@ export default function AboutPage() {
 							// width={IMAGE_SIZE}
 							// height={IMAGE_SIZE * (12 / 10)}
 							placeholder="blur"
-							alt={cert.description!}
-							title={cert.description!}
+							alt=""
 						/>
 					)}
 				/>

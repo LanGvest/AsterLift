@@ -14,6 +14,8 @@ import dynamic from "next/dynamic";
 import DescriptionMeta from "@/meta/description.meta";
 import KeywordsMeta from "@/meta/keywords.meta";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
+import OpenGraphProductMeta from "@/meta/openGraphProduct.meta";
+import TwitterCardProductMeta from "@/meta/twitterCardProduct.meta";
 
 const LoadingProductContext = createContext<Nullable<Product>>(null);
 
@@ -41,9 +43,11 @@ export default function Product({productId}: Props) {
 	return (
 		<PageLayout title={product.getPageTitle()}>
 			<ProductMeta product={product}/>
-			<KeywordsMeta phrases={product.keywords}/>
+			<KeywordsMeta startPhrases={product.keywords}/>
 			<DescriptionMeta text={product.getPageDescription()}/>
 			<BreadcrumbsMeta currentName={product.model}/>
+			<OpenGraphProductMeta product={product}/>
+			<TwitterCardProductMeta product={product}/>
 			<ContentBlock className={s.summary}>
 				<LoadingProductContext.Provider value={product}>
 					<ProductInfo product={product}/>

@@ -1,11 +1,6 @@
-import Head from "next/head";
-import {microdataToString} from "@/utils/helpers";
 import type {BreadcrumbList, ListItem} from "schema-dts";
-import Config from "@config";
-
-function validateUrl(url: string): string {
-	return url.startsWith("http") ? url : Config.PROJECT_ORIGIN + url;
-}
+import {validateUrl} from "@/utils/url";
+import MicrodataMeta from "@/meta/microdata.meta";
 
 interface BreadcrumbItem {
 	name: string
@@ -41,12 +36,7 @@ export default function BreadcrumbsMeta({currentName, breadcrumbs = []}: Props) 
 		"itemListElement": items
 	};
 
-	// noinspection HtmlRequiredTitleElement
 	return (
-		<Head>
-			<script type="application/ld+json" dangerouslySetInnerHTML={{
-				__html: microdataToString(microdata)
-			}}></script>
-		</Head>
+		<MicrodataMeta microdata={microdata}/>
 	);
 }

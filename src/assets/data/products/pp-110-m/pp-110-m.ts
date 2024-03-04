@@ -4,8 +4,8 @@ import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductName, getDefaultProductPageDescription,
-	getDefaultProductPageTitle,
-	getDefaultProductTitle,
+	getDefaultProductPageTitle, getDefaultProductPluralName,
+	getDefaultProductTitle, getDefaultProductUrl,
 	getNextId
 } from "@/utils/helpers";
 import About from "./about";
@@ -18,6 +18,7 @@ export const PP_110_M: Product = {
 	category: ProductCategory.DISABLED_PEOPLE,
 	type: "Наклонный подъёмник для инвалидов",
 	extendedType: "Наклонный лестничный подъёмник для инвалидов",
+	pluralType: "Наклонные подъёмники для инвалидов",
 	catalogName: "Наклонный ПП-110.М",
 	description: "Механический, со складной платформой, боковыми поручнями и пандусами",
 	shortDescription: "Механический, со складной платформой, боковыми поручнями и пандусами",
@@ -179,7 +180,9 @@ export const PP_110_M: Product = {
 	getPageTitle: getDefaultProductPageTitle,
 	getName: getDefaultProductName,
 	getExtendedName: getDefaultProductExtendedName,
+	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
+	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [
 		"наклонный",

@@ -59,7 +59,7 @@ export function ProductCard({product}: Props) {
 
 	return (
 		<Link
-			href={`/${product.id}`}
+			href={product.getUrl()}
 			className={s.card}
 		>
 			<div

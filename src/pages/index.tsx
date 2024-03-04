@@ -10,16 +10,22 @@ import Link from "next/link";
 import DescriptionMeta from "@/meta/description.meta";
 import {LOWEST_PRICE} from "@/assets/data/products/products";
 import KeywordsMeta from "@/meta/keywords.meta";
-import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
+import CatalogMeta from "@/meta/catalog.meta";
+import OpenGraphOrganizationMeta from "@/meta/openGraphOrganization.meta";
+import TwitterCardOrganizationMeta from "@/meta/twitterCardOrganization.meta";
+
+const DESCRIPTION: string = `Купить сертифицированный подъёмник для инвалидов от ${LOWEST_PRICE} BYN в Беларуси. Производитель ЧПУП «${Config.PROJECT_NAME}». Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
 
 export default function IndexPage() {
 	// noinspection HtmlUnknownAnchorTarget
 	return (
-		<PageLayout title="Подъёмное оборудование">
+		<PageLayout title="Подъёмники для инвалидов">
 			<GradientBackground/>
-			<KeywordsMeta phrases={[Config.PROJECT_NAME.toLowerCase(), "подъёмное оборудование"]}/>
-			<DescriptionMeta text={`Купить подъёмник для инвалидов от ${LOWEST_PRICE} BYN в Беларуси. Производитель ЧПУП «${Config.PROJECT_NAME}». Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев. Сертификат безопасности ТР-ТС 010.`}/>
-			<BreadcrumbsMeta currentName="Подъёмное оборудование"/>
+			<KeywordsMeta endPhrases={[Config.PROJECT_NAME.toLowerCase()]}/>
+			<DescriptionMeta text={DESCRIPTION}/>
+			<CatalogMeta/>
+			<OpenGraphOrganizationMeta/>
+			<TwitterCardOrganizationMeta/>
 			<ContentBlock className={s.learnMore}>
 				<h1>{Config.PROJECT_NAME}</h1>
 				<p className={s.description}>Производитель подъёмного оборудования в Беларуси</p>

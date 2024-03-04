@@ -9,7 +9,7 @@ export default class Document extends NextDocument {
 				<Head>
 					<meta name="format-detection" content="telephone=no, email=no, address=no, date=no"/>
 					<meta name="google" content="notranslate"/>
-					<meta name="copyright" content={Config.PROJECT_NAME}/>
+					<meta name="copyright" content={Config.ORGANIZATION.NAME_RU}/>
 					<meta name="developer" content="LanGvest"/>
 					<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 					<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>

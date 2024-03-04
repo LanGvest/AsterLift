@@ -39,6 +39,10 @@ export function combineClasses(...classNames: Array<Optional<string | boolean>>)
 	return classNames.filter(item => item && typeof item === "string").join(" ") || undefined;
 }
 
+export function getDefaultProductUrl(this: Product): string {
+	return "/" + this.id;
+}
+
 export function getDefaultProductTitle(this: Product): string {
 	return `${this.getName()} от ${this.getMinPrice()} BYN`;
 }
@@ -53,6 +57,10 @@ export function getDefaultProductName(this: Product): string {
 
 export function getDefaultProductExtendedName(this: Product): string {
 	return `${this.extendedType || this.type} ${this.model}`;
+}
+
+export function getDefaultProductPluralName(this: Product): string {
+	return `${this.pluralType || this.type} ${this.model}`;
 }
 
 export function getDefaultProductMinPrice(this: Product): string {

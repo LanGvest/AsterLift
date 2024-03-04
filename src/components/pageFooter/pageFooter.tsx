@@ -38,7 +38,7 @@ function getNavigationProductCategories(): Array<NavigationProductCategory> {
 	for(const product of Products) {
 		if(!categories[product.category]) categories[product.category] = [];
 		categories[product.category].push({
-			path: `/${product.id}`,
+			path: product.getUrl(),
 			name: product.catalogName
 		});
 	}
