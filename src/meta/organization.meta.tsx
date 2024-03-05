@@ -10,7 +10,7 @@ export default function OrganizationMeta() {
 		"addressRegion": Config.ADDRESS.REGION,
 		"addressLocality": Config.ADDRESS.CITY,
 		"postalCode": Config.ADDRESS.POSTAL_CODE,
-		"streetAddress": Config.ADDRESS.STREET
+		"streetAddress": Config.ADDRESS.LEGAL_STREET
 	};
 
 	const microdata: OrganizationSchema = {

@@ -89,8 +89,8 @@ export default function AboutPage() {
 						<a href={`mailto:${Config.CONTACTS.EMAIL}`}>{Config.CONTACTS.EMAIL}</a>
 					</div>
 					<div className={s.contact}>
-						<p className={s.name}>Адрес</p>
-						<a href={Config.ADDRESS.LINK}>{`${Config.ADDRESS.POSTAL_CODE}, г. ${Config.ADDRESS.CITY}, ${Config.ADDRESS.STREET}`}</a>
+						<p className={s.name}>Почтовый адрес</p>
+						<a href={Config.ADDRESS.POSTAL_ADDRESS_LINK}>{`${Config.ADDRESS.POSTAL_CODE}, г. ${Config.ADDRESS.CITY}, ${Config.ADDRESS.POSTAL_STREET}`}</a>
 					</div>
 					<div className={s.social}>
 						<Link
@@ -122,9 +122,9 @@ export default function AboutPage() {
 						<p>
 							{Config.ORGANIZATION.LEGAL_NAME};
 							УНП: {Config.ORGANIZATION.UNP};
-							Адрес: {Config.ADDRESS.POSTAL_CODE}, {Config.ADDRESS.COUNTRY.FULL_NAME}, {Config.ADDRESS.REGION},
-							г. {Config.ADDRESS.CITY}, {Config.ADDRESS.STREET};
-							Регистрация в Торговом реестре: №1111111 от 13.02.2019;
+							Юр. адрес: {Config.ADDRESS.POSTAL_CODE}, {Config.ADDRESS.REGION},
+							г. {Config.ADDRESS.CITY}, {Config.ADDRESS.LEGAL_STREET};
+							Регистрация в торговом реестре: №1111111 от 13.02.2019;
 							Государственная регистрация: от 11.12.2014, Гомельский городской исполнительный комитет;
 							Банк: ОАО «Белинвестбанк», г. Минск, пр-т Машерова, д. 29;
 							Код банка (BIC): BLBBBY2X;

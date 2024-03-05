@@ -18,7 +18,8 @@ const Config: Config = {
 	},
 	ADDRESS: {
 		POSTAL_CODE: "246018",
-		STREET: "ул. Интендантская, д. 1А",
+		LEGAL_STREET: "ул. Интендантская, д. 1М",
+		POSTAL_STREET: "ул. Интендантская, д. 1А",
 		CITY: "Гомель",
 		REGION: "Гомельская область",
 		COUNTRY: {
@@ -27,7 +28,7 @@ const Config: Config = {
 			NAME_EN: "Belarus",
 			NAME_RU: "Беларусь"
 		},
-		LINK: "https://yandex.by/maps/-/CDFVQPLd"
+		POSTAL_ADDRESS_LINK: "https://yandex.by/maps/-/CDFVQPLd"
 	},
 	ORGANIZATION: {
 		NAME_RU: "Астер-Лифт",

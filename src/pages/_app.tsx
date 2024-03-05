@@ -21,6 +21,7 @@ import OrganizationMeta from "@/meta/organization.meta";
 import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
 import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
 import CanonicalPageMeta from "@/meta/canonicalPage.meta";
+import PageProgress from "@/components/pageProgress/pageProgress";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -48,6 +49,7 @@ export default function App({Component, pageProps}: AppProps) {
 			<OrganizationMeta/>
 			<FontVariable name="inter" font={inter}/>
 			<FullscreenViewer/>
+			<PageProgress/>
 			<PageHeader/>
 			<Component {...pageProps}/>
 			<PageFooter/>

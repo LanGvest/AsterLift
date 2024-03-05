@@ -1,0 +1,15 @@
+.pageProgress {
+	z-index: 10;
+	position: fixed;
+	height: 4px;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.bar {
+	height: 100%;
+	width: 100%;
+	background-color: var(--color-text);
+}

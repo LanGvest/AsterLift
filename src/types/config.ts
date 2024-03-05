@@ -16,7 +16,8 @@ export interface Config {
 	}
 	ADDRESS: {
 		POSTAL_CODE: string
-		STREET: string
+		LEGAL_STREET: string
+		POSTAL_STREET: string
 		CITY: string
 		REGION: string
 		COUNTRY: {
@@ -25,7 +26,7 @@ export interface Config {
 			NAME_EN: string
 			NAME_RU: string
 		}
-		LINK: string
+		POSTAL_ADDRESS_LINK: string
 	}
 	ORGANIZATION: {
 		NAME_RU: string
