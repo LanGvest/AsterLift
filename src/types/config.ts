@@ -21,9 +21,11 @@ export interface Config {
 		REGION: string
 		COUNTRY: {
 			CODE: string
+			FULL_NAME: string
 			NAME_EN: string
 			NAME_RU: string
 		}
+		LINK: string
 	}
 	ORGANIZATION: {
 		NAME_RU: string

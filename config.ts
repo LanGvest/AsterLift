@@ -23,9 +23,11 @@ const Config: Config = {
 		REGION: "Гомельская область",
 		COUNTRY: {
 			CODE: "BY",
+			FULL_NAME: "Республика Беларусь",
 			NAME_EN: "Belarus",
 			NAME_RU: "Беларусь"
-		}
+		},
+		LINK: "https://yandex.by/maps/-/CDFVQPLd"
 	},
 	ORGANIZATION: {
 		NAME_RU: "Астер-Лифт",

@@ -3,13 +3,18 @@ import GradientBackground from "@/components/gradientBackground";
 import s from "@/styles/about.module.scss";
 import BelarusIcon from "@/assets/icons/belarus.icon";
 import LogoIcon from "@/assets/icons/logo.icon";
-import {getCompanyAge, getCorrectWord} from "@/utils/helpers";
+import {combineClasses, getCompanyAge, getCorrectWord} from "@/utils/helpers";
 import Config from "@config";
 import ContentBlock from "@/ui/contentBlock";
 import Image from "next/image";
 import Slider from "@/ui/slider";
 import CERTS from "@/assets/data/certs";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
+import React from "react";
+import Link from "next/link";
+import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
+import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
+import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
 
 const COMPANY_AGE: number = getCompanyAge();
 
@@ -72,28 +77,61 @@ export default function AboutPage() {
 					)}
 				/>
 			</ContentBlock>
-			{/*<ContentBlock id="reviews" className={s.carousel}>*/}
-			{/*	<h2>Отзывы</h2>*/}
-			{/*	<Slider*/}
-			{/*		gap={20}*/}
-			{/*		slidesPerView={4}*/}
-			{/*		items={CERTS}*/}
-			{/*		getSlideMeta={item => ({*/}
-			{/*			description: item.name*/}
-			{/*		})}*/}
-			{/*		getSlideKey={cert => cert.image.src}*/}
-			{/*		renderSlide={cert => (*/}
-			{/*			<Image*/}
-			{/*				src={cert.image}*/}
-			{/*				// width={IMAGE_SIZE}*/}
-			{/*				// height={IMAGE_SIZE * (12 / 10)}*/}
-			{/*				placeholder="blur"*/}
-			{/*				alt={cert.description!}*/}
-			{/*				title={cert.description!}*/}
-			{/*			/>*/}
-			{/*		)}*/}
-			{/*	/>*/}
-			{/*</ContentBlock>*/}
+			<ContentBlock id="contacts" className={s.contacts}>
+				<h2>Контактная информация</h2>
+				<div className={s.contactsWrapper}>
+					<div className={s.contact}>
+						<p className={s.name}>{`Телефон (${Config.CONTACTS.PHONE_OPERATOR})`}</p>
+						<a href={`tel:${Config.CONTACTS.PHONE_NUMBER.replace(/[^\d+]/g, "")}`}>{Config.CONTACTS.PHONE_NUMBER}</a>
+					</div>
+					<div className={s.contact}>
+						<p className={s.name}>Email</p>
+						<a href={`mailto:${Config.CONTACTS.EMAIL}`}>{Config.CONTACTS.EMAIL}</a>
+					</div>
+					<div className={s.contact}>
+						<p className={s.name}>Адрес</p>
+						<a href={Config.ADDRESS.LINK}>{`${Config.ADDRESS.POSTAL_CODE}, г. ${Config.ADDRESS.CITY}, ${Config.ADDRESS.STREET}`}</a>
+					</div>
+					<div className={s.contact}>
+						<p className={s.name}>Мессенджеры</p>
+						<div className={s.social}>
+							<Link
+								href={"https://t.me/asterlift"}
+								className={combineClasses(s.socialLink, s.telegram)}
+								title={"Telegram"}
+							>
+								<TelegramLogoIcon/>
+							</Link>
+							<Link
+								href={"https://viber.click/375291377466"}
+								className={combineClasses(s.socialLink, s.viber)}
+								title={"Viber"}
+							>
+								<ViberLogoIcon/>
+							</Link>
+							<Link
+								href={"https://wa.me/375291377466"}
+								className={combineClasses(s.socialLink, s.whatsapp)}
+								title={"WhatsApp"}
+							>
+								<WhatsappLogoIcon/>
+							</Link>
+						</div>
+					</div>
+					<div className={s.legalInfo}>
+						<p>
+							{Config.ORGANIZATION.LEGAL_NAME};
+							УНП: {Config.ORGANIZATION.UNP};
+							Адрес: {Config.ADDRESS.POSTAL_CODE}, {Config.ADDRESS.COUNTRY.FULL_NAME}, {Config.ADDRESS.REGION}, г. {Config.ADDRESS.CITY}, {Config.ADDRESS.STREET};
+							Регистрация в Торговом реестре: №1111111 от 13.02.2019;
+							Государственная регистрация: от 11.12.2014, Гомельский городской исполнительный комитет;
+							Банк: ОАО «Белинвестбанк», г.Минск, пр-т Машерова, д. 29;
+							Код банка (BIC): BLBBBY2X;
+							Номер счёта (IBAN): BY17BLBB30120491316077001007.
+						</p>
+					</div>
+				</div>
+			</ContentBlock>
 		</PageLayout>
 	);
 }
