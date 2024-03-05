@@ -92,40 +92,41 @@ export default function AboutPage() {
 						<p className={s.name}>Адрес</p>
 						<a href={Config.ADDRESS.LINK}>{`${Config.ADDRESS.POSTAL_CODE}, г. ${Config.ADDRESS.CITY}, ${Config.ADDRESS.STREET}`}</a>
 					</div>
-					<div className={s.contact}>
-						<p className={s.name}>Мессенджеры</p>
-						<div className={s.social}>
-							<Link
-								href={"https://t.me/asterlift"}
-								className={combineClasses(s.socialLink, s.telegram)}
-								title={"Telegram"}
-							>
-								<TelegramLogoIcon/>
-							</Link>
-							<Link
-								href={"https://viber.click/375291377466"}
-								className={combineClasses(s.socialLink, s.viber)}
-								title={"Viber"}
-							>
-								<ViberLogoIcon/>
-							</Link>
-							<Link
-								href={"https://wa.me/375291377466"}
-								className={combineClasses(s.socialLink, s.whatsapp)}
-								title={"WhatsApp"}
-							>
-								<WhatsappLogoIcon/>
-							</Link>
-						</div>
+					<div className={s.social}>
+						<Link
+							href={"https://t.me/asterlift"}
+							className={combineClasses(s.socialLink, s.telegram)}
+							title={"Telegram"}
+						>
+							<TelegramLogoIcon/>
+							<p>Telegram</p>
+						</Link>
+						<Link
+							href={"https://viber.click/375291377466"}
+							className={combineClasses(s.socialLink, s.viber)}
+							title={"Viber"}
+						>
+							<ViberLogoIcon/>
+							<p>Viber</p>
+						</Link>
+						<Link
+							href={"https://wa.me/375291377466"}
+							className={combineClasses(s.socialLink, s.whatsapp)}
+							title={"WhatsApp"}
+						>
+							<WhatsappLogoIcon/>
+							<p>WhatsApp</p>
+						</Link>
 					</div>
 					<div className={s.legalInfo}>
 						<p>
 							{Config.ORGANIZATION.LEGAL_NAME};
 							УНП: {Config.ORGANIZATION.UNP};
-							Адрес: {Config.ADDRESS.POSTAL_CODE}, {Config.ADDRESS.COUNTRY.FULL_NAME}, {Config.ADDRESS.REGION}, г. {Config.ADDRESS.CITY}, {Config.ADDRESS.STREET};
+							Адрес: {Config.ADDRESS.POSTAL_CODE}, {Config.ADDRESS.COUNTRY.FULL_NAME}, {Config.ADDRESS.REGION},
+							г. {Config.ADDRESS.CITY}, {Config.ADDRESS.STREET};
 							Регистрация в Торговом реестре: №1111111 от 13.02.2019;
 							Государственная регистрация: от 11.12.2014, Гомельский городской исполнительный комитет;
-							Банк: ОАО «Белинвестбанк», г.Минск, пр-т Машерова, д. 29;
+							Банк: ОАО «Белинвестбанк», г. Минск, пр-т Машерова, д. 29;
 							Код банка (BIC): BLBBBY2X;
 							Номер счёта (IBAN): BY17BLBB30120491316077001007.
 						</p>
