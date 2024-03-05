@@ -7,7 +7,6 @@ import {combineClasses, getCompanyAge, getCorrectWord} from "@/utils/helpers";
 import Config from "@config";
 import ContentBlock from "@/ui/contentBlock";
 import Image from "next/image";
-import Slider from "@/ui/slider";
 import CERTS from "@/assets/data/certs";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 import React from "react";
@@ -17,6 +16,7 @@ import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
 
 const COMPANY_AGE: number = getCompanyAge();
+const IMAGE_SIZE: number = 320;
 
 export default function AboutPage() {
 	return (
@@ -45,37 +45,22 @@ export default function AboutPage() {
 						учитывая его пожелания при проектировании и изготовлении подъёмного оборудования.</p>
 				</div>
 			</ContentBlock>
-			<ContentBlock id="certs" className={s.carousel}>
+			<ContentBlock id="certs" className={s.certificates}>
 				<h2>Сертификаты и свидетельства</h2>
-				<Slider
-					gap={20}
-					slidesPerView={5}
-					items={CERTS}
-					// freeModeModule={FreeMode}
-					// onClickSlide={(swiper, _item, index) => {
-					// 	openFullscreenProductExamples({
-					// 		product,
-					// 		controller: {
-					// 			swiper,
-					// 			loop: false
-					// 		},
-					// 		initialSlide: index
-					// 	});
-					// }}
-					getSlideMeta={item => ({
-						description: item.name
-					})}
-					getSlideKey={cert => cert.image.src}
-					renderSlide={cert => (
-						<Image
-							src={cert.image}
-							// width={IMAGE_SIZE}
-							// height={IMAGE_SIZE * (12 / 10)}
-							placeholder="blur"
-							alt=""
-						/>
-					)}
-				/>
+				<div className={s.certs}>
+					{CERTS.map(cert => (
+						<div key={cert.image.src} className={s.cert}>
+							<Image
+								src={cert.image}
+								width={IMAGE_SIZE}
+								height={IMAGE_SIZE * (12 / 10)}
+								placeholder="blur"
+								alt=""
+							/>
+							{cert.capture}
+						</div>
+					))}
+				</div>
 			</ContentBlock>
 			<ContentBlock id="contacts" className={s.contacts}>
 				<h2>Контактная информация</h2>

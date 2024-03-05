@@ -6,6 +6,7 @@ import PhoneIcon from "../../assets/icons/phone.icon";
 import Note from "../../ui/note";
 import OkIcon from "@/assets/icons/ok.icon";
 import Link from "next/link";
+import NoWrap from "@/ui/noWrap";
 
 interface Props {
 	product: Product
@@ -19,7 +20,7 @@ function Component({product}: Props) {
 			<div className={s.features}>
 				<div className={s.feature}>
 					<OkIcon/>
-					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности ТР-ТС 010</Link></p>
+					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности <NoWrap>ТР-ТС 010</NoWrap></Link></p>
 				</div>
 				<div className={s.feature}>
 					<OkIcon/>
