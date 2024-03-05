@@ -3,6 +3,7 @@ import Products from "@/assets/data/products";
 import AppNavigation from "@/assets/data/appNavigation";
 import Config from "@config";
 import {validateUrl} from "@/utils/url";
+import {xml} from "@/utils/helpers";
 
 export default function SitemapXml() {}
 
@@ -35,8 +36,8 @@ function getSiteMapEntries(): Array<SiteMapEntry> {
 function generateSiteMap(): string {
 	const entries = getSiteMapEntries();
 
-	return `
-		<?xml version="1.0" encoding="UTF-8"?>
+	// noinspection HttpUrlsUsage
+	return xml`
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 			${entries.map(entry => `
 				<url>
@@ -50,10 +51,9 @@ function generateSiteMap(): string {
 }
 
 export async function getServerSideProps({res}: GetServerSidePropsContext) {
-	const sitemap = generateSiteMap()
-		.replace(/[\t\n]/g, "");
+	const sitemap = generateSiteMap();
 
-	res.setHeader("Content-Length", sitemap.length);
+	// res.setHeader("Content-Length", sitemap.length);
 	res.setHeader("Content-Type", "application/xml");
 	res.write(sitemap);
 	res.end();

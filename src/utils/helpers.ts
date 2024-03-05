@@ -147,3 +147,13 @@ export function getPriorityIndexes(activeIndex: number, totalAmount: number, toP
 export function isPriority(index: number, priorityIndexes: Array<number>): boolean {
 	return Boolean(~priorityIndexes.indexOf(index));
 }
+
+export function xml(strings: TemplateStringsArray, ...expr: any[]): string {
+	let code = strings[0];
+
+	for(let i = 0; i < expr.length; i++) code += expr[i] + strings[i + 1];
+
+	code = code.replace(/[\t\n]/g, "").trim();
+
+	return `<?xml version="1.0" encoding="UTF-8"?>${code}`;
+}
