@@ -14,12 +14,12 @@ import CatalogMeta from "@/meta/catalog.meta";
 import OpenGraphOrganizationMeta from "@/meta/openGraphOrganization.meta";
 import TwitterCardOrganizationMeta from "@/meta/twitterCardOrganization.meta";
 
-const DESCRIPTION: string = `Купить сертифицированный подъёмник для инвалидов от ${LOWEST_PRICE} BYN в Беларуси. Производитель ЧПУП «${Config.PROJECT_NAME}». Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
+const DESCRIPTION: string = `Купить сертифицированный подъёмник для инвалидов от ${LOWEST_PRICE} BYN в Беларуси у производителя. Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
 
 export default function IndexPage() {
 	// noinspection HtmlUnknownAnchorTarget
 	return (
-		<PageLayout title="Подъёмники для инвалидов">
+		<PageLayout title="Подъёмники для инвалидов в Беларуси">
 			<GradientBackground/>
 			<KeywordsMeta endPhrases={[Config.PROJECT_NAME.toLowerCase()]}/>
 			<DescriptionMeta text={DESCRIPTION}/>
