@@ -43,24 +43,22 @@
 }
 
 .minPrice {
-	p:first-child {
-		font-size: 18px;
-		color: #0bb02c;
-		font-weight: 700;
+	font-size: 18px;
+	color: #0bb02c;
+	font-weight: 700;
 
-		span {
-			font-size: 28px;
-			font-weight: 600;
-			color: inherit;
-		}
+	span {
+		font-size: 28px;
+		font-weight: 600;
+		color: inherit;
 	}
+}
 
-	p:last-child {
-		margin-top: 2px;
-		line-height: var(--line-height-paragraph);
-		color: #0bb02c;
-		font-size: var(--font-size-hint);
-	}
+.minPriceNote {
+	margin-top: 2px;
+	line-height: var(--line-height-paragraph);
+	color: #0bb02c;
+	font-size: var(--font-size-hint);
 }
 
 @media (width < 900px) {

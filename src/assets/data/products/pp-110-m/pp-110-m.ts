@@ -22,7 +22,7 @@ export const PP_110_M: Product = {
 	catalogName: "Наклонный ПП-110.М",
 	description: "Механический, со складной платформой, боковыми поручнями и пандусами",
 	shortDescription: "Механический, со складной платформой, боковыми поручнями и пандусами",
-	minPrice: 6900,
+	minPrice: 6600,
 	tags: [],
 	overview: [
 		Media.PP_110_M_IMG_1,

@@ -31,16 +31,16 @@ function Component({product}: Props) {
 					<p>Гарантия 12 месяцев</p>
 				</div>
 			</div>
-			<div className={s.minPrice}>
-				<p>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>
-				<p>Цена указана без учёта монтажных работ и доставки</p>
+			<div>
+				<p className={s.minPrice}>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>
+				{/*<p className={s.minPriceNote}>Цена указана без учёта монтажных работ и доставки</p>*/}
 			</div>
 			{/*<p className={s.minPrice}></p>*/}
 			<Note
 				icon={<PhoneIcon/>}
 				withPhone={true}
 			>Для заказа или получения дополнительной информации звоните по номеру:</Note>
-			{/*<button>Как заказать</button>*/}
+			{/*<button>Оставить заявку</button>*/}
 		</div>
 	);
 }

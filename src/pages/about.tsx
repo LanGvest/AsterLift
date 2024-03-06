@@ -6,7 +6,6 @@ import LogoIcon from "@/assets/icons/logo.icon";
 import {combineClasses, getCompanyAge, getCorrectWord} from "@/utils/helpers";
 import Config from "@config";
 import ContentBlock from "@/ui/contentBlock";
-import Image from "next/image";
 import CERTS from "@/assets/data/certs";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 import React from "react";
@@ -14,6 +13,7 @@ import Link from "next/link";
 import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
 import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
+import SmoothImage from "@/ui/smoothImage";
 
 const COMPANY_AGE: number = getCompanyAge();
 const IMAGE_SIZE: number = 320;
@@ -50,7 +50,7 @@ export default function AboutPage() {
 				<div className={s.certs}>
 					{CERTS.map(cert => (
 						<div key={cert.image.src} className={s.cert}>
-							<Image
+							<SmoothImage
 								src={cert.image}
 								width={IMAGE_SIZE}
 								height={IMAGE_SIZE * (12 / 10)}

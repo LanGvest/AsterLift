@@ -1,6 +1,7 @@
 import type {ImageMedia} from "@/types/media";
 import {MediaType} from "@/enums/mediaType";
 import type {ReactNode} from "react";
+import NoWrap from "@/ui/noWrap";
 
 import img1 from "./images/1.webp";
 import img2 from "./images/2.webp";
@@ -12,7 +13,6 @@ import img7 from "./images/7.webp";
 import img8 from "./images/8.webp";
 import img9 from "./images/9.webp";
 import img10 from "./images/10.webp";
-import NoWrap from "@/ui/noWrap";
 
 export interface CertificateMedia extends ImageMedia {
 	capture: ReactNode
@@ -57,13 +57,13 @@ export const CERTS_IMG_6: CertificateMedia = {
 export const CERTS_IMG_7: CertificateMedia = {
 	type: MediaType.IMAGE,
 	image: img7,
-	capture: <p>Протокол испытаний <NoWrap>ТР-ТС 004</NoWrap> О безопасности низковольтного оборудования</p>
+	capture: <p>Протокол испытаний <NoWrap>ТР-ТС 004</NoWrap> «О безопасности низковольтного оборудования»</p>
 };
 
 export const CERTS_IMG_8: CertificateMedia = {
 	type: MediaType.IMAGE,
 	image: img8,
-	capture: <p>Протокол испытаний <NoWrap>ТР-ТС 020</NoWrap> Электромагнитная совместимость технических средств</p>
+	capture: <p>Протокол испытаний <NoWrap>ТР-ТС 020</NoWrap> «Электромагнитная совместимость технических средств»</p>
 };
 
 export const CERTS_IMG_9: CertificateMedia = {

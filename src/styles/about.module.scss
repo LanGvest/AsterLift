@@ -163,15 +163,18 @@
 	flex-direction: column;
 	gap: 10px;
 
-	img {
+	div[data-smooth-image] {
 		border: calc(var(--border-width) * 1.8) solid var(--border-color);
 		pointer-events: none;
 		user-select: none;
 		height: auto;
-		object-fit: fill;
 		width: 100%;
 		aspect-ratio: 2 / 3;
 		border-radius: var(--border-radius);
+
+		img {
+			object-fit: fill;
+		}
 	}
 
 	p {

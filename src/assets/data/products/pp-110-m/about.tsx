@@ -1,4 +1,3 @@
-import Note from "@/ui/note";
 import Imp from "@/ui/imp";
 
 export default function About() {

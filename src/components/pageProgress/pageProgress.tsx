@@ -5,7 +5,7 @@ import type {Nullable} from "@/utils/helpers";
 
 const SPEED_INDEX: number = 650;
 const DELAY: number = 60;
-const PROGRESS_INCREMENT_TIME: number = 1000;
+const PROGRESS_INCREMENT_TIME: number = 650;
 
 function PageProgress() {
 	const transition1: string = `transform ${SPEED_INDEX}ms ease, opacity 300ms`;
