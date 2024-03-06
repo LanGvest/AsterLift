@@ -22,6 +22,14 @@ function Component({product}: Props) {
 					<OkIcon/>
 					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности <NoWrap>ТР-ТС 010</NoWrap></Link></p>
 				</div>
+				{product.advantages.map(advantage => (
+					<div key={advantage.id} className={s.feature}>
+						<OkIcon/>
+						{typeof advantage.value === "string" ? (
+							<p>{advantage.value}</p>
+						) : advantage.value}
+					</div>
+				))}
 				<div className={s.feature}>
 					<OkIcon/>
 					<p>Изготовление, доставка и монтаж за 14 дней</p>

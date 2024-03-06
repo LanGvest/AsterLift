@@ -27,6 +27,12 @@ export const PP_101_A: Product = {
 	tags: [
 		TOP_SALES
 	],
+	advantages: [
+		{
+			id: getNextId(),
+			value: "Удобный кнопочный пост управления на правой стойке"
+		}
+	],
 	overview: [
 		Media.PP_101_A_IMG_1,
 		Media.PP_101_A_IMG_2,

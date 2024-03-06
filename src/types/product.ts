@@ -33,6 +33,11 @@ export interface ProductSpecification {
 	hint?: ReactNode
 }
 
+export interface ProductAdvantage {
+	id: string
+	value: ReactNode
+}
+
 export interface Product {
 	id: string
 	model: string
@@ -47,6 +52,7 @@ export interface Product {
 	shortDescription: string
 	minPrice: number
 	tags: Array<ProductTag>
+	advantages: Array<ProductAdvantage>
 	overview: Array<ImageMedia>
 	preview: Array<StaticImageData>
 	control: Array<ProductFeature>

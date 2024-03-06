@@ -29,6 +29,12 @@ export const PP_101_B: Product = {
 	shortDescription: "Электрический, со стационарной платформой и боковыми ограждениями, подъём до 2 м.",
 	minPrice: 5600,
 	tags: [],
+	advantages: [
+		{
+			id: getNextId(),
+			value: "Удобный кнопочный пост управления на правой стойке"
+		}
+	],
 	overview: [
 		Media.PP_101_B_IMG_1,
 		Media.PP_101_B_IMG_2,

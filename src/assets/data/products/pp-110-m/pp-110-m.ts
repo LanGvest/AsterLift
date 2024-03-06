@@ -24,6 +24,7 @@ export const PP_110_M: Product = {
 	shortDescription: "Механический, со складной платформой, боковыми поручнями и пандусами",
 	minPrice: 6600,
 	tags: [],
+	advantages: [],
 	overview: [
 		Media.PP_110_M_IMG_1,
 		Media.PP_110_M_IMG_2,
