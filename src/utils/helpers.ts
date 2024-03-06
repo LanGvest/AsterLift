@@ -157,3 +157,13 @@ export function xml(strings: TemplateStringsArray, ...expr: any[]): string {
 
 	return `<?xml version="1.0" encoding="UTF-8"?>${code}`;
 }
+
+export function uri(strings: TemplateStringsArray, ...expr: any[]): string {
+	let code = strings[0];
+
+	for(let i = 0; i < expr.length; i++) code += expr[i] + strings[i + 1];
+
+	code = code.replace(/\s/g, "");
+
+	return code;
+}
