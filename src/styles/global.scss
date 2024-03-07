@@ -19,6 +19,14 @@ html {
 	scroll-behavior: smooth;
 }
 
+span {
+	color: inherit;
+	text-decoration: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+}
+
 //img {
 //	background-color: var(--color-sceleton);
 //}

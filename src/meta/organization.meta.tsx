@@ -3,16 +3,21 @@ import Config from "@config";
 import MicrodataMeta from "@/meta/microdata.meta";
 import {validateUrl} from "@/utils/url";
 
-export default function OrganizationMeta() {
-	const address: PostalAddress = {
-		"@type": "PostalAddress",
-		"addressCountry": Config.ADDRESS.COUNTRY.CODE,
-		"addressRegion": Config.ADDRESS.REGION,
-		"addressLocality": Config.ADDRESS.CITY,
-		"postalCode": Config.ADDRESS.POSTAL_CODE,
-		"streetAddress": Config.ADDRESS.LEGAL_STREET
-	};
+const address: PostalAddress = {
+	"@type": "PostalAddress",
+	"addressCountry": Config.ADDRESS.COUNTRY.CODE,
+	"addressRegion": Config.ADDRESS.REGION,
+	"addressLocality": Config.ADDRESS.CITY,
+	"postalCode": Config.ADDRESS.POSTAL_CODE,
+	"streetAddress": Config.ADDRESS.LEGAL_STREET
+};
 
+const postalAddress: PostalAddress = {
+	...address,
+	"streetAddress": Config.ADDRESS.POSTAL_STREET
+};
+
+export default function OrganizationMeta() {
 	const microdata: OrganizationSchema = {
 		"@type": "Organization",
 		"url": validateUrl("/"),
@@ -41,7 +46,7 @@ export default function OrganizationMeta() {
 				"longitude": Config.ORGANIZATION.GEO.LONGITUDE
 			}
 		},
-		"address": address
+		"address": postalAddress
 	};
 
 	return (

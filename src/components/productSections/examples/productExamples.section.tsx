@@ -5,6 +5,7 @@ import type {ProductSectionProps} from "@/types/product";
 import Slider from "../../../ui/slider";
 import {FreeMode} from "swiper/modules";
 import SmoothImage from "@/ui/smoothImage";
+import {getDefaultSlideFullscreenHint} from "@/utils/helpers";
 
 const IMAGE_SIZE: number = 280;
 
@@ -28,6 +29,7 @@ function Section({product}: ProductSectionProps) {
 						initialSlide: index
 					});
 				}}
+				getSlideHint={getDefaultSlideFullscreenHint}
 				getSlideMeta={item => item}
 				getSlideKey={example => example.image.src}
 				renderSlide={example => (

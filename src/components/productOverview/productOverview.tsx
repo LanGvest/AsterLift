@@ -1,6 +1,11 @@
 import s from "./productOverview.module.scss";
 import "swiper/css/free-mode";
-import {getDefaultSliderProgress, getPriorityIndexes, isPriority} from "@/utils/helpers";
+import {
+	getDefaultSlideFullscreenHint,
+	getDefaultSliderProgress,
+	getPriorityIndexes,
+	isPriority
+} from "@/utils/helpers";
 import type {Product} from "@/types/product";
 import SliderWithThumbs from "@/ui/slider/sliderWithThumbs";
 import {Autoplay} from "swiper/modules";
@@ -44,6 +49,7 @@ export function ProductOverview({product}: Props) {
 			getMeta={activeItem => ({
 				location: activeItem.location
 			})}
+			getMainSlideHint={getDefaultSlideFullscreenHint}
 			onActiveIndexChange={index => setActiveIndex(index)}
 			getProgress={getDefaultSliderProgress}
 			autoplayModule={Autoplay}

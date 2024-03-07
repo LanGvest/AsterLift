@@ -13,3 +13,9 @@
 	width: 100%;
 	background-color: var(--color-text);
 }
+
+@media (width < 900px) {
+	.pageProgress {
+		height: 4px;
+	}
+}

@@ -9,10 +9,17 @@ import Products from "@/assets/data/products";
 import {useRouter} from "next/router";
 import Config from "@config";
 import LogoIcon from "@/assets/icons/logo.icon";
-import {combineClasses} from "@/utils/helpers";
+import {combineClasses, truncate} from "@/utils/helpers";
 import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
 import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
+import NoWrap from "@/ui/noWrap";
+
+interface CatalogNavigationAnchor extends AppNavigationAnchor {
+	path: string
+	name: string
+	shortName: string
+}
 
 function getNavigationAnchors(ignorePath: string): Array<AppNavigationItem> {
 	const result: Array<AppNavigationAnchor> = [];
@@ -25,12 +32,12 @@ function getNavigationAnchors(ignorePath: string): Array<AppNavigationItem> {
 }
 
 interface NavigationProductCategories {
-	[category: string]: Array<AppNavigationAnchor>
+	[category: string]: Array<CatalogNavigationAnchor>
 }
 
 interface NavigationProductCategory {
 	label: string
-	anchors: Array<AppNavigationAnchor>
+	anchors: Array<CatalogNavigationAnchor>
 }
 
 function getNavigationProductCategories(): Array<NavigationProductCategory> {
@@ -39,7 +46,8 @@ function getNavigationProductCategories(): Array<NavigationProductCategory> {
 		if(!categories[product.category]) categories[product.category] = [];
 		categories[product.category].push({
 			path: product.getUrl(),
-			name: product.catalogName
+			name: product.catalogName,
+			shortName: truncate(product.type, 4) + " " + product.model
 		});
 	}
 	const result: Array<NavigationProductCategory> = [];
@@ -51,6 +59,9 @@ function getNavigationProductCategories(): Array<NavigationProductCategory> {
 }
 
 const NAVIGATION_PRODUCT_CATEGORIES: Array<NavigationProductCategory> = getNavigationProductCategories();
+
+const SHORT_TELEPHONE: string = Config.CONTACTS.PHONE_NUMBER.replace("+375", "8").replace(" 29 ", " 029 ");
+const SHORT_EMAIL: string = Config.CONTACTS.EMAIL.replace("yandex.by", "ya.ru");
 
 function PageFooter() {
 	const router = useRouter();
@@ -97,7 +108,8 @@ function PageFooter() {
 									<Link
 										key={anchor.path}
 										href={anchor.path}
-									>{anchor.name}</Link>
+										data-alt={anchor.shortName}
+									><span>{anchor.name}</span></Link>
 								))}
 							</React.Fragment>
 						))}
@@ -105,20 +117,31 @@ function PageFooter() {
 					<div className={s.infoItem}>
 						<p className={s.name}>График работы</p>
 						<p className={s.label}>Без перерывов</p>
-						<p>ПН – с 9:00 до 18:00</p>
-						<p>ВТ – с 9:00 до 18:00</p>
-						<p>СР – с 9:00 до 18:00</p>
-						<p>ЧТ – с 9:00 до 18:00</p>
-						<p>ПТ – с 9:00 до 18:00</p>
-						<p>СБ – выходной</p>
-						<p>ВС – выходной</p>
+						<div className={s.schedule}>
+							<p>ПН – <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>ВТ – <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>СР – <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>ЧТ – <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>ПТ – <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>СБ – выходной</p>
+							<p>ВС – выходной</p>
+						</div>
+						<div className={s.mobileSchedule}>
+							<p>По будням <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+						</div>
 					</div>
 					<div className={s.infoItem}>
 						<p className={s.name}>Контакты</p>
 						<p className={s.label}>{`Телефон (${Config.CONTACTS.PHONE_OPERATOR})`}</p>
-						<a href={`tel:${Config.CONTACTS.PHONE_NUMBER.replace(/[^\d+]/g, "")}`}>{Config.CONTACTS.PHONE_NUMBER}</a>
+						<a
+							href={`tel:${Config.CONTACTS.PHONE_NUMBER.replace(/[^\d+]/g, "")}`}
+							data-alt={SHORT_TELEPHONE}
+						><span>{Config.CONTACTS.PHONE_NUMBER}</span></a>
 						<p className={s.label}>Email</p>
-						<a href={`mailto:${Config.CONTACTS.EMAIL}`}>{Config.CONTACTS.EMAIL}</a>
+						<a
+							href={`mailto:${Config.CONTACTS.EMAIL}`}
+							data-alt={SHORT_EMAIL}
+						><span>{Config.CONTACTS.EMAIL}</span></a>
 						{/*<p className={s.label}>Мессенджеры</p>*/}
 						<div className={s.social}>
 							<Link
@@ -155,7 +178,7 @@ function PageFooter() {
 						<LogoIcon/>
 						<p>Астер-Лифт</p>
 					</Link>
-					<p className={s.copyright}>{`© ${new Date().getFullYear()} ЧПУП Астер-Лифт. Все права защищены.`}</p>
+					<p className={s.copyright}>{`© 2014-${new Date().getFullYear()}`} <NoWrap>ЧПУП Астер-Лифт</NoWrap>. <NoWrap>Все права защищены</NoWrap>.</p>
 				</div>
 			</ContentBlock>
 		</footer>

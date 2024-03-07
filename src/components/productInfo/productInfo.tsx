@@ -17,24 +17,24 @@ function Component({product}: Props) {
 		<div className={s.container}>
 			<h1 className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></h1>
 			<p className={s.shortDescription}>{product.shortDescription}</p>
-			<div className={s.features}>
-				<div className={s.feature}>
+			<div className={s.advantages}>
+				<div className={s.advantage}>
 					<OkIcon/>
 					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности <NoWrap>ТР-ТС 010</NoWrap></Link></p>
 				</div>
 				{product.advantages.map(advantage => (
-					<div key={advantage.id} className={s.feature}>
+					<div key={advantage.id} className={s.advantage}>
 						<OkIcon/>
 						{typeof advantage.value === "string" ? (
 							<p>{advantage.value}</p>
 						) : advantage.value}
 					</div>
 				))}
-				<div className={s.feature}>
+				<div className={s.advantage}>
 					<OkIcon/>
 					<p>Изготовление, доставка и монтаж за 14 дней</p>
 				</div>
-				<div className={s.feature}>
+				<div className={s.advantage}>
 					<OkIcon/>
 					<p>Гарантия 12 месяцев</p>
 				</div>

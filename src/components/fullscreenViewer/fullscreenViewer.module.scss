@@ -130,8 +130,10 @@
 
 @media (width < 900px) {
 	.header {
+		padding: 2px 5px;
+
 		.title {
-			gap: 2px;
+			gap: 3px;
 			p {
 				font-size: var(--font-size);
 			}

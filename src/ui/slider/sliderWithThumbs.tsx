@@ -21,6 +21,8 @@ interface Props<T> extends Stylized {
 	initialSlideIndex?: number
 	controller?: FullscreenController
 	hideControlsWhenSingleItem?: boolean
+	getMainSlideHint?(item: T, index: number): string
+	getThumbSlideHint?(item: T, index: number): string
 	onActiveIndexChange?(newActiveIndex: number): void
 	onVisibilityChange?(newVisibility: CSSProperties["visibility"]): void
 	onClickMainSlide?(swiper: SwiperClass, item: T, index: number): void
@@ -52,7 +54,9 @@ function SliderWithThumbs<T>(props: Props<T>) {
 		getMeta,
 		getProgress,
 		onActiveIndexChange,
-		onVisibilityChange
+		onVisibilityChange,
+		getMainSlideHint,
+		getThumbSlideHint
 	} = props;
 
 	const isAutoplay: boolean = Boolean(autoplayModule);
@@ -172,6 +176,7 @@ function SliderWithThumbs<T>(props: Props<T>) {
 						onVisibilityChange?.("visible");
 					}
 				}}
+				getSlideHint={getMainSlideHint}
 				onRealIndexChange={swiper => {
 					const newActiveIndex: number = swiper.realIndex;
 					if(activeIndex === newActiveIndex) return;
@@ -196,6 +201,7 @@ function SliderWithThumbs<T>(props: Props<T>) {
 					if(index !== activeIndex) mainSwiperRef.current?.slideToLoop(index, 0);
 					onClickThumbSlide?.(swiper, item, index);
 				}}
+				getSlideHint={getThumbSlideHint}
 				getSlideKey={getSlideKey}
 				renderSlide={renderThumbSlide}
 				getSlideClassName={(_item, index) => index === activeIndex ? s.activeThumb : ""}

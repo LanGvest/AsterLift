@@ -48,7 +48,7 @@ export function getDefaultProductTitle(this: Product): string {
 }
 
 export function getDefaultProductPageTitle(this: Product): string {
-	return `${this.type} от ${this.getMinPrice()} BYN – ${this.model}`;
+	return `${this.type} от ${this.getMinPrice()} BYN в Беларуси`;
 }
 
 export function getDefaultProductName(this: Product): string {
@@ -68,7 +68,7 @@ export function getDefaultProductMinPrice(this: Product): string {
 }
 
 export function getDefaultProductPageDescription(this: Product): string {
-	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPrice()} BYN в Беларуси. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
+	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPrice()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
 }
 
 // Производство «${Config.PROJECT_NAME}».
@@ -166,4 +166,15 @@ export function uri(strings: TemplateStringsArray, ...expr: any[]): string {
 	code = code.replace(/\s/g, "");
 
 	return code;
+}
+
+export const FULLSCREEN_HINT: string = "Нажмите, чтобы открыть во весь экран";
+
+export function getDefaultSlideFullscreenHint(): string {
+	return FULLSCREEN_HINT;
+}
+
+export function truncate(text: string, maxLength: number, ending: string = "..."): string {
+	if(text.length <= maxLength) return text;
+	return text.substring(0, maxLength).trim() + ending;
 }

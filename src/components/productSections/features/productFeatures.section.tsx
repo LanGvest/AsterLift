@@ -5,6 +5,7 @@ import s from "./productFeatures.module.scss";
 import LogoIcon from "@/assets/icons/logo.icon";
 import type {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import type {FullscreenProduct} from "@/store/app.slice";
+import {FULLSCREEN_HINT} from "@/utils/helpers";
 
 const IMAGE_SIZE: number = 220;
 
@@ -26,6 +27,7 @@ function Section({product, features, openFullscreenFeatures}: Props) {
 								initialSlide: index
 							});
 						}}
+						title={FULLSCREEN_HINT}
 					>
 						<Image
 							className={s.image}

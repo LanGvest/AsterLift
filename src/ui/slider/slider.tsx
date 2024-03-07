@@ -29,6 +29,7 @@ interface Props<T> extends Stylized {
 	resistanceRatio?: number
 	navigationButtons?: boolean
 	speed?: number
+	getSlideHint?(item: T, index: number): string
 	getMeta?(): MediaMeta
 	getProgress?(): Optional<string>
 	getSlideKey(item: T, index: number): string
@@ -69,7 +70,8 @@ function Component<T>(props: Props<T>) {
 		onRealIndexChange,
 		onSwiper,
 		getSlideClassName,
-		onVisibilityChange
+		onVisibilityChange,
+		getSlideHint
 	} = props;
 
 	const isVirtual: boolean = Boolean(virtualModule);
@@ -218,6 +220,7 @@ function Component<T>(props: Props<T>) {
 							if(!swiper) return;
 							onClickSlide?.(swiper, item, index);
 						}}
+						title={getSlideHint?.(item, index)}
 					>
 						{showSliderOverlay && (
 							<div className={s.overlay}>
