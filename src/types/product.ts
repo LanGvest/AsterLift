@@ -50,7 +50,6 @@ export interface Product {
 	keywords: Array<string>
 	description: string
 	shortDescription: string
-	minPrice: number
 	tags: Array<ProductTag>
 	advantages: Array<ProductAdvantage>
 	overview: Array<ImageMedia>
@@ -71,7 +70,8 @@ export interface Product {
 	getName(): string
 	getExtendedName(): string
 	getPluralName(): string
-	getMinPrice(): string
+	getMinPriceString(): string
+	getMinPrice(): number
 	getPageDescription(): string
 }
 

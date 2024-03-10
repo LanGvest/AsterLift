@@ -17,7 +17,7 @@ export default function OpenGraphProductMeta({product}: Props) {
 			))}
 			<meta property="og:description" content={product.getPageDescription()}/>
 			<meta property="product:plural_title" content={product.getPluralName()}/>
-			<meta property="product:price.amount" content={product.minPrice.toString()}/>
+			<meta property="product:price.amount" content={product.getMinPrice().toString()}/>
 			<meta property="product:price.currency" content="BYN"/>
 		</Head>
 	);

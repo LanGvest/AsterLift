@@ -3,10 +3,13 @@ import {ProductCategory} from "@/enums/productCategory";
 import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
+	getDefaultProductMinPriceString,
 	getDefaultProductName,
 	getDefaultProductPageDescription,
-	getDefaultProductPageTitle, getDefaultProductPluralName,
-	getDefaultProductTitle, getDefaultProductUrl,
+	getDefaultProductPageTitle,
+	getDefaultProductPluralName,
+	getDefaultProductTitle,
+	getDefaultProductUrl,
 	getNextId
 } from "@/utils/helpers";
 import About from "./about";
@@ -27,7 +30,6 @@ export const PP_101_B: Product = {
 	catalogName: "Вертикальный ПП-101.Б",
 	description: "Полное описание. Бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла.",
 	shortDescription: "Электрический, со стационарной платформой и боковыми ограждениями, подъём до 2 м.",
-	minPrice: 5600,
 	tags: [],
 	advantages: [
 		{
@@ -203,6 +205,7 @@ export const PP_101_B: Product = {
 	getExtendedName: getDefaultProductExtendedName,
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
+	getMinPriceString: getDefaultProductMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

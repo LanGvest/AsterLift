@@ -15,5 +15,5 @@ export const Products: Array<Product> = [
 export const LOWEST_PRICE: string = getLowestPrice();
 
 function getLowestPrice(): string {
-	return Math.min(...Products.map(product => product.minPrice)).toLocaleString("ru-RU");
+	return Math.min(...Products.map(product => product.getMinPrice())).toLocaleString("ru-RU");
 }

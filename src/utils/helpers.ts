@@ -1,5 +1,6 @@
 import type {CSSProperties, Dispatch, MutableRefObject, SetStateAction} from "react";
 import type {Product} from "@/types/product";
+import {PRODUCTS_DATA} from "@/utils/data";
 
 export type Nullable<T> = T | null;
 export type Undefinable<T> = T | undefined;
@@ -44,11 +45,11 @@ export function getDefaultProductUrl(this: Product): string {
 }
 
 export function getDefaultProductTitle(this: Product): string {
-	return `${this.getName()} от ${this.getMinPrice()} BYN`;
+	return `${this.getName()} от ${this.getMinPriceString()} BYN`;
 }
 
 export function getDefaultProductPageTitle(this: Product): string {
-	return `${this.type} от ${this.getMinPrice()} BYN в Беларуси`;
+	return `${this.type} от ${this.getMinPriceString()} BYN в Беларуси`;
 }
 
 export function getDefaultProductName(this: Product): string {
@@ -63,12 +64,16 @@ export function getDefaultProductPluralName(this: Product): string {
 	return `${this.pluralType || this.type} ${this.model}`;
 }
 
-export function getDefaultProductMinPrice(this: Product): string {
-	return this.minPrice.toLocaleString("ru-RU");
+export function getDefaultProductMinPriceString(this: Product): string {
+	return this.getMinPrice().toLocaleString("ru-RU");
+}
+
+export function getDefaultProductMinPrice(this: Product): number {
+	return PRODUCTS_DATA[this.id].price;
 }
 
 export function getDefaultProductPageDescription(this: Product): string {
-	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPrice()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
+	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPriceString()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
 }
 
 // Производство «${Config.PROJECT_NAME}».

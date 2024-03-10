@@ -3,10 +3,13 @@ import {ProductCategory} from "@/enums/productCategory";
 import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
+	getDefaultProductMinPriceString,
 	getDefaultProductName,
 	getDefaultProductPageDescription,
-	getDefaultProductPageTitle, getDefaultProductPluralName,
-	getDefaultProductTitle, getDefaultProductUrl,
+	getDefaultProductPageTitle,
+	getDefaultProductPluralName,
+	getDefaultProductTitle,
+	getDefaultProductUrl,
 	getNextId
 } from "@/utils/helpers";
 import {TOP_SALES} from "@/assets/data/productTags";
@@ -23,7 +26,6 @@ export const PP_101_A: Product = {
 	catalogName: "Вертикальный ПП-101.А",
 	description: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
 	shortDescription: "Электрический, со складной платформой и боковыми ограждениями, подъём до 2 м.",
-	minPrice: 3600,
 	tags: [
 		TOP_SALES
 	],
@@ -243,6 +245,7 @@ export const PP_101_A: Product = {
 	getExtendedName: getDefaultProductExtendedName,
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
+	getMinPriceString: getDefaultProductMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

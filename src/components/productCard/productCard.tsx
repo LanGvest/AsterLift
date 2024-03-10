@@ -103,7 +103,7 @@ export function ProductCard({product}: Props) {
 			)}
 			<p className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></p>
 			<p className={s.shortDescription}>{product.shortDescription}</p>
-			<p className={s.minPrice}>от <b>{product.getMinPrice()}</b> BYN</p>
+			<p className={s.minPrice}>от <b>{product.getMinPriceString()}</b> BYN</p>
 		</Link>
 	);
 }

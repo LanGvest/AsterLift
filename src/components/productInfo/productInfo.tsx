@@ -40,7 +40,7 @@ function Component({product}: Props) {
 				</div>
 			</div>
 			<div>
-				<p className={s.minPrice}>от <span>{product.minPrice.toLocaleString("ru-RU")}</span> BYN</p>
+				<p className={s.minPrice}>от <span>{product.getMinPriceString()}</span> BYN</p>
 				{/*<p className={s.minPriceNote}>Цена указана без учёта монтажных работ и доставки</p>*/}
 			</div>
 			{/*<p className={s.minPrice}></p>*/}

@@ -3,10 +3,13 @@ import {ProductCategory} from "@/enums/productCategory";
 import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
+	getDefaultProductMinPriceString,
 	getDefaultProductName,
 	getDefaultProductPageDescription,
-	getDefaultProductPageTitle, getDefaultProductPluralName,
-	getDefaultProductTitle, getDefaultProductUrl,
+	getDefaultProductPageTitle,
+	getDefaultProductPluralName,
+	getDefaultProductTitle,
+	getDefaultProductUrl,
 	getNextId
 } from "@/utils/helpers";
 import About from "./about";
@@ -23,7 +26,6 @@ export const PP_110_02: Product = {
 	catalogName: "Наклонный ПП-110.Э",
 	description: "Электрический, со складной платформой, боковыми поручнями и пандусами",
 	shortDescription: "Электрический, со складной платформой, боковыми поручнями и пандусами",
-	minPrice: 8600,
 	tags: [],
 	advantages: [],
 	overview: [
@@ -178,6 +180,7 @@ export const PP_110_02: Product = {
 	getExtendedName: getDefaultProductExtendedName,
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
+	getMinPriceString: getDefaultProductMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

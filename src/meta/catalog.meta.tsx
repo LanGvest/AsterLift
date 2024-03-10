@@ -15,7 +15,7 @@ export default function CatalogMeta() {
 			"name": product.getName(),
 			"description": product.getPageDescription(),
 			"url": validateUrl(product.getUrl()),
-			"price": product.minPrice,
+			"price": product.getMinPrice(),
 			"priceCurrency": "BYN",
 			"image": validateUrl(product.overview[0].image.src),
 			"availability": "https://schema.org/PreOrder"

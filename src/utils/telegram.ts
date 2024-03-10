@@ -17,9 +17,15 @@ export default class Telegram {
 	private static readonly axiosInstance = axios.create(Telegram.axiosRequestConfig);
 
 	public static async sendMessage({chatId, text}: SendMessageParams) {
+		text = text.replace(/\t/g, "").trim();
+
 		return Telegram.axiosInstance.post("/sendMessage", null, {
 			params: {
 				"chat_id": chatId,
+				"parse_mode": "html",
+				"link_preview_options": JSON.stringify({
+					"is_disabled": true
+				}),
 				"text": text
 			}
 		});

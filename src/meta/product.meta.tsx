@@ -31,7 +31,7 @@ export default function ProductMeta({product}: Props) {
 			"url": validateUrl(product.getUrl()),
 			"availability": "https://schema.org/PreOrder",
 			"itemCondition": "https://schema.org/NewCondition",
-			"lowPrice": product.minPrice,
+			"lowPrice": product.getMinPrice(),
 			"priceCurrency": "BYN",
 			"shippingDetails": {
 				"@type": "OfferShippingDetails",
