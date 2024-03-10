@@ -45,7 +45,7 @@ export default function Product({productId}: Props) {
 			<ProductMeta product={product}/>
 			<KeywordsMeta startPhrases={product.keywords}/>
 			<DescriptionMeta text={product.getPageDescription()}/>
-			<BreadcrumbsMeta currentName={product.model}/>
+			<BreadcrumbsMeta currentName={product.model.replace(/\./, "-")}/>
 			<OpenGraphProductMeta product={product}/>
 			<TwitterCardProductMeta product={product}/>
 			<ContentBlock className={s.summary}>

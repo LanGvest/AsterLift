@@ -2,6 +2,11 @@
 
 import Script from "next/script";
 import {isDevelopment} from "@/utils/helpers";
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
+import {useEffect, useState} from "react";
+import type {ReactNode} from "react";
+import axios from "axios";
+import {VerifiedResponse} from "@/pages/api/verify";
 
 const COUNTER_ID: number = 96598013;
 
@@ -18,9 +23,7 @@ function getYandexMetrikaScriptCode(): string {
 
 const YANDEX_METRIKA_SCRIPT_CODE: string = getYandexMetrikaScriptCode();
 
-export default function YandexMetrikaMeta() {
-	if(isDevelopment()) return null;
-
+function Metrika() {
 	return (
 		<>
 			<Script id="yandex-metrika" strategy="afterInteractive">{YANDEX_METRIKA_SCRIPT_CODE}</Script>
@@ -32,4 +35,41 @@ export default function YandexMetrikaMeta() {
 			</noscript>
 		</>
 	);
+}
+
+export default function YandexMetrikaMeta() {
+	const [jsx, setJsx] = useState<ReactNode>(null);
+	const {executeRecaptcha} = useGoogleReCaptcha();
+
+	useEffect(() => {
+		if(isDevelopment()) return;
+		if(!executeRecaptcha) return;
+
+		requestIdleCallback(async () => {
+			const token = await executeRecaptcha("metrika");
+
+			let verifyRes = null;
+
+			try {
+				verifyRes = await axios.post<VerifiedResponse>("/api/verify", {
+					token
+				}, {
+					headers: {
+						"Accept": "application/json, text/plain, */*",
+						"Content-Type": "application/json"
+					}
+				});
+			} catch(e) {
+				return;
+			}
+
+			if(!verifyRes || !verifyRes.data) return;
+
+			const data = verifyRes.data;
+
+			if(data.ok && data.verified) setJsx(<Metrika/>);
+		});
+	}, [executeRecaptcha]);
+	
+	return jsx;
 }

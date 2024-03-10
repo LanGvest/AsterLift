@@ -28,7 +28,7 @@ function getInTop(): boolean {
 	return document.documentElement.scrollTop === 0;
 }
 
-function PageHeader() {
+function Component() {
 	const router = useRouter();
 	const forceUpdate = useForceUpdate();
 	const fromPathRef = useRef<string>(router.asPath);
@@ -199,4 +199,4 @@ function PageHeader() {
 	);
 }
 
-export default memo(PageHeader, () => true);
+export const PageHeader = memo(Component, () => true);

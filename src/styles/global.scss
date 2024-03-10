@@ -147,6 +147,11 @@ div[data-smooth-image] {
 	}
 }
 
+.grecaptcha-badge {
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
+
 @media (width < 900px) {
 	button, a[data-role=btn] {
 		padding: 13px 24px;

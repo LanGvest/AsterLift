@@ -19,7 +19,7 @@ const postalAddress: PostalAddress = {
 
 export default function OrganizationMeta() {
 	const microdata: OrganizationSchema = {
-		"@type": "Organization",
+		"@type": "LocalBusiness",
 		"url": validateUrl("/"),
 		"name": Config.ORGANIZATION.NAME_RU,
 		"alternateName": [
@@ -31,8 +31,9 @@ export default function OrganizationMeta() {
 		"logo": validateUrl(Config.ORGANIZATION.LOGO_URL),
 		"image": validateUrl(Config.ORGANIZATION.COVER_URL),
 		"description": Config.ORGANIZATION.DESCRIPTION,
-		"telephone": Config.CONTACTS.PHONE_NUMBER,
+		"telephone": Config.CONTACTS.PHONE_NUMBER.replace(/ (\d{1,3}) /, " ($1) "),
 		"email": Config.CONTACTS.EMAIL,
+		"openingHours": "Mo-Fr 09:00-18:00",
 		"taxID": Config.ORGANIZATION.UNP.toString(),
 		"isicV4": Config.ORGANIZATION.ISIC_V4.toString(),
 		"areaServed": Config.ADDRESS.COUNTRY.NAME_RU,
@@ -46,6 +47,7 @@ export default function OrganizationMeta() {
 				"longitude": Config.ORGANIZATION.GEO.LONGITUDE
 			}
 		},
+		"currenciesAccepted": "BYN",
 		"address": postalAddress
 	};
 

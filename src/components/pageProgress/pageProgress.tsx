@@ -7,7 +7,7 @@ const SPEED_INDEX: number = 650;
 const DELAY: number = 60;
 const PROGRESS_INCREMENT_TIME: number = 650;
 
-function PageProgress() {
+function Component() {
 	const transition1: string = `transform ${SPEED_INDEX}ms ease, opacity 300ms`;
 	const transition2: string = "none";
 
@@ -102,4 +102,4 @@ function PageProgress() {
 	);
 }
 
-export default memo(PageProgress, () => true);
+export const PageProgress = memo(Component, () => true);

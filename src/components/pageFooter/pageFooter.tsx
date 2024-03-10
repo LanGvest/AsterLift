@@ -9,7 +9,7 @@ import Products from "@/assets/data/products";
 import {useRouter} from "next/router";
 import Config from "@config";
 import LogoIcon from "@/assets/icons/logo.icon";
-import {combineClasses, truncate} from "@/utils/helpers";
+import {combineClasses} from "@/utils/helpers";
 import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
 import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
@@ -47,7 +47,7 @@ function getNavigationProductCategories(): Array<NavigationProductCategory> {
 		categories[product.category].push({
 			path: product.getUrl(),
 			name: product.catalogName,
-			shortName: truncate(product.type, 4) + " " + product.model
+			shortName: product.model
 		});
 	}
 	const result: Array<NavigationProductCategory> = [];
@@ -60,10 +60,10 @@ function getNavigationProductCategories(): Array<NavigationProductCategory> {
 
 const NAVIGATION_PRODUCT_CATEGORIES: Array<NavigationProductCategory> = getNavigationProductCategories();
 
-const SHORT_TELEPHONE: string = Config.CONTACTS.PHONE_NUMBER.replace("+375", "8").replace(" 29 ", " 029 ");
+const SHORT_TELEPHONE: string = Config.CONTACTS.PHONE_NUMBER.replace("+375", "8").replace(/ (\d{1,3}) /, (_, $1) => ` ${$1.padStart(3, "0")} `);
 const SHORT_EMAIL: string = Config.CONTACTS.EMAIL.replace("yandex.by", "ya.ru");
 
-function PageFooter() {
+function Component() {
 	const router = useRouter();
 
 	const resetRoute = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
@@ -185,4 +185,4 @@ function PageFooter() {
 	);
 }
 
-export default memo(PageFooter, () => true);
+export const PageFooter = memo(Component, () => true);

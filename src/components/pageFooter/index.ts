@@ -1,0 +1,1 @@
+export {PageFooter as default} from "./pageFooter";
