@@ -1,3 +1,5 @@
+// noinspection HtmlDeprecatedTag,XmlDeprecatedElement
+
 import type {NextApiRequest, NextApiResponse} from "next";
 import Telegram from "@/utils/telegram";
 import {getCorrectWord, isDevelopment, Nullable} from "@/utils/helpers";
@@ -64,7 +66,6 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 	if(secretToken !== process.env.TELEGRAM_SECRET_TOKEN) return cancel(res, 403);
 	if(!req.body || !req.body.message) return cancel(res, 405);
 	const {chat, from, text} = req.body.message as MessageData["message"];
-
 	if(!isUserAllowed(from.id)) return cancel(res, 403);
 
 	const command = text.replace(/\s+/, " ");
@@ -222,7 +223,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 		return cancel(res, 200);
 	}
 
-	if(/(?<=[^\dа-яёa-z_-]|^)(опублик(уй|овать)|примен(и|ить))\s([\dа-яёa-z]+?\s)*?изменения(?=[^\dа-яёa-z_-]|$)/i.test(command) && !modelRegex.test(command) && !priceRegex.test(command)) {
+	if(/(?<=[^\dа-яёa-z_-]|^)(опублик(уй|овать)|примен(и|ить)|внести)\s([\dа-яёa-z]+?\s)*?изменения(?=[^\dа-яёa-z_-]|$)/i.test(command) && !modelRegex.test(command) && !priceRegex.test(command)) {
 		const productsSnapshot = await get(ref(FBD, "products"));
 		const productsData = productsSnapshot.val() as ProductsData;
 		let anyChanges = isAnyChanges(productsData);
@@ -237,11 +238,35 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 
 		await Telegram.sendMessage({
 			chatId: chat.id,
-			text: "✅ Изменения опубликованы! Обновлённая информация появятся на сайте в течение 2-ух минут."
+			text: `
+				✅ Запрос на обновление данных отправлен! Изменения вступят в силу в течение 2-ух минут.
+				
+				💡 Пока что бот будет отображать не актиуальную информацию. Нужно подождать 2 минуты, прежде чем пользоваться ботом снова.
+				
+				💡 Не забываем, что данные также необходимо вручную обновить на сайтах <a href="https://yandex.ru/sprav/34792489/edit/price-lists">Яндекс.Бизнеса</a> (карточки товаров) и <a href="https://direct.yandex.by/dna/campaigns-edit?ulogin=asterlift&campaigns-ids=108261483">Яндекс.Директа</a> (рекламные объявления).
+			`
 		});
 
 		if(!isDevelopment()) await axios.post(process.env.VERCEL_REDEPLOY_HOOK_URL!);
 
+		return cancel(res, 200);
+	}
+
+	if(/(?<=[^\dа-яёa-z_-]|^)помощь(?=[^\dа-яёa-z_-]|$)/i.test(command) && !modelRegex.test(command) && !priceRegex.test(command)) {
+		await Telegram.sendMessage({
+			chatId: chat.id,
+			text: `
+				🛠️ Список доступных команд.
+
+				<code>Цены</code> – отобразить список цен на подъёмники.
+
+				<code>Цена [модель] [новая цена]</code> – установить новую цену какому-либо подъёмнику.
+				
+				<code>Применить изменения</code> – опубликовать внесённые изменения на сайте.
+				
+				<code>Помощь</code> – отобразить список всех доступных команд.
+			`
+		});
 		return cancel(res, 200);
 	}
 
@@ -251,6 +276,8 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 			❕ К сожалению, моим алгоритмом не предусмотрен ответ на саообщения подобного рода.
 			
 			💡 Вы можете спроисть у меня актуальные цены или установить новую цену на подъёмник.
+			
+			💡 Введите команду «Помощь» чтобы получить больше информации о доступных командах.
 		`
 	});
 	return cancel(res, 200);
