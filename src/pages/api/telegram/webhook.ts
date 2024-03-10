@@ -64,6 +64,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 	if(secretToken !== process.env.TELEGRAM_SECRET_TOKEN) return cancel(res, 403);
 	if(!req.body || !req.body.message) return cancel(res, 405);
 	const {chat, from, text} = req.body.message as MessageData["message"];
+
 	if(!isUserAllowed(from.id)) return cancel(res, 403);
 
 	const command = text.replace(/\s+/, " ");

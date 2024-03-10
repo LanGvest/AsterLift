@@ -8,7 +8,7 @@ interface SendMessageParams {
 
 export default class Telegram {
 	private static readonly BASE_URL: string = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
-	public static readonly ALLOWED_USER_IDS: Array<number> = [1103980354];
+	public static readonly ALLOWED_USER_IDS: Array<number> = [1103980354, 688141823];
 
 	private static readonly axiosRequestConfig: AxiosRequestConfig = {
 		baseURL: Telegram.BASE_URL
