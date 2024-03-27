@@ -18,6 +18,7 @@ export default function ProductMeta({product}: Props) {
 		"category": product.type,
 		"model": product.model,
 		"sku": product.id,
+		"mpn": product.model,
 		"image": product.overview.map(image => validateUrl(image.image.src)),
 		"brand": Config.PROJECT_NAME,
 		"manufacturer": Config.PROJECT_NAME,
