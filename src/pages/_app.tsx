@@ -17,11 +17,12 @@ import RobotsMeta from "@/meta/robots.meta";
 import FontVariable from "@/components/fontVariable";
 import FullscreenViewer from "@/components/fullscreenViewer";
 import OrganizationMeta from "@/meta/organization.meta";
-import YandexWebmasterMeta from "@/meta/yandexWebmaster.meta";
+import YandexVerificationMeta from "@/meta/yandexVerification.meta";
 import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
 import CanonicalPageMeta from "@/meta/canonicalPage.meta";
 import ReCaptchaProvider from "@/components/reCaptchaProvider";
 import PageProgress from "@/components/pageProgress";
+import GoogleVerificationMeta from "@/meta/googleVerification.meta";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -44,7 +45,8 @@ export default function App({Component, pageProps}: AppProps) {
 				</Head>
 				<RobotsMeta/>
 				<YandexMetrikaMeta/>
-				<YandexWebmasterMeta/>
+				<YandexVerificationMeta/>
+				<GoogleVerificationMeta/>
 				<CanonicalPageMeta/>
 				<OrganizationMeta/>
 				<FontVariable name="inter" font={inter}/>
