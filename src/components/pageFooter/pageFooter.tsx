@@ -127,7 +127,7 @@ function Component() {
 							<p>ВС – выходной</p>
 						</div>
 						<div className={s.mobileSchedule}>
-							<p>По будням <NoWrap>с 9:00</NoWrap> <NoWrap>до 18:00</NoWrap></p>
+							<p>По будням <NoWrap>с 9:00 до 18:00</NoWrap></p>
 						</div>
 					</div>
 					<div className={s.infoItem}>
