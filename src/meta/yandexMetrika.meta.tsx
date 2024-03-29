@@ -74,7 +74,9 @@ export default function YandexMetrikaMeta() {
 	useEffect(() => {
 		if(isDevelopment()) return;
 
-		setTimeout(setJsx, 5_000, <Metrika/>);
+		setTimeout(() => {
+			setJsx(<Metrika/>);
+		}, 5_000);
 	}, []);
 	
 	return jsx;
