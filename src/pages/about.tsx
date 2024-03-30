@@ -14,6 +14,8 @@ import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
 import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
 import SmoothImage from "@/ui/smoothImage";
+import KeywordsMeta from "@/meta/keywords.meta";
+import DescriptionMeta from "@/meta/description.meta";
 
 const COMPANY_AGE: number = getCompanyAge();
 const IMAGE_SIZE: number = 320;
@@ -22,6 +24,8 @@ export default function AboutPage() {
 	return (
 		<PageLayout title="О предприятии">
 			<GradientBackground/>
+			<KeywordsMeta startPhrases={[Config.PROJECT_NAME.toLowerCase(), "контакты", "сертификаты", "отзывы"]}/>
+			<DescriptionMeta text={"«Астер-Лифт» – гомельское частное производственное унитарное предприятие по изготовлению и вводу в эксплуатацию сертифицированного подъёмного оборудования в Беларуси."}/>
 			<BreadcrumbsMeta currentName="О предприятии"/>
 			<ContentBlock className={s.description}>
 				<div className={s.illustration}>
