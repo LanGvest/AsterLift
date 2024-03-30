@@ -47,4 +47,12 @@ export interface Config {
 			LONGITUDE: number
 		}
 	}
+	LINKS: {
+		LIFTS_FOR_THE_DISABLED: string
+		WHEELCHAIR: string
+		PUSH_BUTTON_POST: string
+		DIFFERENTIAL_CURRENT_DEVICE: string
+		GROUNDING: string
+		WINCH: string
+	}
 }

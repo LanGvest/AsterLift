@@ -46,6 +46,14 @@ const Config: Config = {
 			LATITUDE: 52.442356,
 			LONGITUDE: 30.955855
 		}
+	},
+	LINKS: {
+		LIFTS_FOR_THE_DISABLED: "https://ru.wikipedia.org/wiki/Подъёмники_для_инвалидов",
+		WHEELCHAIR: "https://ru.wikipedia.org/wiki/Инвалидная_коляска",
+		PUSH_BUTTON_POST: "https://www.elektro.ru/articles/knopki-i-knopochnye-posty-prednaznachenie-i-vidy",
+		DIFFERENTIAL_CURRENT_DEVICE: "https://ru.wikipedia.org/wiki/Устройство_дифференциального_тока",
+		GROUNDING: "https://ru.wikipedia.org/wiki/Заземление",
+		WINCH: "https://dzen.ru/a/ZMuA8vznqRP_SiGR"
 	}
 };
 

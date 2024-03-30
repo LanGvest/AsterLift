@@ -19,8 +19,13 @@
 	height: calc(100svh - var(--height-header) - var(--indent-page) - 50px);
 	min-height: 400px;
 	max-height: 900px;
+}
+
+.title {
+	position: relative;
 
 	h1 {
+		//padding-bottom: 5px;
 		white-space: nowrap;
 		font-size: 70px;
 		font-weight: 600;
@@ -28,25 +33,28 @@
 		opacity: 0;
 		animation: animation 480ms  forwards;
 		animation-delay: 180ms;
-		position: relative;
+	}
 
-		span {
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 500px;
-			height: 300px;
-			display: inline-block;
-			background-color: #1c7bd0;
-			overflow: visible;
-
-			svg {
-				height: 40px;
-				flex-shrink: 0;
-				max-height: 100%;
-				overflow: hidden;
-			}
-		}
+	span {
+		z-index: -1;
+		border-radius: 10px;
+		//border: 1px black solid;
+		padding: 0 16px 0 10px;
+		//background-color: red;
+		color: #d5dff5;
+		transform: rotate(-12deg);
+		pointer-events: none;
+		user-select: none;
+		//font-weight: 700;
+		font-style: italic;
+		font-size: 66px;
+		position: absolute;
+		left: 50%;
+		bottom: -35px;
+		//width: 500px;
+		//height: 300px;
+		//display: inline-block;
+		overflow: visible;
 	}
 }
 
@@ -109,12 +117,12 @@
 @media (width < 900px) {
 	.learnMore {
 		gap: 25px;
-		h1 {
-			font-size: 46px;
-		}
-		.description {
-			font-size: 20px;
-		}
+	}
+	.title h1 {
+		font-size: 46px;
+	}
+	.description {
+		font-size: 20px;
 	}
 	.buttons {
 		a {
@@ -148,12 +156,10 @@
 }
 
 @media (width < 520px) {
-	.learnMore {
-		h1 {
-			font-size: 43px;
-		}
-		.description {
-			font-size: 19px;
-		}
+	.title h1 {
+		font-size: 43px;
+	}
+	.description {
+		font-size: 19px;
 	}
 }

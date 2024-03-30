@@ -20,7 +20,7 @@ function Component({product}: Props) {
 			<div className={s.advantages}>
 				<div className={s.advantage}>
 					<OkIcon/>
-					<p>Имеется обязательный <Link href={"/about#certs"}>сертификат безопасности <NoWrap>ТР-ТС 010</NoWrap></Link></p>
+					<p>Имеется обязательный <Link href={"/about#certs"} target={"_blank"}>сертификат безопасности <NoWrap>ТР-ТС 010</NoWrap></Link></p>
 				</div>
 				{product.advantages.map(advantage => (
 					<div key={advantage.id} className={s.advantage}>
@@ -32,11 +32,11 @@ function Component({product}: Props) {
 				))}
 				<div className={s.advantage}>
 					<OkIcon/>
-					<p>Изготовление, доставка и монтаж за 14 дней</p>
+					<p>Изготовление, доставка и монтаж за <NoWrap>14 дней</NoWrap></p>
 				</div>
 				<div className={s.advantage}>
 					<OkIcon/>
-					<p>Гарантия 12 месяцев</p>
+					<p>Гарантия <NoWrap>12 месяцев</NoWrap></p>
 				</div>
 			</div>
 			<div>
