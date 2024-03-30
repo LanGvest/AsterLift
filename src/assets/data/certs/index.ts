@@ -1,1 +1,1 @@
-export {CERTS as default} from "./certs";
+export {Certs as default} from "./certs";

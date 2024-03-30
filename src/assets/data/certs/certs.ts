@@ -1,7 +1,7 @@
 import * as Media from "./media";
 import type {CertificateMedia} from "./media";
 
-export const CERTS: Array<CertificateMedia> = [
+export const Certs: Array<CertificateMedia> = [
 	Media.CERTS_IMG_1,
 	Media.CERTS_IMG_2,
 	Media.CERTS_IMG_4,

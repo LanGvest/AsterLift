@@ -16,6 +16,7 @@ import KeywordsMeta from "@/meta/keywords.meta";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 import OpenGraphProductMeta from "@/meta/openGraphProduct.meta";
 import TwitterCardProductMeta from "@/meta/twitterCardProduct.meta";
+import ProductImageObjectsMeta from "@/meta/productImageObjects.meta";
 
 const LoadingProductContext = createContext<Nullable<Product>>(null);
 
@@ -43,6 +44,7 @@ export default function Product({productId}: Props) {
 	return (
 		<PageLayout title={product.getPageTitle()}>
 			<ProductMeta product={product}/>
+			<ProductImageObjectsMeta product={product}/>
 			<KeywordsMeta startPhrases={product.keywords}/>
 			<DescriptionMeta text={product.getPageDescription()}/>
 			<BreadcrumbsMeta currentName={product.model.replace(/\./, "-")}/>

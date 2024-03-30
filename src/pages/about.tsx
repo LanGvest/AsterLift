@@ -6,7 +6,7 @@ import LogoIcon from "@/assets/icons/logo.icon";
 import {combineClasses, getCompanyAge, getCorrectWord} from "@/utils/helpers";
 import Config from "@config";
 import ContentBlock from "@/ui/contentBlock";
-import CERTS from "@/assets/data/certs";
+import Certs from "@/assets/data/certs";
 import BreadcrumbsMeta from "@/meta/breadcrumbs.meta";
 import React from "react";
 import Link from "next/link";
@@ -14,6 +14,8 @@ import TelegramLogoIcon from "@/assets/icons/telegramLogo.icon";
 import ViberLogoIcon from "@/assets/icons/viberLogo.icon";
 import WhatsappLogoIcon from "@/assets/icons/whatsappLogo.icon";
 import SmoothImage from "@/ui/smoothImage";
+import KeywordsMeta from "@/meta/keywords.meta";
+import DescriptionMeta from "@/meta/description.meta";
 
 const COMPANY_AGE: number = getCompanyAge();
 const IMAGE_SIZE: number = 320;
@@ -22,6 +24,8 @@ export default function AboutPage() {
 	return (
 		<PageLayout title="О предприятии">
 			<GradientBackground/>
+			<KeywordsMeta startPhrases={[Config.PROJECT_NAME.toLowerCase(), "контакты", "сертификаты", "отзывы"]}/>
+			<DescriptionMeta text={"«Астер-Лифт» – гомельское частное производственное унитарное предприятие по изготовлению и вводу в эксплуатацию сертифицированного подъёмного оборудования в Беларуси."}/>
 			<BreadcrumbsMeta currentName="О предприятии"/>
 			<ContentBlock className={s.description}>
 				<div className={s.illustration}>
@@ -48,7 +52,7 @@ export default function AboutPage() {
 			<ContentBlock id="certs" className={s.certificates}>
 				<h2>Сертификаты и свидетельства</h2>
 				<div className={s.certs}>
-					{CERTS.map(cert => (
+					{Certs.map(cert => (
 						<div key={cert.image.src} className={s.cert}>
 							<SmoothImage
 								src={cert.image}
