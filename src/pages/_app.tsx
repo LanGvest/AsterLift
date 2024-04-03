@@ -23,6 +23,7 @@ import CanonicalPageMeta from "@/meta/canonicalPage.meta";
 import ReCaptchaProvider from "@/components/reCaptchaProvider";
 import PageProgress from "@/components/pageProgress";
 import GoogleVerificationMeta from "@/meta/googleVerification.meta";
+import PinterestVerificationMeta from "@/meta/pinterestVerification.meta";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -47,6 +48,7 @@ export default function App({Component, pageProps}: AppProps) {
 				<YandexMetrikaMeta/>
 				<YandexVerificationMeta/>
 				<GoogleVerificationMeta/>
+				<PinterestVerificationMeta/>
 				<CanonicalPageMeta/>
 				<OrganizationMeta/>
 				<FontVariable name="inter" font={inter}/>
