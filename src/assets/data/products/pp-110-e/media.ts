@@ -7,6 +7,7 @@ import img3 from "./images/3.webp";
 import img4 from "./images/4.webp";
 import img5 from "./images/5.webp";
 import img6 from "./images/6.webp";
+import img7 from "./images/7.jpeg";
 
 export const PP_110_E_IMG_1: ImageMedia = {
 	type: MediaType.IMAGE,
@@ -42,4 +43,9 @@ export const PP_110_E_IMG_6: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img6,
 	description: "С кнопочным управлением"
+};
+
+export const PP_110_E_IMG_7: ImageMedia = {
+	type: MediaType.IMAGE,
+	image: img7
 };

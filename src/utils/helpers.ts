@@ -72,6 +72,14 @@ export function getDefaultProductMinPrice(this: Product): number {
 	return PRODUCTS_DATA[this.id].price;
 }
 
+export function getDefaultProductOldMinPriceString(this: Product): string {
+	return this.getOldMinPrice().toLocaleString("ru-RU");
+}
+
+export function getDefaultProductOldMinPrice(this: Product): number {
+	return this.getMinPrice() + 600;
+}
+
 export function getDefaultProductPageDescription(this: Product): string {
 	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPriceString()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
 }

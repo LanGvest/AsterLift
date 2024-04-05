@@ -4,7 +4,7 @@ import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductMinPriceString,
-	getDefaultProductName,
+	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
 	getDefaultProductPageDescription,
 	getDefaultProductPageTitle,
 	getDefaultProductPluralName,
@@ -28,7 +28,7 @@ export const PP_101_B: Product = {
 	type: "Вертикальный подъёмник для инвалидов",
 	pluralType: "Вертикальные подъёмники для инвалидов",
 	catalogName: "Вертикальный ПП-101.Б",
-	description: "Полное описание. Бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла.",
+	description: "Электрический, со стационарной платформой и боковыми ограждениями, подъём до 2 м.",
 	shortDescription: "Электрический, со стационарной платформой и боковыми ограждениями, подъём до 2 м.",
 	tags: [],
 	advantages: [
@@ -53,6 +53,9 @@ export const PP_101_B: Product = {
 		Media.PP_101_B_IMG_5.image,
 		Media.PP_101_B_IMG_6.image,
 		Media.PP_101_B_IMG_7.image
+	],
+	marketPreview: [
+		Media.PP_101_B_IMG_9.image
 	],
 	control: [
 		{
@@ -206,6 +209,8 @@ export const PP_101_B: Product = {
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
 	getMinPriceString: getDefaultProductMinPriceString,
+	getOldMinPrice: getDefaultProductOldMinPrice,
+	getOldMinPriceString: getDefaultProductOldMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

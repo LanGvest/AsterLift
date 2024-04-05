@@ -4,7 +4,7 @@ import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductMinPriceString,
-	getDefaultProductName,
+	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
 	getDefaultProductPageDescription,
 	getDefaultProductPageTitle,
 	getDefaultProductPluralName,
@@ -51,6 +51,9 @@ export const PP_110_M: Product = {
 		// Media.PP_110_M_IMG_8.image,
 		// Media.PP_110_M_IMG_9.image,
 		// Media.PP_110_M_IMG_10.image
+	],
+	marketPreview: [
+		Media.PP_110_M_IMG_11.image
 	],
 	control: [
 		{
@@ -187,6 +190,8 @@ export const PP_110_M: Product = {
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
 	getMinPriceString: getDefaultProductMinPriceString,
+	getOldMinPrice: getDefaultProductOldMinPrice,
+	getOldMinPriceString: getDefaultProductOldMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

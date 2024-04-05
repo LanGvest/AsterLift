@@ -49,6 +49,7 @@ import img25b from "./images/25b.webp";
 import img25c from "./images/25c.webp";
 import img26a from "./images/26a.webp";
 import img26b from "./images/26b.webp";
+import img27 from "./images/27.jpeg";
 
 export const PP_101_A_IMG_1: ImageMedia = {
 	type: MediaType.IMAGE,
@@ -336,4 +337,9 @@ export const PP_101_A_IMG_26B: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img26b,
 	location: "Брест"
+};
+
+export const PP_101_A_IMG_27: ImageMedia = {
+	type: MediaType.IMAGE,
+	image: img27
 };

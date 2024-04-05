@@ -9,6 +9,7 @@ import img5 from "./images/5.webp";
 import img6 from "./images/6.webp";
 import img7 from "./images/7.webp";
 import img8 from "./images/8.webp";
+import img9 from "./images/9.jpeg";
 
 export const PP_101_B_IMG_1: ImageMedia = {
 	type: MediaType.IMAGE,
@@ -56,4 +57,9 @@ export const PP_101_B_IMG_8: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img8,
 	location: "Жлобин"
+};
+
+export const PP_101_B_IMG_9: ImageMedia = {
+	type: MediaType.IMAGE,
+	image: img9
 };

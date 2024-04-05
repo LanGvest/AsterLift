@@ -11,6 +11,7 @@ import img7 from "./images/7.webp";
 import img8 from "./images/8.webp";
 import img9 from "./images/9.webp";
 import img10 from "./images/10.webp";
+import img11 from "./images/11.jpeg";
 
 export const PP_110_M_IMG_1: ImageMedia = {
 	type: MediaType.IMAGE,
@@ -70,4 +71,9 @@ export const PP_110_M_IMG_10: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img10,
 	description: "С лебёдкой на платформе"
+};
+
+export const PP_110_M_IMG_11: ImageMedia = {
+	type: MediaType.IMAGE,
+	image: img11
 };

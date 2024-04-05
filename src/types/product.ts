@@ -53,6 +53,7 @@ export interface Product {
 	tags: Array<ProductTag>
 	advantages: Array<ProductAdvantage>
 	overview: Array<ImageMedia>
+	marketPreview: Array<StaticImageData>
 	preview: Array<StaticImageData>
 	control: Array<ProductFeature>
 	connection: Array<ProductFeature>
@@ -72,6 +73,8 @@ export interface Product {
 	getPluralName(): string
 	getMinPriceString(): string
 	getMinPrice(): number
+	getOldMinPriceString(): string
+	getOldMinPrice(): number
 	getPageDescription(): string
 }
 

@@ -4,7 +4,7 @@ import {
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductMinPriceString,
-	getDefaultProductName,
+	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
 	getDefaultProductPageDescription,
 	getDefaultProductPageTitle,
 	getDefaultProductPluralName,
@@ -15,7 +15,7 @@ import {
 import About from "./about";
 import * as Media from "./media";
 
-export const PP_110_02: Product = {
+export const PP_110_E: Product = {
 	id: "pp-110-e",
 	model: "ПП-110.Э",
 	group: "ПП-110",
@@ -39,6 +39,9 @@ export const PP_110_02: Product = {
 		Media.PP_110_E_IMG_2.image,
 		Media.PP_110_E_IMG_3.image,
 		Media.PP_110_E_IMG_4.image
+	],
+	marketPreview: [
+		Media.PP_110_E_IMG_7.image
 	],
 	control: [
 		{
@@ -181,6 +184,8 @@ export const PP_110_02: Product = {
 	getPluralName: getDefaultProductPluralName,
 	getMinPrice: getDefaultProductMinPrice,
 	getMinPriceString: getDefaultProductMinPriceString,
+	getOldMinPrice: getDefaultProductOldMinPrice,
+	getOldMinPriceString: getDefaultProductOldMinPriceString,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [
