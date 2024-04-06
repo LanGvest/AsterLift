@@ -7,6 +7,8 @@ import Note from "../../ui/note";
 import OkIcon from "@/assets/icons/ok.icon";
 import Link from "next/link";
 import NoWrap from "@/ui/noWrap";
+import {getDiscountDeadline} from "@/utils/helpers";
+import StarIcon from "@/assets/icons/star.icon";
 
 interface Props {
 	product: Product
@@ -15,7 +17,28 @@ interface Props {
 function Component({product}: Props) {
 	return (
 		<div className={s.container}>
-			<h1 className={s.name}>{product.type} <ProductTags product={product} className={s.tags}/></h1>
+			<div>
+				<div className={s.name}>
+					<h1>{product.type}</h1>
+					<span className={s.space}> </span>
+					<ProductTags product={product} className={s.tags}/>
+				</div>
+				<div className={s.meta}>
+					<div className={s.rateMeta}>
+						<StarIcon/>
+						<span>{product.rating.value.toLocaleString("ru")}</span>
+					</div>
+					<div className={s.skuMeta}>
+						<span>Арт.</span>
+						<span>{product.model.replace(/\./, "-")}</span>
+					</div>
+					<div className={s.orderMeta}>
+						<div className={s.availabilitySignal}><div/></div>
+						{/*<span>Есть в наличии</span>*/}
+						<span>По предзаказу</span>
+					</div>
+				</div>
+			</div>
 			<p className={s.shortDescription}>{product.shortDescription}</p>
 			<div className={s.advantages}>
 				<div className={s.advantage}>
@@ -40,7 +63,13 @@ function Component({product}: Props) {
 				</div>
 			</div>
 			<div>
-				<p className={s.minPrice}>от <span>{product.getMinPriceString()}</span> BYN</p>
+				<div className={s.minPriceWrapper}>
+					<p className={s.minPrice}>от <span>{product.getMinPriceString()}</span> BYN</p>
+					<div className={s.oldMinPriceWrapper}>
+						<p className={s.oldMinPrice}>{product.getOldMinPriceString()} BYN</p>
+						<p className={s.oldMinPriceBonus}>-{product.getDiscountPercentage()}% {getDiscountDeadline()}</p>
+					</div>
+				</div>
 				{/*<p className={s.minPriceNote}>Цена указана без учёта монтажных работ и доставки</p>*/}
 			</div>
 			{/*<p className={s.minPrice}></p>*/}

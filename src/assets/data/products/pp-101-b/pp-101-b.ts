@@ -1,6 +1,7 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
 import {
+	getDefaultProductDiscountPercentage,
 	getDefaultProductExtendedName,
 	getDefaultProductMinPrice,
 	getDefaultProductMinPriceString,
@@ -211,6 +212,7 @@ export const PP_101_B: Product = {
 	getMinPriceString: getDefaultProductMinPriceString,
 	getOldMinPrice: getDefaultProductOldMinPrice,
 	getOldMinPriceString: getDefaultProductOldMinPriceString,
+	getDiscountPercentage: getDefaultProductDiscountPercentage,
 	getUrl: getDefaultProductUrl,
 	About,
 	keywords: [

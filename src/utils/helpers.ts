@@ -84,6 +84,12 @@ export function getDefaultProductPageDescription(this: Product): string {
 	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPriceString()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
 }
 
+export function getDefaultProductDiscountPercentage(this: Product): number {
+	const price = this.getMinPrice();
+	const oldPrice = this.getOldMinPrice();
+	return Math.round(((oldPrice - price) / oldPrice) * 100);
+}
+
 // Производство «${Config.PROJECT_NAME}».
 
 export function getDefaultSliderProgress<T>(_activeItem: T, activeIndex: number, items: Array<T>): string {
@@ -190,4 +196,42 @@ export function getDefaultSlideFullscreenHint(): string {
 export function truncate(text: string, maxLength: number, ending: string = "..."): string {
 	if(text.length <= maxLength) return text;
 	return text.substring(0, maxLength).trim() + ending;
+}
+
+interface Months {
+	[id: number]: string
+}
+
+const months: Months = {
+	1: "января",
+	2: "февраля",
+	3: "марта",
+	4: "апреля",
+	5: "мая",
+	6: "июня",
+	7: "июля",
+	8: "августа",
+	9: "сентября",
+	10: "октября",
+	11: "ноября",
+	12: "декабря"
+};
+
+export function getDiscountDeadline(): string {
+	const now = new Date();
+	const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+	return `до ${daysInCurrentMonth} ${months[now.getMonth() + 1]}`;
+}
+
+export function getHashCode(value: string): number {
+	let hash = 0, i, chr;
+	if(value.length === 0) return hash;
+	for(i = 0; i < value.length; i++) {
+		chr = value.charCodeAt(i);
+		// eslint-disable-next-line no-bitwise
+		hash = ((hash << 5) - hash) + chr;
+		// eslint-disable-next-line no-bitwise
+		hash |= 0; // Convert to 32bit integer
+	}
+	return hash;
 }

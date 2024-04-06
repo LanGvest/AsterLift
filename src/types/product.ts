@@ -75,6 +75,7 @@ export interface Product {
 	getMinPrice(): number
 	getOldMinPriceString(): string
 	getOldMinPrice(): number
+	getDiscountPercentage(): number
 	getPageDescription(): string
 }
 
