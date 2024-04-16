@@ -23,13 +23,6 @@ function getCategoryId(product: Product): number {
 	return LIFT_FOR_THE_DISABLED_CATEGORY_ID;
 }
 
-/*
-
-<name>${Config.ORGANIZATION.NAME_RU}</name>
-<company>${Config.ORGANIZATION.SHORT_LEGAL_NAME}</company>
-
- */
-
 function generateFeed(): string {
 	// noinspection HtmlUnknownAttribute
 	return xml`
@@ -61,7 +54,7 @@ function generateFeed(): string {
 							<vendorCode>${product.model}</vendorCode>
 							<url>${validateUrl(product.getUrl())}</url>
 							<price>${product.getMinPrice()}</price>
-							<oldprice>${product.getOldMinPrice()}</oldprice>
+							${product.hasDiscount() ? `<oldprice>${product.getOldMinPrice()}</oldprice>` : ""}
 							<currencyId>BYN</currencyId>
 							<categoryId>${getCategoryId(product)}</categoryId>
 							<picture>${validateUrl(product.marketPreview[0].src)}</picture>

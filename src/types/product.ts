@@ -38,7 +38,28 @@ export interface ProductAdvantage {
 	value: ReactNode
 }
 
-export interface Product {
+export interface ProductRating {
+	value: number
+	count: number
+}
+
+export interface ProductPrototype {
+	getUrl(): string
+	getTitle(): string
+	getPageTitle(): string
+	getName(): string
+	getExtendedName(): string
+	getPluralName(): string
+	getMinPriceString(): string
+	getMinPrice(): number
+	getOldMinPriceString(): string
+	getOldMinPrice(): number
+	hasDiscount(): boolean
+	getDiscountPercentage(): number
+	getPageDescription(): string
+}
+
+export interface ProductDefinition extends Partial<ProductPrototype> {
 	id: string
 	model: string
 	group: string
@@ -60,24 +81,11 @@ export interface Product {
 	specifications: Array<ProductSpecification>
 	examples: Array<ImageMedia>
 	files: Array<FileMedia>
-	rating: {
-		value: number
-		count: number
-	}
+	rating: ProductRating
 	About?: FunctionComponent
-	getUrl(): string
-	getTitle(): string
-	getPageTitle(): string
-	getName(): string
-	getExtendedName(): string
-	getPluralName(): string
-	getMinPriceString(): string
-	getMinPrice(): number
-	getOldMinPriceString(): string
-	getOldMinPrice(): number
-	getDiscountPercentage(): number
-	getPageDescription(): string
 }
+
+export type Product = ProductDefinition & ProductPrototype;
 
 export interface ProductSection {
 	id: string

@@ -10,6 +10,41 @@ import NoWrap from "@/ui/noWrap";
 import {getDiscountDeadline} from "@/utils/helpers";
 import StarIcon from "@/assets/icons/star.icon";
 
+// const POINTS_AMOUNT: number = 5;
+//
+// interface Points {
+// 	[x: number]: number
+// }
+
+// function getOldPriceChartPoints(product: Product): string {
+// 	const seed = Math.abs(getHashCode(product.id));
+// 	const random: Random = new Random(seed);
+// 	const xStep = 100 / POINTS_AMOUNT;
+// 	const yFactor = random.nextRange(10, 20);
+// 	const yPadding = random.nextRange(10, 20);
+// 	const yStep = (100 - yFactor * 2 - yPadding * 2) / POINTS_AMOUNT;
+// 	const points: Points = {};
+// 	let trendLineY = 100 - yFactor - yPadding;
+//
+// 	for(let x = 0; x <= 100; x += xStep) {
+// 		points[x] = random.nextRange(trendLineY - yFactor, trendLineY + yFactor);
+// 		trendLineY -= yStep;
+// 	}
+//
+// 	const keys: Array<string> = Object.keys(points);
+// 	const lastX1 = +keys[keys.length - 1];
+// 	const lastX2 = +keys[keys.length - 2];
+//
+// 	if(points[lastX1] < points[lastX2]) {
+// 		const diff = points[lastX2] - points[lastX1];
+// 		const temp = points[lastX1];
+// 		points[lastX1] = points[lastX2];
+// 		points[lastX2] = temp + (diff / 2);
+// 	}
+//
+// 	return Object.keys(points).map(x => `${x},${points[+x]}`).join(" ");
+// }
+
 interface Props {
 	product: Product
 }
@@ -65,14 +100,15 @@ function Component({product}: Props) {
 			<div>
 				<div className={s.minPriceWrapper}>
 					<p className={s.minPrice}>от <span>{product.getMinPriceString()}</span> BYN</p>
-					<div className={s.oldMinPriceWrapper}>
-						<p className={s.oldMinPrice}>{product.getOldMinPriceString()} BYN</p>
-						<p className={s.oldMinPriceBonus}>-{product.getDiscountPercentage()}% {getDiscountDeadline()}</p>
-					</div>
+					{product.hasDiscount() && (
+						<div className={s.oldMinPriceWrapper}>
+							<p className={s.oldMinPrice}>{product.getOldMinPriceString()} BYN</p>
+							<p className={s.oldMinPriceBonus}>-{product.getDiscountPercentage()}% {getDiscountDeadline()}</p>
+						</div>
+					)}
 				</div>
 				{/*<p className={s.minPriceNote}>Цена указана без учёта монтажных работ и доставки</p>*/}
 			</div>
-			{/*<p className={s.minPrice}></p>*/}
 			<Note
 				icon={<PhoneIcon/>}
 				withPhone={true}

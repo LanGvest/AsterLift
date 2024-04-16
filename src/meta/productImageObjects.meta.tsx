@@ -28,6 +28,7 @@ export default function ProductImageObjectsMeta({product}: Props) {
 				<ImageObjectMeta
 					key={image.image.src}
 					image={image.image}
+					alt={product.getName()}
 					name={product.getName()}
 					caption={getProductCaption([image.location, image.name, image.description])}
 					description={product.getPageDescription()}

@@ -1,22 +1,11 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
-import {
-	getDefaultProductDiscountPercentage,
-	getDefaultProductExtendedName,
-	getDefaultProductMinPrice,
-	getDefaultProductMinPriceString,
-	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
-	getDefaultProductPageDescription,
-	getDefaultProductPageTitle,
-	getDefaultProductPluralName,
-	getDefaultProductTitle,
-	getDefaultProductUrl,
-	getNextId
-} from "@/utils/helpers";
+import {getNextId} from "@/utils/helpers";
 import About from "./about";
 import * as Media from "./media";
+import {makeProduct} from "@/utils/product";
 
-export const PP_110_E: Product = {
+export const PP_110_E: Product = makeProduct({
 	id: "pp-110-e",
 	model: "ПП-110.Э",
 	group: "ПП-110",
@@ -178,18 +167,6 @@ export const PP_110_E: Product = {
 		Media.PP_110_E_IMG_6
 	],
 	files: [],
-	getTitle: getDefaultProductTitle,
-	getPageTitle: getDefaultProductPageTitle,
-	getName: getDefaultProductName,
-	getExtendedName: getDefaultProductExtendedName,
-	getPluralName: getDefaultProductPluralName,
-	getMinPrice: getDefaultProductMinPrice,
-	getMinPriceString: getDefaultProductMinPriceString,
-	getOldMinPrice: getDefaultProductOldMinPrice,
-	getOldMinPriceString: getDefaultProductOldMinPriceString,
-	getDiscountPercentage: getDefaultProductDiscountPercentage,
-	getUrl: getDefaultProductUrl,
-	About,
 	keywords: [
 		"наклонный",
 		"лестничный",
@@ -197,8 +174,8 @@ export const PP_110_E: Product = {
 		"складная платформа"
 	],
 	rating: {
-		value: 4.3,
+		value: 4.6,
 		count: 28
 	},
-	getPageDescription: getDefaultProductPageDescription
-};
+	About
+});

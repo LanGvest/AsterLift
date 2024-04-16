@@ -8,7 +8,7 @@ import Config from "@config";
 import ExternalLinkIcon from "@/assets/icons/externalLink.icon";
 import Link from "next/link";
 import DescriptionMeta from "@/meta/description.meta";
-import {LOWEST_PRICE} from "@/assets/data/products/products";
+import {LOWEST_PRICE_STRING} from "@/assets/data/products/products";
 import KeywordsMeta from "@/meta/keywords.meta";
 import CatalogMeta from "@/meta/catalog.meta";
 import OpenGraphOrganizationMeta from "@/meta/openGraphOrganization.meta";
@@ -17,7 +17,7 @@ import {getCompanyAge, getCorrectWord} from "@/utils/helpers";
 
 const COMPANY_AGE: number = getCompanyAge();
 const COMPANY_AGE_PHRASE: string = `${COMPANY_AGE} ${getCorrectWord("лет", "год", "года", COMPANY_AGE)}`;
-const DESCRIPTION: string = `Купить сертифицированный подъёмник для инвалидов от ${LOWEST_PRICE} BYN в Беларуси у производителя. Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
+const DESCRIPTION: string = `Купить сертифицированный подъёмник для инвалидов от ${LOWEST_PRICE_STRING} BYN в Беларуси у производителя. Изготовление, доставка и монтаж за 14 дней. Гарантия 12 месяцев.`;
 
 export default function IndexPage() {
 	// noinspection HtmlUnknownAnchorTarget

@@ -1,18 +1,6 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
-import {
-	getDefaultProductDiscountPercentage,
-	getDefaultProductExtendedName,
-	getDefaultProductMinPrice,
-	getDefaultProductMinPriceString,
-	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
-	getDefaultProductPageDescription,
-	getDefaultProductPageTitle,
-	getDefaultProductPluralName,
-	getDefaultProductTitle,
-	getDefaultProductUrl,
-	getNextId
-} from "@/utils/helpers";
+import {getNextId} from "@/utils/helpers";
 import About from "./about";
 import * as Media from "./media";
 import {
@@ -20,8 +8,9 @@ import {
 	PP_101_A_IMG_24C,
 	PP_101_A_IMG_25C
 } from "@/assets/data/products/pp-101-a/media";
+import {makeProduct} from "@/utils/product";
 
-export const PP_101_B: Product = {
+export const PP_101_B: Product = makeProduct({
 	id: "pp-101-b",
 	model: "ПП-101.Б",
 	group: "ПП-101",
@@ -203,18 +192,6 @@ export const PP_101_B: Product = {
 		Media.PP_101_B_IMG_8
 	],
 	files: [],
-	getTitle: getDefaultProductTitle,
-	getPageTitle: getDefaultProductPageTitle,
-	getName: getDefaultProductName,
-	getExtendedName: getDefaultProductExtendedName,
-	getPluralName: getDefaultProductPluralName,
-	getMinPrice: getDefaultProductMinPrice,
-	getMinPriceString: getDefaultProductMinPriceString,
-	getOldMinPrice: getDefaultProductOldMinPrice,
-	getOldMinPriceString: getDefaultProductOldMinPriceString,
-	getDiscountPercentage: getDefaultProductDiscountPercentage,
-	getUrl: getDefaultProductUrl,
-	About,
 	keywords: [
 		"вертикальный",
 		"электрический",
@@ -225,5 +202,5 @@ export const PP_101_B: Product = {
 		value: 4.6,
 		count: 33
 	},
-	getPageDescription: getDefaultProductPageDescription
-};
+	About
+});

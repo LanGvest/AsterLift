@@ -2,6 +2,7 @@ import type {Organization as OrganizationSchema, PostalAddress} from "schema-dts
 import Config from "@config";
 import MicrodataMeta from "@/meta/microdata.meta";
 import {validateUrl} from "@/utils/url";
+import {HIGHEST_PRICE, LOWEST_PRICE} from "@/assets/data/products/products";
 
 const address: PostalAddress = {
 	"@type": "PostalAddress",
@@ -38,6 +39,7 @@ export default function OrganizationMeta() {
 		"isicV4": Config.ORGANIZATION.ISIC_V4.toString(),
 		"areaServed": Config.ADDRESS.COUNTRY.NAME_RU,
 		"foundingDate": Config.ORGANIZATION.FOUNDING_DATE,
+		"priceRange": `${LOWEST_PRICE}BYN - ${HIGHEST_PRICE}BYN`,
 		"location": {
 			"@type": "Place",
 			"address": address,

@@ -71,13 +71,17 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 	const command = text.replace(/\s+/, " ");
 
 	if(/(?<=[^\dа-яёa-z_-]|^)цен[ау](?=[^\dа-яёa-z_-]|$)/i.test(command)) {
+		const isTargetOldPrice = /(?<=[^\dа-яёa-z_-]|^)стар(ая|ую)(?=[^\dа-яёa-z_-]|$)/i.test(command);
+
+		const pricePhrase1 = isTargetOldPrice ? "старую" : "новую";
+
 		const hasModel = modelRegex.test(command);
 		const hasPrice = priceRegex.test(command);
 
 		if(!hasModel && !hasPrice) {
 			await Telegram.sendMessage({
 				chatId: chat.id,
-				text: "❗️ Чтобы я смог установить новую цену для какого-нибудь подъёмника Вам следует указать мне его модель и новую цену. Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста."
+				text: `❗️ Чтобы я смог обновить "${pricePhrase1} цену" для какого-нибудь подъёмника Вам следует указать мне его модель и новое ценовое значение. Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста.`
 			});
 			return cancel(res, 200);
 		}
@@ -85,7 +89,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 		if(!hasModel) {
 			await Telegram.sendMessage({
 				chatId: chat.id,
-				text: "❗️ Чтобы я смог установить новую цену Вам следует указать мне ещё и модель, чтобы я знал, какому подъёмнику необходимо обновить цену. Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста."
+				text: `❗️ Чтобы я смог обновить "${pricePhrase1} цену" Вам следует указать мне ещё и модель, чтобы я знал с каким подъёмником работать. Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста.`
 			});
 			return cancel(res, 200);
 		}
@@ -113,7 +117,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 		if(!hasPrice) {
 			await Telegram.sendMessage({
 				chatId: chat.id,
-				text: `❗️ Чтобы я смог установить новую цену для подъёмника ${product.model} Вам следует указать мне и саму новую цену, чтобы я знал, на что заменять старую. Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста.`
+				text: `❗️ Чтобы я смог обновить "${pricePhrase1} цену" для подъёмника ${product.model} Вам следует указать мне еще и новое ценовое значение, чтобы я знал, на что заменить текущую "${pricePhrase1} цену". Перефразируйте вашу просьбу и повторите попытку ещё раз, пожалуйста.`
 			});
 			return cancel(res, 200);
 		}
@@ -128,21 +132,25 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 			return cancel(res, 200);
 		}
 
-		const newMinPrice = Number(priceMatch[0].replace(/\s/g, ""));
-
 		const productRef = ref(FBD, `products/${product.id}`);
 		const productSnapshot = await get(productRef);
 		const productData = productSnapshot.val() as ProductData;
 
-		if(product.getMinPrice() === newMinPrice) {
-			if(newMinPrice === productData.price) {
+		const newPrice = Number(priceMatch[0].replace(/\s/g, ""));
+		const targetSitePrice = isTargetOldPrice ? product.getOldMinPrice() : product.getMinPrice();
+		const targetDBPrice = isTargetOldPrice ? productData.oldPrice : productData.price;
+
+		if(targetSitePrice === newPrice) {
+			if(newPrice === targetDBPrice) {
 				await Telegram.sendMessage({
 					chatId: chat.id,
 					text: `
-					❕ У этого подъёмника уже установлена такая цена на сайте. Так что мне нечего менять, либо придумайте новую цену.
+					❕ У этого подъёмника уже установлена такая "${pricePhrase1} цена" на сайте. Так что мне нечего менять, либо придумайте другую цену.
 					
 					<b>Подъёмник:</b> <a href="${validateUrl(product.getUrl())}">${product.getName()}</a>
-					<b>Текущая цена:</b> от ${product.getMinPriceString()} BYN
+					<b>Текущая "новая цена":</b> от ${product.getMinPriceString()} BYN
+					<b>Текущая "старая цена":</b> от ${product.getOldMinPriceString()} BYN
+					<b>Текущая скидка:</b> ${product.getDiscountPercentage()}%
 				`
 				});
 				return cancel(res, 200);
@@ -163,7 +171,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 			}
 		}
 
-		if(productData.price === newMinPrice) {
+		if(productData.price === newPrice) {
 			await Telegram.sendMessage({
 				chatId: chat.id,
 				text: `
@@ -171,13 +179,13 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 					
 					<b>Подъёмник:</b> <a href="${validateUrl(product.getUrl())}">${product.getName()}</a>
 					<b>Старая цена (текущая):</b> <strike>от ${product.getMinPriceString()} BYN</strike>
-					<b>Новая цена (в черновике):</b> от ${newMinPrice.toLocaleString("ru-RU")} BYN
+					<b>Новая цена (в черновике):</b> от ${newPrice.toLocaleString("ru-RU")} BYN
 				`
 			});
 			return cancel(res, 200);
 		}
 
-		await set(child(productRef, "price"), newMinPrice);
+		await set(child(productRef, "price"), newPrice);
 
 		await Telegram.sendMessage({
 			chatId: chat.id,
@@ -186,7 +194,7 @@ export default async function telegramWebHook(req: NextApiRequest, res: NextApiR
 				
 				<b>Подъёмник:</b> <a href="${validateUrl(product.getUrl())}">${product.getName()}</a>
 				<b>Старая цена (текущая):</b> <strike>от ${product.getMinPriceString()} BYN</strike>
-				<b>Новая цена (в черновике):</b> от ${newMinPrice.toLocaleString("ru-RU")} BYN
+				<b>Новая цена (в черновике):</b> от ${newPrice.toLocaleString("ru-RU")} BYN
 				
 				⚠️ Чтобы новая цена появилась на сайте, не забудьте попросить меня применить изменения.
 			`

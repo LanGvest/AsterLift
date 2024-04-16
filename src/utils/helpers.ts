@@ -1,6 +1,4 @@
 import type {CSSProperties, Dispatch, MutableRefObject, SetStateAction} from "react";
-import type {Product} from "@/types/product";
-import {PRODUCTS_DATA} from "@/utils/data";
 
 export type Nullable<T> = T | null;
 export type Undefinable<T> = T | undefined;
@@ -39,58 +37,6 @@ export function isServer(): boolean {
 export function combineClasses(...classNames: Array<Optional<string | boolean>>): Undefinable<string> {
 	return classNames.filter(item => item && typeof item === "string").join(" ") || undefined;
 }
-
-export function getDefaultProductUrl(this: Product): string {
-	return "/" + this.id;
-}
-
-export function getDefaultProductTitle(this: Product): string {
-	return `${this.getName()} от ${this.getMinPriceString()} BYN`;
-}
-
-export function getDefaultProductPageTitle(this: Product): string {
-	return `${this.type} от ${this.getMinPriceString()} BYN в Беларуси`;
-}
-
-export function getDefaultProductName(this: Product): string {
-	return `${this.type} ${this.model}`;
-}
-
-export function getDefaultProductExtendedName(this: Product): string {
-	return `${this.extendedType || this.type} ${this.model}`;
-}
-
-export function getDefaultProductPluralName(this: Product): string {
-	return `${this.pluralType || this.type} ${this.model}`;
-}
-
-export function getDefaultProductMinPriceString(this: Product): string {
-	return this.getMinPrice().toLocaleString("ru-RU");
-}
-
-export function getDefaultProductMinPrice(this: Product): number {
-	return PRODUCTS_DATA[this.id].price;
-}
-
-export function getDefaultProductOldMinPriceString(this: Product): string {
-	return this.getOldMinPrice().toLocaleString("ru-RU");
-}
-
-export function getDefaultProductOldMinPrice(this: Product): number {
-	return this.getMinPrice() + 600;
-}
-
-export function getDefaultProductPageDescription(this: Product): string {
-	return `Купить ${lowerCaseFirst(this.getExtendedName())} от ${this.getMinPriceString()} BYN в Беларуси у производителя. ${withoutDot(this.shortDescription)}. Изготовление, доставка и монтаж за 14 дней.`;
-}
-
-export function getDefaultProductDiscountPercentage(this: Product): number {
-	const price = this.getMinPrice();
-	const oldPrice = this.getOldMinPrice();
-	return Math.round(((oldPrice - price) / oldPrice) * 100);
-}
-
-// Производство «${Config.PROJECT_NAME}».
 
 export function getDefaultSliderProgress<T>(_activeItem: T, activeIndex: number, items: Array<T>): string {
 	return `${activeIndex + 1} из ${items.length}`;
@@ -234,4 +180,8 @@ export function getHashCode(value: string): number {
 		hash |= 0; // Convert to 32bit integer
 	}
 	return hash;
+}
+
+export function toLocalString(number: number): string {
+	return number.toLocaleString("ru-RU");
 }

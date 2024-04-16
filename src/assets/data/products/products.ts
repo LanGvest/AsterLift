@@ -1,4 +1,5 @@
 import type {Product} from "@/types/product";
+import {toLocalString} from "@/utils/helpers";
 
 import PP_101_A from "./pp-101-a";
 import PP_101_B from "./pp-101-b";
@@ -12,8 +13,9 @@ export const Products: Array<Product> = [
 	PP_110_E
 ];
 
-export const LOWEST_PRICE: string = getLowestPrice();
+const minPrices: Array<number> = Products.map(product => product.getMinPrice());
 
-function getLowestPrice(): string {
-	return Math.min(...Products.map(product => product.getMinPrice())).toLocaleString("ru-RU");
-}
+export const LOWEST_PRICE: number = Math.min(...minPrices);
+export const HIGHEST_PRICE: number = Math.max(...minPrices);
+export const LOWEST_PRICE_STRING: string = toLocalString(LOWEST_PRICE);
+export const HIGHEST_PRICE_STRING: string = toLocalString(HIGHEST_PRICE);

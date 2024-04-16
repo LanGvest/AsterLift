@@ -24,6 +24,7 @@ import ReCaptchaProvider from "@/components/reCaptchaProvider";
 import PageProgress from "@/components/pageProgress";
 import GoogleVerificationMeta from "@/meta/googleVerification.meta";
 import PinterestVerificationMeta from "@/meta/pinterestVerification.meta";
+import GlobalInlineStyle from "@/components/globalInlineStyle";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -44,6 +45,7 @@ export default function App({Component, pageProps}: AppProps) {
 					<meta name="theme-color" content="#1a1a1c"/>
 					<meta name="color-scheme" content="light only"/>
 				</Head>
+				<GlobalInlineStyle/>
 				<RobotsMeta/>
 				<YandexMetrikaMeta/>
 				<YandexVerificationMeta/>

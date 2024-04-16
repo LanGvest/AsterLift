@@ -1,0 +1,1 @@
+export {GlobalInlineStyle as default} from "./globalInlineStyle";

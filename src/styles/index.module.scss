@@ -37,20 +37,20 @@
 
 	span {
 		z-index: -1;
-		border-radius: 10px;
+		//border-radius: 10px;
 		//border: 1px black solid;
-		padding: 0 16px 0 10px;
+		//padding: 0 16px 0 10px;
 		//background-color: red;
-		color: #d5dff5;
-		transform: rotate(-12deg);
+		color: rgba(62, 64, 82, .3);
+		//transform: rotate(-12deg);
 		pointer-events: none;
 		user-select: none;
-		//font-weight: 700;
-		font-style: italic;
-		font-size: 66px;
+		font-weight: 700;
+		//font-style: italic;
+		font-size: 20px;
 		position: absolute;
-		left: 50%;
-		bottom: -35px;
+		right: 140px;
+		bottom: -19px;
 		//width: 500px;
 		//height: 300px;
 		//display: inline-block;

@@ -1,23 +1,12 @@
 import type {Product} from "@/types/product";
 import {ProductCategory} from "@/enums/productCategory";
-import {
-	getDefaultProductDiscountPercentage,
-	getDefaultProductExtendedName,
-	getDefaultProductMinPrice,
-	getDefaultProductMinPriceString,
-	getDefaultProductName, getDefaultProductOldMinPrice, getDefaultProductOldMinPriceString,
-	getDefaultProductPageDescription,
-	getDefaultProductPageTitle,
-	getDefaultProductPluralName,
-	getDefaultProductTitle,
-	getDefaultProductUrl,
-	getNextId
-} from "@/utils/helpers";
+import {getNextId} from "@/utils/helpers";
 import {TOP_SALES} from "@/assets/data/productTags";
 import About from "./about";
 import * as Media from "./media";
+import {makeProduct} from "@/utils/product";
 
-export const PP_101_A: Product = {
+export const PP_101_A: Product = makeProduct({
 	id: "pp-101-a",
 	model: "ПП-101.А",
 	group: "ПП-101",
@@ -243,18 +232,6 @@ export const PP_101_A: Product = {
 		// 	size: 53_422_345
 		// }
 	],
-	getTitle: getDefaultProductTitle,
-	getPageTitle: getDefaultProductPageTitle,
-	getName: getDefaultProductName,
-	getExtendedName: getDefaultProductExtendedName,
-	getPluralName: getDefaultProductPluralName,
-	getMinPrice: getDefaultProductMinPrice,
-	getMinPriceString: getDefaultProductMinPriceString,
-	getOldMinPrice: getDefaultProductOldMinPrice,
-	getOldMinPriceString: getDefaultProductOldMinPriceString,
-	getDiscountPercentage: getDefaultProductDiscountPercentage,
-	getUrl: getDefaultProductUrl,
-	About,
 	keywords: [
 		"вертикальный",
 		"электрический",
@@ -265,5 +242,5 @@ export const PP_101_A: Product = {
 		value: 4.8,
 		count: 47
 	},
-	getPageDescription: getDefaultProductPageDescription
-};
+	About
+});

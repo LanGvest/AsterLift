@@ -40,56 +40,58 @@ export function ProductOverview({product}: Props) {
 	}, [forceUpdate]);
 
 	return (
-		<SliderWithThumbs
-			className={s.container}
-			mainGap={12}
-			thumbsGap={12}
-			items={product.overview}
-			getSlideKey={item => item.image.src}
-			getMeta={activeItem => ({
-				location: activeItem.location
-			})}
-			getMainSlideHint={getDefaultSlideFullscreenHint}
-			onActiveIndexChange={index => setActiveIndex(index)}
-			getProgress={getDefaultSliderProgress}
-			autoplayModule={Autoplay}
-			// onVisibilityChange={newVisibility => setIsVisible(() => newVisibility === "visible")}
-			onClickMainSlide={(swiper, _item, index) => {
-				openFullscreenProductOverview({
-					product,
-					controller: {
-						swiper,
-						loop: false
-					},
-					initialSlide: index
-				});
-			}}
-			renderMainSlide={(item, index) => (
-				<SmoothImage
-					style={{
-						backgroundImage: `url(${item.image.blurDataURL})`
-					}}
-					placeholder="empty"
-					src={item.image}
-					width={IMAGE_SIZE}
-					height={IMAGE_SIZE * (12 / 10)}
-					priority={isPriority(index, priorityIndexes)}
-					alt={product.getName()}
-					title={product.getTitle()}
-				/>
-			)}
-			renderThumbSlide={item => (
-				<SmoothImage
-					src={item.image}
-					width={THUMB_IMAGE_SIZE}
-					height={THUMB_IMAGE_SIZE}
-					loading="lazy"
-					placeholder="blur"
-					fetchPriority="high"
-					alt={product.getName()}
-					title={product.getTitle()}
-				/>
-			)}
-		/>
+		<div className={s.wrapper}>
+			<SliderWithThumbs
+				className={s.container}
+				mainGap={12}
+				thumbsGap={12}
+				items={product.overview}
+				getSlideKey={item => item.image.src}
+				getMeta={activeItem => ({
+					location: activeItem.location
+				})}
+				getMainSlideHint={getDefaultSlideFullscreenHint}
+				onActiveIndexChange={index => setActiveIndex(index)}
+				getProgress={getDefaultSliderProgress}
+				autoplayModule={Autoplay}
+				// onVisibilityChange={newVisibility => setIsVisible(() => newVisibility === "visible")}
+				onClickMainSlide={(swiper, _item, index) => {
+					openFullscreenProductOverview({
+						product,
+						controller: {
+							swiper,
+							loop: false
+						},
+						initialSlide: index
+					});
+				}}
+				renderMainSlide={(item, index) => (
+					<SmoothImage
+						style={{
+							backgroundImage: `url(${item.image.blurDataURL})`
+						}}
+						placeholder="empty"
+						src={item.image}
+						width={IMAGE_SIZE}
+						height={IMAGE_SIZE * (12 / 10)}
+						priority={isPriority(index, priorityIndexes)}
+						alt={product.getName()}
+						title={product.getTitle()}
+					/>
+				)}
+				renderThumbSlide={item => (
+					<SmoothImage
+						src={item.image}
+						width={THUMB_IMAGE_SIZE}
+						height={THUMB_IMAGE_SIZE}
+						loading="lazy"
+						placeholder="blur"
+						fetchPriority="high"
+						alt={product.getName()}
+						title={product.getTitle()}
+					/>
+				)}
+			/>
+		</div>
 	);
 }
