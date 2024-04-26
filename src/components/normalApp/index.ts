@@ -1,0 +1,1 @@
+export {NormalApp as default} from "./normalApp";

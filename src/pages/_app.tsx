@@ -1,30 +1,15 @@
 import "@/styles/root.scss";
-import "@/styles/global.scss";
 import "@/utils/global";
+import "@/styles/global.scss";
 import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/virtual";
 import "swiper/scss/autoplay";
 import type {AppProps} from "next/app";
-import Head from "next/head";
-import {Provider} from "react-redux";
-import {Inter} from "next/font/google";
-import {Store} from "@/utils/store";
-import Config from "@config";
-import PageHeader from "@/components/pageHeader";
-import PageFooter from "@/components/pageFooter";
-import RobotsMeta from "@/meta/robots.meta";
+import ConsoleApp from "@/components/consoleApp";
+import NormalApp from "@/components/normalApp";
 import FontVariable from "@/components/fontVariable";
-import FullscreenViewer from "@/components/fullscreenViewer";
-import OrganizationMeta from "@/meta/organization.meta";
-import YandexVerificationMeta from "@/meta/yandexVerification.meta";
-import YandexMetrikaMeta from "@/meta/yandexMetrika.meta";
-import CanonicalPageMeta from "@/meta/canonicalPage.meta";
-import ReCaptchaProvider from "@/components/reCaptchaProvider";
-import PageProgress from "@/components/pageProgress";
-import GoogleVerificationMeta from "@/meta/googleVerification.meta";
-import PinterestVerificationMeta from "@/meta/pinterestVerification.meta";
-import GlobalInlineStyle from "@/components/globalInlineStyle";
+import {Inter} from "next/font/google";
 
 const inter = Inter({
 	weight: ["400", "600", "700"], // 800 можно будет убрать
@@ -35,31 +20,15 @@ const inter = Inter({
 });
 
 // noinspection JSUnusedGlobalSymbols
-export default function App({Component, pageProps}: AppProps) {
+export default function App({Component, pageProps, router}: AppProps) {
+	const isConsole = router.pathname.startsWith("/console");
+
+	const AppComponent = isConsole ? ConsoleApp : NormalApp;
+
 	return (
-		<Provider store={Store}>
-			<ReCaptchaProvider>
-				<Head>
-					<title>{Config.PROJECT_NAME}</title>
-					<meta name="viewport" content="width=device-width, initial-scale=1"/>
-					<meta name="theme-color" content="#1a1a1c"/>
-					<meta name="color-scheme" content="light only"/>
-				</Head>
-				<GlobalInlineStyle/>
-				<RobotsMeta/>
-				<YandexMetrikaMeta/>
-				<YandexVerificationMeta/>
-				<GoogleVerificationMeta/>
-				<PinterestVerificationMeta/>
-				<CanonicalPageMeta/>
-				<OrganizationMeta/>
-				<FontVariable name="inter" font={inter}/>
-				<FullscreenViewer/>
-				<PageProgress/>
-				<PageHeader/>
-				<Component {...pageProps}/>
-				<PageFooter/>
-			</ReCaptchaProvider>
-		</Provider>
+		<>
+			<FontVariable name="inter" font={inter}/>
+			<AppComponent Component={Component} router={router} pageProps={pageProps}/>
+		</>
 	);
 }

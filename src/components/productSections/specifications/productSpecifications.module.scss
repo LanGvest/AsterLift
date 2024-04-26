@@ -63,11 +63,10 @@
 	font-size: inherit;
 	font-style: inherit;
 	color: inherit;
-
-
 	display: inline-flex;
 	justify-content: flex-end;
 	gap: 10px;
+	row-gap: 5px;
 	flex-wrap: wrap;
 }
 
@@ -99,5 +98,17 @@
 @media (width < 900px) {
 	.name {
 		flex-shrink: unset;
+	}
+
+	.logo {
+		gap: 8px;
+
+		svg {
+			height: 24px;
+		}
+
+		p {
+			font-size: 17.5px;
+		}
 	}
 }

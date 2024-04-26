@@ -1,8 +1,12 @@
 import Head from "next/head";
 import {isDevelopment} from "@/utils/helpers";
 
-export default function RobotsMeta() {
-	const content: string = isDevelopment() ? "noindex, nofollow" : "index, follow";
+interface Props {
+	allowed?: boolean
+}
+
+export default function RobotsMeta({allowed = !isDevelopment()}: Props) {
+	const content: string = allowed ? "index, follow" : "noindex, nofollow";
 
 	// noinspection HtmlRequiredTitleElement
 	return (

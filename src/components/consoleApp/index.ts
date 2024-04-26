@@ -1,0 +1,1 @@
+export {ConsoleApp as default} from "./consoleApp";

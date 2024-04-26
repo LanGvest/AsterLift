@@ -1,0 +1,1 @@
+export {AppHead as default} from "./appHead";

@@ -1,2 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /api
+Disallow: /console
+
+Sitemap: https://asterlift.by/sitemap.xml
