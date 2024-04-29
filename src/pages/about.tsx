@@ -1,8 +1,8 @@
 import PageLayout from "@/layouts/page";
 import GradientBackground from "@/components/gradientBackground";
 import s from "@/styles/about.module.scss";
-import BelarusIcon from "@/assets/icons/belarus.icon";
-import LogoIcon from "@/assets/icons/logo.icon";
+// import BelarusIcon from "@/assets/icons/belarus.icon";
+// import LogoIcon from "@/assets/icons/logo.icon";
 import {combineClasses, getCompanyAge, getCorrectWord} from "@/utils/helpers";
 import Config from "@config";
 import ContentBlock from "@/ui/contentBlock";
@@ -28,14 +28,14 @@ export default function AboutPage() {
 			<DescriptionMeta text={"«Астер-Лифт» – гомельское частное производственное унитарное предприятие по изготовлению и вводу в эксплуатацию сертифицированного подъёмного оборудования в Беларуси."}/>
 			<BreadcrumbsMeta currentName="О предприятии"/>
 			<ContentBlock className={s.description}>
-				<div className={s.illustration}>
-					<BelarusIcon className={s.belarus}/>
-					<BelarusIcon className={s.belarus}/>
-					<div className={s.logo}>
-						<LogoIcon/>
-						<p>{Config.PROJECT_NAME}</p>
-					</div>
-				</div>
+				{/*<div className={s.illustration}>*/}
+				{/*	<BelarusIcon className={s.belarus}/>*/}
+				{/*	<BelarusIcon className={s.belarus}/>*/}
+				{/*	<div className={s.logo}>*/}
+				{/*		<LogoIcon/>*/}
+				{/*		<p>{Config.PROJECT_NAME}</p>*/}
+				{/*	</div>*/}
+				{/*</div>*/}
 				<div className={s.text}>
 					{/*<h1>{Config.PROJECT_NAME}</h1>*/}
 					<p><span>«{Config.PROJECT_NAME}»</span> – гомельское частное производственное унитарное предприятие по
@@ -88,7 +88,7 @@ export default function AboutPage() {
 							title={"Telegram"}
 						>
 							<TelegramLogoIcon/>
-							<p>Telegram</p>
+							{/*<p>Telegram</p>*/}
 						</Link>
 						<Link
 							href={"https://viber.click/375291377466"}
@@ -96,7 +96,7 @@ export default function AboutPage() {
 							title={"Viber"}
 						>
 							<ViberLogoIcon/>
-							<p>Viber</p>
+							{/*<p>Viber</p>*/}
 						</Link>
 						<Link
 							href={"https://wa.me/375291377466"}
@@ -104,7 +104,7 @@ export default function AboutPage() {
 							title={"WhatsApp"}
 						>
 							<WhatsappLogoIcon/>
-							<p>WhatsApp</p>
+							{/*<p>WhatsApp</p>*/}
 						</Link>
 					</div>
 					<div className={s.legalInfo}>
