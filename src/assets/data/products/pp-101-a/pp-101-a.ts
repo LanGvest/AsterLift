@@ -232,5 +232,8 @@ export const PP_101_A: Product = makeProduct({
 		value: 4.8,
 		count: 47
 	},
-	About
+	About,
+	getMinPrice() {
+		return 3600;
+	}
 });
