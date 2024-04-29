@@ -69,14 +69,16 @@ const ProductSections: Array<ProductSection> = [
 		name: "Другие модели",
 		Component: ProductAlternativesSection,
 		getDisplayAmount(product, products): number {
-			const alternatives = products.filter(alternativeProduct => alternativeProduct.group === product.group && alternativeProduct.id !== product.id);
-			return alternatives.length;
+			return products.length - 1;
+			// const alternatives = products.filter(alternativeProduct => alternativeProduct.group === product.group && alternativeProduct.id !== product.id);
+			// return alternatives.length;
 		},
 		shouldInclude(product, products) {
-			for(const otherProduct of products) {
-				if(otherProduct.group === product.group && otherProduct.id !== product.id) return true;
-			}
-			return false;
+			return true;
+			// for(const otherProduct of products) {
+			// 	if(otherProduct.group === product.group && otherProduct.id !== product.id) return true;
+			// }
+			// return false;
 		}
 	}
 ];

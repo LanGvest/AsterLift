@@ -219,18 +219,8 @@ export const PP_101_A: Product = makeProduct({
 		Media.PP_101_A_IMG_26B
 	],
 	files: [
-		// {
-		// 	type: MediaType.FILE,
-		// 	name: "Инструкция №1",
-		// 	path: "mydoc.pdf",
-		// 	size: 2_345
-		// }
-		// {
-		// 	type: MediaType.FILE,
-		// 	name: "Инструкция №2",
-		// 	path: "Курсовая работа.docx",
-		// 	size: 53_422_345
-		// }
+		// Media.PP_101_A_FILE_1,
+		// Media.PP_101_A_FILE_2
 	],
 	keywords: [
 		"вертикальный",

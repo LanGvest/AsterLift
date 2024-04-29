@@ -76,7 +76,7 @@ export default function YandexMetrikaMeta() {
 
 		setTimeout(() => {
 			setJsx(<Metrika/>);
-		}, 5_000);
+		}, 3_000);
 	}, []);
 	
 	return jsx;

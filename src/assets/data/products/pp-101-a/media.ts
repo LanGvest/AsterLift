@@ -343,3 +343,17 @@ export const PP_101_A_IMG_27: ImageMedia = {
 	type: MediaType.IMAGE,
 	image: img27
 };
+
+// export const PP_101_A_FILE_1: FileMedia = {
+// 	type: MediaType.FILE,
+// 	name: "Инструкция №1",
+// 	path: "/files/products/pp-101-1/test.pdf",
+// 	size: 2_345
+// };
+
+// export const PP_101_A_FILE_2: FileMedia = {
+// 	type: MediaType.FILE,
+// 	name: "Инструкция №2",
+// 	path: "/files/products/pp-101-1/test.jpeg",
+// 	size: 2_345_447
+// };

@@ -30,7 +30,7 @@ export default function GoogleAnalyticsMeta() {
 
 		setTimeout(() => {
 			setJsx(<Analytics/>);
-		}, 5_000);
+		}, 3_000);
 	}, []);
 	
 	return jsx;

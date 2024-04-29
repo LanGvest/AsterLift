@@ -3,8 +3,9 @@ import {memo} from "react";
 import type {CSSProperties} from "react";
 import s from "./productFiles.module.scss";
 import type {FileExtension, FilePath} from "@/types/media";
-import {sizeToString} from "@/utils/helpers";
+import {isDevelopment, sizeToString} from "@/utils/helpers";
 import Link from "next/link";
+import {validateUrl} from "@/utils/url";
 
 function getFileExtension(path: FilePath): FileExtension {
 	return path.split(".").at(-1) as FileExtension;
@@ -36,10 +37,12 @@ function Section({product}: ProductSectionProps) {
 		<div className={s.container}>
 			{product.files.map(file => {
 				const extension = getFileExtension(file.path);
+				let url: string = file.path;
+				if(!isDevelopment()) url = validateUrl(url);
 
 				return (
 					<Link
-						href={`/files/products/${product.id}/${file.path}`}
+						href={url}
 						target={"_blank"}
 						key={file.path}
 						className={s.card}
