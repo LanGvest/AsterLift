@@ -25,7 +25,13 @@ export const productPrototype: ProductPrototype = {
 		return this.getMinPrice().toLocaleString("ru-RU");
 	},
 	getOldMinPrice(this: Product) {
-		return this.getMinPrice() + 600;
+		let oldPrice = this.getMinPrice() + (0.07 * this.getMinPrice());
+		let oldPriceSting = oldPrice.toString();
+		let lastDigits = Number(oldPriceSting.substring(oldPriceSting.length - 2, oldPriceSting.length));
+		let tempOldPrice = Math.floor(oldPrice / 100);
+		if(lastDigits >= 50) tempOldPrice += 1;
+		oldPrice = tempOldPrice * 100;
+		return oldPrice;
 	},
 	getOldMinPriceString(this: Product) {
 		return this.getOldMinPrice().toLocaleString("ru-RU");

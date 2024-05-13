@@ -53,7 +53,7 @@ export interface ProductPrototype {
 	getMinPriceString(): string
 	getMinPrice(): number
 	getOldMinPriceString(): string
-	getOldMinPrice(): number
+	getOldMinPrice(): number // products/utils/product.ts стандартная реализация
 	hasDiscount(): boolean
 	getDiscountPercentage(): number
 	getPageDescription(): string
